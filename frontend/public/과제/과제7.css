@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.테두리{
+	border: solid 2px #c0c0c0;				/* 구역 테두리 */
+	width: 600px;					/* 구역 가로 길이 */
+	
+}
+.박스{
+	margin-top:-10px;
+	border: solid 2px #c0c0c0;
+	width: 600px;
+}
+.글귀{
+	margin-left: 20px;
+}
+.color{
+	color:#fab005;
+}
