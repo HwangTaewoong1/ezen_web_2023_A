@@ -23,12 +23,12 @@
 .flex_box3{
 	border: 1px solid red; padding: 5px;
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: row-reverse; /* 가로배치 반대로 */
 }
 
 /* 4. 세로배치 반대로 배치하는 부모요소 flex */
 .flex_box4{
 	border: 1px solid red; padding: 5px;
 	display:flex;
-	flex-direction: column-reverse; /* 세로배치 */
+	flex-direction: column-reverse; /* 세로배치 반대로 */
 }
