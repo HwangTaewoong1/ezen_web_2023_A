@@ -1,0 +1,329 @@
+@charset "UTF-8";
+
+*{
+   margin: 0; 
+   padding: 0;
+}
+
+@font-face {
+    font-family: 'SEBANG_Gothic_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a{
+   text-decoration: none;
+   color: black;
+}
+
+li{list-style-type:none; }
+
+#wrap{
+   width: 100%;
+   margin: 0 auto;
+   
+}
+
+/* ---- 헤더 시작 ----  */
+
+#header{
+   
+   width: 100%;
+   margin-top: 20px;
+   margin-bottom: 10px;
+   
+
+}
+
+.header_wrap{
+   width: 100%;
+   display: flex;
+   justify-content: space-around;
+   margin: 0 auto;
+   flex-wrap: nowap;
+   position: sticky;
+   top: 0px;
+   z-index: 1;
+   background-color: white;
+   
+}
+
+
+.main_logo{
+   align-items: center;
+   
+}
+
+a{
+   display: flex;   
+   
+}
+.main_logo img{
+   width: 100px;
+   margin: 0px 20px;
+}
+
+
+.arrow {
+   font-size: 5px;
+   line-height: 30px;
+   margin-left: 10px;
+   
+}
+
+
+
+.header_menu{
+   position: relative;
+   display : flex;
+   align-content: center;
+   width: 1840px;
+   margin-left: 0px;
+   justify-content: center;
+}
+
+.menu_option{
+   display : flex;
+   font-weight: bold;
+   margin-top: 15px;
+   
+}
+
+
+.menu_option li{
+   padding: 20px 37px;
+   padding-top: 25px;
+   font-size: 22px;
+   margin-left: -15px;
+   font-family: "SEBANG_Gothic_Bold";
+   
+}
+
+.sub_menu{
+   position: absolute;
+   display: none;
+   width: 100%;
+   top: 90px;
+   right: 0px;
+   height: 360px;
+   background-color: white;
+   margin: 0 auto;
+   left: 0px;
+}
+
+.header_menu:hover .sub_menu{
+   display: block;
+   
+}
+
+.sub_menu_list:hover .sub_menu{
+   display: block;
+   
+}
+
+.sub_menu_list{
+   margin-left: 290px;
+   
+}
+.menu_ul{
+   font-family: "SEBANG_Gothic_Bold";
+   width: 527px;
+   display: flex;
+   justify-content: space-between;
+   margin: 10px 0px;
+   line-height: 240%;
+   font-size: 13px;
+   color: gray;
+   margin-left : 215px;
+   
+}
+.menu1{
+   margin-left: -10px;
+   
+}
+
+.menu2{
+   margin-left: -70px;
+   
+}
+
+.menu3{
+   margin-left: -50px;
+
+}
+
+.menu4{
+   margin-left: -40px;
+   padding-right: 10px;
+   
+   
+
+}
+
+
+/* 푸터 */
+
+.header_order{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+
+   
+}
+
+.order_1{
+   font-family: "SEBANG_Gothic_Bold";
+   align-items: center;
+   text-align: center;
+   width: 165px;
+   height: 25px;
+   background-color: #502416;
+   color: white;
+   padding-top: 14px;
+   padding-bottom: 12px;
+   font-size: 20px;
+   font-weight: bold;
+   border-radius: 40px;
+   margin: 8px;
+   margin-top: 25px;
+   margin-right: 15px;
+   margin-bottom: 15px;
+   margin-left: 20px;
+}
+
+.order_2{
+   font-family: "SEBANG_Gothic_Bold";
+   align-items: center;
+   text-align: center;
+   width: 165px;
+   height: 25px;
+   background-color: #D72300;
+   color: white;
+   padding-top: 14px;
+   padding-bottom: 12px;
+   font-size: 20px;
+   font-weight: bold;
+   border-radius: 40px;
+   margin: 8px;
+   margin-top: 25px;
+   margin-right: 15px;
+   margin-bottom: 15px;
+}
+
+#main{
+   width: 1440px;
+   margin: 0 auto;
+   background-color: #F2EBE6;
+   
+}
+
+.main_image_top{
+   margin-bottom: -10px;
+   
+}
+
+.main_container{
+   width: 1440px;
+   height: 160px;
+   background-color: #683A2F;
+   margin-top: -10px;
+   padding-top: 10px;
+}
+
+.main_container{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+}
+
+.main_container_image img{
+   height: 90px;
+}
+
+.main_image_middle img{
+   width: 100%;
+   
+}
+
+.serch{
+   font-family: "SEBANG_Gothic_Bold";
+   align-items: center;
+   text-align: center;
+   width: 100px;
+   height: 28px;
+   background-color: #D72300;
+   color: white;
+   font-size: 25px;
+   font-weight: bold;
+   border-radius: 40px;
+   margin: 8px;
+   margin-top: 25px;
+   margin-right: 15px;
+   padding: 10px 30px;
+   
+}
+
+.serch1{
+   margin-top: 80px;
+   text-align: center;
+   font-family: "SEBANG_Gothic_Bold";
+   font-size: 50px;
+   color: #2E2E2E;
+}
+
+.serch2{
+   margin: 10px;
+   text-align: center;
+   font-family: "SEBANG_Gothic_Bold";
+   font-size: 25px;
+   color: #2E2E2E;
+}
+.serch_main{
+   display: flex;
+   justify-content: center;
+   
+}
+.delivery{
+   width: 1144px;
+   display: flex;
+   justify-content: space-between;
+   margin: 0 auto;
+}
+
+.delivery_list img{
+   width: 100px;
+   height: 112.5px;
+   margin: 0 auto;
+   margin: 0px 50px;
+   
+   
+}
+
+.delivery_list p{
+   text-align: center;
+   font-weight: bold;
+   color: #2E3835;
+   
+}
+
+.text_color{
+   font-family: "SEBANG_Gothic_Bold";
+   color: red;
+   margin: 0 auto;
+   text-align: center;
+   font-weight: bold;
+   
+}
+
+.delivery_list li{
+   width: 200px;
+   border-right: solid 1px lightgray;
+}
+
+.delivery_list {
+   margin: 100px 0px;
+   display: flex;
+   
+}
