@@ -5,87 +5,84 @@
 }
 li{list-style-type:none; }
 
-
-
-/* 헤더 밑 검정 바 안 색, 위치 조정 */
 /* 헤더 밑 검정 바 안 색, 위치 조정 */
 #menu_black_bar{
-   height:58px;
-   padding:10px 0;
-   display:flex;
-   justify-content: center;
-   align-items:center;
-   background-color: #000000}
+	height:58px;
+	padding:10px 0;
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	background-color: #000000}
 
 /* 검정 바 안 a태그 텍스트 색 */
 #menu_black_bar a{
-   color: white;
+	color: white;
 }
 
 /* 검정바 안 내용 블록 크기 */
 .black_bar_space{
-   width:1184px;
-   
+	width:1184px;
+	
 }
 
 /* 검정바 안 블록 안 폰트 사이즈 공간 사이즈 */
 .black_bar_text {
-   width:1144px;
-   padding:0 20px;
-   font-size: 20px;
-   
+	width:1144px;
+	padding:0 20px;
+	font-size: 20px;
+	
 }
 
 /* 검정바 안 내용물 정렬 */
 .black_bar_text li{
-   display: flex;
-   display: inline-block;
+	display: flex;
+	display: inline-block;
 }
 
 /* 메뉴소개 본문 사이즈 */
 #burger_king_menu_main{
-   width:1184px;
-   margin: 0 auto;
-   }
+	width:1184px;
+	margin: 0 auto;
+	}
 
 /* 본문 내용물 설정 */
 .burgerking_menu_content{
-   width:1144px;
-   padding:0 20px;
-   
-   margin-top: 50px;
-   margin-bottom: 45px;
+	width:1144px;
+	padding:0 20px;
+	
+	margin-top: 50px;
+	margin-bottom: 45px;
 }
 
 
 /* 메뉴소개 폰트, 정렬 */
 .burgerking_menu_content li{
-   font-size:16px;
-   font-weight:bold;
-   
-   display:flex;
-   display: inline-block;
-   margin-right: 10px;
-   
-   
+	font-size:16px;
+	font-weight:bold;
+	
+	display:flex;
+	display: inline-block;
+	margin-right: 10px;
+	
+	
 }
 /* 메뉴소개 헤더 폰트 크기, 색 */
 .burgerking_menu_content h1{ 
-   font-size: 40px;
-   color: black;
+	font-size: 40px;
+	color: black;
 }
 
 /* 메뉴리스트 정렬 */
 .menu_list{ 
-   display:flex;
-   justify-content: space-between;
-   }
+	display:flex;
+	justify-content: space-between;
+	}
 
 /* 선택된 메뉴 폰트 설정 */
 .menu_list_select{
-   color:#E22219; 
-   border-bottom: 2px solid #E22219;
-   padding-bottom: 5px;
+	color:#E22219; 
+	border-bottom: 2px solid #E22219;
+	padding-bottom: 5px;
 }
 
 /* 선택 안된 메뉴 폰트 색 */
@@ -96,22 +93,30 @@ li{list-style-type:none; }
 
 /* 버거 메뉴판 */
 .burger_list{
-   width:1144px;
-   padding:0 20px;
-   display:flex;
-   justify-content: space-around;
-   }
+	width:1144px;
+	padding:0 20px;
+	display:flex;
+	justify-content: space-around;
+	}
 /* 메뉴판 안 콘텐츠 설정 */
 .burger_item{
-   width:286px; height:300px;
-   text-align: center;
-   font-weight: bold;
-   font-size: 21px;
-   
+	width:286px; height:300px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 21px;
+	position: relative;
+	
 }
 
+/* 뉴 마크 크기, 위치 설정  */
+.new_burger{
+	width:57px;
+	position: absolute;
+	top:-10px; left: 29px; 
+	z-index: 1;
+}
 /* 버거 이미지 크기 설정 */
-.burger_item img{width: 220px;}
+.burger_set img{width: 220px;}
 
 /* 메뉴 글자 여백 */
 .burger_set{margin-bottom: 20px;}
