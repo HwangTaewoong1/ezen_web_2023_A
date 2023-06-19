@@ -11,9 +11,9 @@
 <!-- 로그인,회원가입 헤더 -->
       <div id="header">
          <div class="header_content">
-            <div class="top_menu">브랜드홈 <span>|</span> 로그인<span>|</span> 고객센터</div>
+            <div class="top_menu"><a href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_main.html">브랜드홈</a> <span>|</span> <a href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_login.html"> 로그인</a><span>|</span> 고객센터</div>
             <div class="bottom_menu">
-               <div class="top_logo"><img src="img/burger_king_logo.png"><h2>버거킹</h2></div>
+               <div><a class="top_logo" href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_login.html"><img src="img/burger_king_logo.png"><h2>버거킹</h2></a></div>
                <div class="signupdiv"><a class="sign_up" href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_join.html"><strong>회원가입</strong></a></div>
             </div>
          </div>
@@ -23,9 +23,9 @@
 		<div class="black_bar_space">
 			<div class="black_bar_text">
 				<ul>
-					<li><a href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_main.html">HOME</a></li>
+					<li><a class="bbtext" href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_main.html">HOME</a></li>
 					<li>></li>
-					<li><a href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_menu.html">메뉴소개</a></li>
+					<li><a class="bbtext" href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_menu.html">메뉴소개</a></li>
 				</ul>
 			</div>
 		</div>
@@ -34,7 +34,7 @@
 
 	
 	   <div id="main_wrap"> <!-- 본문 -->
-      <h2>YOUR WAY</h2>
+      <h2><span style="color:#E22219 ">YOUR WAY</span></h2>
       <h2>어서오세요! 버거킹입니다.</h2>
       <div class="main_content"> <!-- 바디 -->
          
@@ -54,8 +54,8 @@
                   <input class="login_option" type="checkbox"> <span>자동 로그인</span>
                </div>
                <div class="login_btn">
-                  <a class="btn02">로그인</a>
-                  <a href="http://192.168.17.138:8080/frontend/%EA%B3%BC%EC%A0%9C/burger_king/burger_king_join.html" class="btn01">회원가입</a>
+                  <a href="#" class="btn02">로그인</a> 
+                  <a href="#" class="btn01">회원가입</a>
                </div>
                <div>
                   <span class="id_search"> 아이디 찾기 </span>
@@ -65,19 +65,33 @@
                
             </div>
             <div class="simple_login">
-               <div class="text_img"><img src="img/simplelogin.jpg"><h3>간편 로그인</h3></div>
+               <div class="simple_img"><img src="img/simplelogin.jpg"><h3>간편 로그인</h3></div>
                <ul class="login_list">
-                  <li><span class="naver">네이버로그인</span></li>
-                  <li><span class="kakao">카카오로그인</span></li>
-                  <li><span class="apple">애플로그인</span></li>
+                  <li class="naver"><span>네이버로그인</span></li>
+                  <li class="kakao"><span>카카오로그인</span></li>
+                  <li class="apple"><span>애플로그인</span></li>
                </ul>
             </div>
          </div>
-         <div class="sub_content">
-            <div></div>
-         </div>
       </div> <!-- 바디end -->
    </div> <!-- 본문end -->
+   <div class="sub_content"> <!-- 비회원  -->
+      <div class="sub_order">
+         <div class="sub_item">
+               <ul class="item1">
+                  <li><span class="text1">비회원 주문</span></li>
+                  <li><span class="text1">비회원 주문내역</span></li>
+               </ul>
+            <div class="sub_text">
+               <div class="sub_text2">회원가입 없이 비회원으로 주문이 가능합니다.</div>
+            </div>
+            <div class="bot_btn">
+               <span class="btn01">비회원 주문</span>
+            </div>
+         </div>
+      </div>
+   </div><!-- 비회원end  --> 
+   <!-- 푸터 -->
    <div id="footer"> 
          <div class="copyright">
                <div class="copy_left">

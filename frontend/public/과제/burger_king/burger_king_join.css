@@ -6,7 +6,7 @@
 }   
 a{
    text-decoration: none;
-   color: black;
+   color: white;
 }
 
 li{list-style-type:none; }  
@@ -124,6 +124,11 @@ li{list-style-type:none; }
 
 /* 검정바 안 내용물 정렬 */
 .black_bar_text li{
+	display: flex;
+	display: inline-block;
+	color:#ffffff;
+}	
+.bbtext{
 	display: flex;
 	display: inline-block;
 	color:#ffffff;
