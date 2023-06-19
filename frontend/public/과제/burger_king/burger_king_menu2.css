@@ -29,7 +29,7 @@ a{
    flex-wrap: nowap;
    position: sticky;
    top: 0px;
-   z-index: 1;
+   z-index: 2;
    background-color: white;
    
    
@@ -217,6 +217,7 @@ a{
 .black_bar_text li{
 	display: flex;
 	display: inline-block;
+	color:#ffffff;
 }
 
 /* 메뉴소개 본문 사이즈 */
