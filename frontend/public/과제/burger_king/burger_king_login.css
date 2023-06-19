@@ -61,18 +61,38 @@ li{list-style-type:none; }
    text-align: center;
 
 }
+.signupdiv{display:flex;}
 .sign_up{ 
-   width : 160px; height:50px;
-   margin: 20px;
+   width: 168px;
+    height: 50px;
+    margin-top: 20px;
+    font-weight: 400;
+    margin-right: 23px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 25px;
+    top: auto;
     right: 20px;
     bottom: 35px;
-   border-radius: 25px;
-   background-color: #512314;
-   color: white;
-   font-size: 20px;
-   font-weight: bold;
-   border: none;
+    background: #512314;
    }
+.sub_header{ 
+   background-color: #000000;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   margin-bottom: 50px;
+}
+.sub_menu{ 
+   width: 1184px; height: 40px;
+   color: white;
+   padding-top: 15px;
+   font-weight: bold;
+   font-size: 15px;
+}
+/**/
 /* 헤더 밑 검정 바 안 색, 위치 조정 */
 #menu_black_bar{
 	height:58px;
@@ -80,10 +100,8 @@ li{list-style-type:none; }
 	display:flex;
 	justify-content: center;
 	align-items:center;
-    color: #fff;
-    line-height: 38px;
-    background: #000;
-}
+	background-color: #000000}
+
 /* 검정 바 안 a태그 텍스트 색 */
 #menu_black_bar a{
 	color: white;
@@ -101,7 +119,6 @@ li{list-style-type:none; }
 	padding:0 20px;
 	font-size: 20px;
 	
-	
 }
 
 /* 검정바 안 내용물 정렬 */
@@ -111,8 +128,7 @@ li{list-style-type:none; }
 	color:#ffffff;
 }
 
-
-
+/**/
 #main_wrap{
    margin: 0 auto;
    width: 1184px;
