@@ -323,4 +323,17 @@ em{
    display: inline-block;
    
 }
+.fixed{
+   position: fixed;
+   bottom: 50px;
+   left: 50%;
+   width: 52px;
+   height: 52px;
+   background-image: url("img/fixed_arrow.png");
+   background-size: 48px 48px;
+   border: none;
+   opacity: 0.8;
+   margin-left: 600px;
+   background-color: black;
+}
 

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 *{
-   margin: 0; 
+   margin: 0;
    padding: 0;
    font-family: "맑은 고딕"
 }   
@@ -134,10 +134,12 @@ li{list-style-type:none; }
 	display: inline-block;
 	color:#ffffff;
 }
-* --------------------로그인---------------------------------------- */
+/* --------------------로그인-------------------- */
+
 #main_wrap{
+	width: 1184px;
    margin: 0 auto;
-   width: 1184px;
+   
 }
 #main_wrap h2{ 
    font-weight: bold;
@@ -415,3 +417,17 @@ li{list-style-type:none; }
    display: inline-block;
    
 }
+.fixed{
+   position: fixed;
+   bottom: 50px;
+   left: 50%;
+   width: 52px;
+   height: 52px;
+   background-image: url("img/fixed_arrow.png");
+   background-size: 48px 48px;
+   border: none;
+   opacity: 0.8;
+   margin-left: 600px;
+   background-color: black;
+}
+
