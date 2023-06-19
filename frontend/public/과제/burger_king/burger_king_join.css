@@ -96,7 +96,7 @@ li{list-style-type:none; }
 /**/
 /* 헤더 밑 검정 바 안 색, 위치 조정 */
 #menu_black_bar{
-	height:58px;
+	height:38px;
 	padding:10px 0;
 	display:flex;
 	justify-content: center;
