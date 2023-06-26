@@ -175,3 +175,52 @@ output = '';
        output += `\n`;
     }
  console.log(output)
+ 
+ // 문제 11) 입력받은 줄 수 만큼 * 출력 [ ex) 5 ]
+ output = '';  /*변수 값 초기화*/
+ let line9 = prompt('문제11 :') 
+
+    for(let i =1 ; i <line9/2; i++) {/* 가운데 한줄 별 기준으로 위쪽 모양 */
+		for(let s=0; s<i; s++){output += `*`}
+       	for(let b=0; b<line9-2*i; b++ ){ output += ' '}
+		for(let s=0; s<i; s++) {output += `*`}
+		   output += `\n`;
+	   } 
+	   
+	for(let s=0; s<line9; s++){output += `*` /* 가운데 한 줄 별 모양 */
+	} output += `\n`;
+	
+	   
+    for(let i =1; i <line9/2; i++) { /* 가운데 한줄 별 기준으로 아래쪽 모양 */
+		for(let s=0; s<line9/2-i; s++) { output += '*'}
+		for(let b=0; b<i*2-1; b++){ output += ` ` } 
+       	for(let s=0; s<line9/2-i; s++) { output += '*' } 
+       output += `\n`;
+    }
+		 console.log(output) /*출력*/
+
+// 문제 12)		 
+ output = ''; /*변수 값 초기화*/
+ 
+ let line10 = prompt('문제12 :') 
+ 
+    for(let i =1 ; i <line10/2; i++) { /* 가운데 별 하나 기준으로 위쪽 모양 */
+		for(let s=0; s<i; s++){output += ' '}
+       	for(let b=0; b<line10-2*i+2; b++ ){ output += `*`}
+		for(let s=0; s<i; s++) {output += ' '}
+		   output += `\n`;
+	   }
+	   
+	   for(let b=0; b<line10/2; b++){output += ` ` /* 가운데 별 하나 모양 */
+	} output += '*'; 
+	output += `\n`;
+	
+	    
+    for(let i =1; i <line10/2; i++) { /* 가운데 별 하나 기준으로 아래쪽 모양 */
+		for(let s=0; s<line10/2-i; s++) { output += ` ` }
+		for(let b=0; b<i*2+1; b++){ output += '*' } 
+       	for(let s=0; s<line10/2-i; s++) { output += ` ` } 
+       output += `\n`;
+    }
+     console.log(output)
+  
