@@ -41,7 +41,7 @@ let tableBody = document.getElementById('table-body');
       tableBody.innerHTML = '';
 
       for (let i = 0; i < dates.length; i++) {
-        const row = document.createElement('tr');
+        let row = document.createElement('tr');
 
         let dateCell = createCell(dates[i]);
         let itemCell = createCell(items[i]);
@@ -67,11 +67,12 @@ let tableBody = document.getElementById('table-body');
     }
 
     function createCell(text) {
-      const cell = document.createElement('td');
+      let cell = document.createElement('td');
       cell.textContent = text || '';
       return cell;
     }
 
     function calculateTotal() {
-      const totalAmount = amounts.reduce((acc, cur) => acc + cur, 0);
+      let totalAmount = amounts.reduce((acc, cur) => acc + cur, 0);
       document.getElementById('total-amount').textContent = totalAmount.toLocaleString();
+      }
