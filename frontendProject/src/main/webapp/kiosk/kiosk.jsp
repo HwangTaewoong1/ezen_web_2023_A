@@ -20,11 +20,8 @@
 
 			<!-- 카테고리 -->
 			<ul class="categorymenu">
-				<li class="categoryselect">신제품(NEW)</li>
-				<li>프리미엄</li>
-				<li>와퍼&주니어</li>
-				<li>치킨&쉬림프버거</li>
-				<li>올데이킹&킹모닝</li>
+				<!-- categoryPrint함수가 html 넣어주는 위치 -->
+				
 			</ul>
 
 		</div> <!-- 헤더 end -->
