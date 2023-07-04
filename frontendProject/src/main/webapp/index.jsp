@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<!-- 다른 JSP 파일 호출 -->
 	<%@include file = "header.jsp" %>
 	<p>
