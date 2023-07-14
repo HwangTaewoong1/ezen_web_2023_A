@@ -45,7 +45,7 @@ public class 과제1 {
  			3. double doubleValue = 5.7;	int var3 = (int)doubleValue; // 강제
  			4. String srtValue = "A";		char var4 = (char)strValue;	// 4 : 오류 객체는 기본타입으로 캐스팅 불가능  
  			
- 		 // 답 : 4 char var = (char) strValue;  -> 오류 객체는 기본타입으로 캐스팅 불가능
+ 		 // 답 : 4번 char var = (char) strValue;  -> 오류 객체는 기본타입으로 캐스팅 불가능
  			/* 해결방안 => */ char var5 = strValue.charAt(0); // 문자열.charAt(인덱스) : 문자열 내 인덱스 번째 문자 1개 추출
  		
  	 // 문제 7. 변수를 잘못 초기화한 것은 무엇입니까?
@@ -56,7 +56,7 @@ public class 과제1 {
  																def
  																"""; // * [ P51 ] JDK13 버전 이상만 사용가능
  					
- 		 // 답 : 3 char value3 = ''; // '' 문자로 표현불가능 / ' ' 공백 가능
+ 		 // 답 : 3번 char value3 = ''; // '' 문자로 표현불가능 / ' ' 공백 가능
  		
  	 // 문제 8. 콘솔에 값을 입출력하는 방법에 대해 잘못 설명한것을 선택하세요.
  			1. System.out.print();	
@@ -64,7 +64,7 @@ public class 과제1 {
  			3. System.out.printf();
  			4. nextLine() 메소드
  			
- 		 // 답 : 3 System.out.printf(); 주어진 형식대로 변수값을 바꾸고 * 출력한다 * 
+ 		 // 답 : 3번 System.out.printf(); 주어진 형식대로 변수값을 바꾸고 * 출력한다 * 
  		
  	 // 문제 9. 연산식의 타입 변환 중에서 컴파일 에러가 발생하는 것을 선택하세요. [ 피연산자 중에 더 큰 허용범위 내로 반환 , * byte short 는 int 반환 ]
  		byte bvalue = 10;		float fvalue = 2.5f;	double dvalue = 2.5;
@@ -74,10 +74,10 @@ public class 과제1 {
  			3. float result3 = 5[int] + fvalue; -> float
  			4. double result4 = 5[int] + dvalue; -> double
  			
- 		 // 답 : 1 byte result = byteValue + byteValue; -> 타입에러 byte는 int 변환
+ 		 // 답 : 1번 byte result = byteValue + byteValue; -> 타입에러 byte는 int 변환
  		
  	 // 문제 10. 문자열을 기본 타입으로 변환하는 코드로 틀린 것을 고르세요.
- 		// 답 : 2 int var2 = Int.parseInt(str); -> Integer.parseInt(str); 로바뀌어야함
+ 		// 답 : 2번 int var2 = Int.parseInt(str); -> Integer.parseInt(str); 로바뀌어야함
  		
  	 // 문제 11. 다음 코드에서 컴파일 에러가 발생하는 라인을 모두 적어보세요. [ 변수의 허용범위 : { } 안에서 선언된 변수는 밖으로 호출/사용 불가 
  			답 : 13번 16번줄 코드 System.out.println("v3: " + v3) , System.out.println("v2: " + v2) 
