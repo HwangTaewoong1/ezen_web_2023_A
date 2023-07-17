@@ -1,10 +1,10 @@
-package 과제.과제2.Level1.ex9;
+package 과제.과제3.Level2.ex3;
 
 import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Level1_9 {
+public class Level2_3 {
 	
 	public static void main(String[] args) {
 		System.out.println(" >> Level2_3 answer >> ");
