@@ -170,6 +170,10 @@ public class 연산20문제 {
 		System.out.print("비밀번호를 입력하세요: ");
 		String 비밀번호 = scanner.next();
 		System.out.println(아이디.equals("admin") && 비밀번호.equals("1234") ? "로그인성공" : "로그인실패");
+		// * 비교/산술 연산자는 객체에서 사용 불가능 [ 기본탕ㅂ vs 객체 메모리구조 다름]
+		// 기본타입 데이터 비교시 == 가능	// 문자열 데이터 비교시 == 불가능
+		// 3 == 3 [가능]				// "안녕".equals("안녕")
+		
 		
 		//------ 문제21 여기에 풀이-------//
 		System.out.println("문제21 : 세 정수를 입력받아 가장 큰수 출력 ");
@@ -183,6 +187,19 @@ public class 연산20문제 {
 		int max = (세정수1 > 세정수2) ? ((세정수1 > 세정수3) ? 세정수1 : 세정수3) : ((세정수2 > 세정수3) ? 세정수2 : 세정수3);
 
         System.out.println("가장 큰 수는 " + max + "입니다.");
+        
+        // 팀과제//
+      //정수 하나를 입력 받아서 /2했을때 그 값을 반올림하여 출력하시오. 단,라이브러리 금지
+        Scanner sc = new Scanner(System.in);
+        float a =sc.nextFloat();
+        
+        //여기서부터//
+        float b = a/2;
+        int d = (int)b;
+        float c = (10*b)%10 >= 5 ? d+1 : d;
+        //여기까지 수정 가능
+        
+        System.out.println(c);
 	}
 
 }
