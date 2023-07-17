@@ -18,7 +18,13 @@ public class Level1_9 {
 		System.out.println("국어\t영어\t수학\t합계\t평균\t3배수\t8배수\t홀짝\t결과");
 		
 		/* 문제풀이 위치 */
-
+		float 총점 = (kor + eng + mat);
+		float 평균 = ((kor + eng + mat)/3);
+		boolean 삼배수 =((kor + eng + mat)%3==0);
+		boolean 팔배수 =((kor + eng + mat)%8==0);
+		String 홀짝 = ((kor + eng + mat)%2==0 ? "짝수" : "홀수");
+		String 결과 = (kor + eng + mat)>=65 ? "합격" : "불합격" ;
+		System.out.println(kor+"\t"+eng+"\t"+mat+"\t"+총점+"\t"+평균+"\t"+삼배수+"\t"+팔배수+"\t"+홀짝+"\t"+결과);
 		/* ----------- */
 	}
 }

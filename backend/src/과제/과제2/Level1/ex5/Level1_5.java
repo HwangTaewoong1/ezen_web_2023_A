@@ -12,7 +12,18 @@ public class Level1_5 {
 		float value5 = 3.123123123F;
 		
 		/* 문제풀이 위치 */
-	
+		short value6 = value1;
+		int value7 = value2;
+		long value8 = value3;
+		float value9 = value4;
+		double value10 = value5;
+		
+		
+		System.out.println("byte -> short : "+ value6);
+		System.out.println("short -> int : "+ value7);
+		System.out.println("int -> long : "+ value8);
+		System.out.println("long -> float : "+ value9);
+		System.out.println("float -> double : "+ value10);
 		/* ----------- */
 	}
 }

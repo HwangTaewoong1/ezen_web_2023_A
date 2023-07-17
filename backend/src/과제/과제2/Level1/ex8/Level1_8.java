@@ -16,6 +16,70 @@ public class Level1_8 {
 		String output = "";
 		
 		/* 문제풀이 위치 */
+		String inputName = "\t"+scanner.nextLine();
+		String inputContent = "\t"+scanner.nextLine();
+		
+		boardlist = "1";
+		boardlist += inputName;
+		boardlist += inputContent;
+		
+		output += boardlist+"\n";
+		
+		System.out.println(header);
+		System.out.println(output);
+		System.out.println(footer);
+		
+		inputName = "\t"+scanner.nextLine();
+		inputContent = "\t"+scanner.nextLine();
+		
+		boardlist = "2";
+		boardlist += inputName;
+		boardlist += inputContent;
+		
+		output += boardlist+"\n";
+		
+		System.out.println(header);
+		System.out.println(output);
+		System.out.println(footer);
+		
+		inputName = "\t"+scanner.nextLine();
+		inputContent = "\t"+scanner.nextLine();
+		
+		boardlist = "3";
+		boardlist += inputName;
+		boardlist += inputContent;
+		
+		output += boardlist+"\n";
+		
+		System.out.println(header);
+		System.out.println(output);
+		System.out.println(footer);
+		
+		inputName = "\t"+scanner.nextLine();
+		inputContent = "\t"+scanner.nextLine();
+		
+		boardlist = "4";
+		boardlist += inputName;
+		boardlist += inputContent;
+		
+		output += boardlist+"\n";
+		
+		System.out.println(header);
+		System.out.println(output);
+		System.out.println(footer);
+		
+		inputName = "\t"+scanner.nextLine();
+		inputContent = "\t"+scanner.nextLine();
+		
+		boardlist = "5";
+		boardlist += inputName;
+		boardlist += inputContent;
+		
+		output += boardlist+"\n";
+		
+		System.out.println(header);
+		System.out.println(output);
+		System.out.println(footer);
 		
 		/* ----------- */
 	}
