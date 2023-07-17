@@ -24,15 +24,15 @@ public class Level1_7 {
 		double 몸무게 = scanner.nextDouble();
 		
 		System.out.println("===========회원 개인정보===========");
-		System.out.println("|          회원명 : "+회원명+"       |");
+		System.out.println("|          회원명 : "+회원명+"         |");
 		System.out.println("|          상태 : "+상태+"          |");
-		System.out.println("|          회원번호 : "+회원번호+"    |");
-		System.out.println("|          성별 : "+성별+"          |");
-		System.out.println("|          나이 : "+나이+"          |");
-		System.out.println("|          포인트 : "+포인트+"       |");
-		System.out.println("|          예금액 : "+예금액+"       |");
-		System.out.println("|          평균 : "+키+"           |");
-		System.out.println("|          평균 : "+몸무게+"        |");
+		System.out.println("|          회원번호 : "+회원번호+"         |");
+		System.out.println("|          성별 : "+성별+"             |");
+		System.out.println("|          나이 : "+나이+"            |");
+		System.out.println("|          포인트 : "+포인트+"        |");
+		System.out.println("|          예금액 : "+예금액+"      |");
+		System.out.println("|          평균 : "+키+"          |");
+		System.out.println("|          평균 : "+몸무게+"         |");
 		System.out.println("===============================");
 
 		/* ----------- */
