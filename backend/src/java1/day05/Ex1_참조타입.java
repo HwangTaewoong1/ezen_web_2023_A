@@ -15,6 +15,31 @@ public class Ex1_참조타입 {
 		
 		System.out.println( arr1 == arr2 );
 		System.out.println( arr2 == arr3 );
+		
+		// [ p.151 ]
+		int[] intArray = null;
+		// int[] intArray 스택영역에 변수가 메모리 할당 , 참조중인 객체번지X // 힙영역 x
+		// intArray[0] = 10; // 배열내 0번째 인덱스에 10대입???? 오류 // 배열은 힙영역해서 생성되는데 아직 배열이 생성x
+		
+		String str = null;
+		System.out.println( str.length() );
+		
+		// [p.153]
+		String hobby = "여행";
+			// 1. 스택영역에 hobby 지역변수 선언
+			// 2. 힙영역에 "여행" 문자열객체 생성
+			// 3. 생성된 힙영역에 "여행"객체의 주소/번지 를 스택영역에 hobby 지역변수에 대입
+			// * hobby = [ 32번지 ]주소
+		hobby = null;
+			// 4. 스택영역에 hobby 지역변수에 null 대입 [ 대입 : 새로운 값으로 대체 ]
+			// * hobby = null
+			// 5. 아무도 힙영역에 있는 "여행" 문자열 객체를 참조하지 않으면 GC쓰레기수집기 자동으로 객체 삭제
+		
+		String kind1 = "자동차";	// 스택영역 : kind1[32번지]		힙영역 : "자동차"객체 [32번지]
+		String kind2 = kind1;	// 스택영역 : kind2[32번지] 	
+		
+		kind1 = null;			// 스택영역 : kind1[null]	  
+								// 스택영역 : kind2[32번지]   // 하나라도 참조중이라면 객체는 삭제가 안된다.
 	}
 
 }
