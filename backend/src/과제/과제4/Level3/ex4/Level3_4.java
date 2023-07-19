@@ -15,9 +15,10 @@ public class Level3_4 {
 		while(true) {
 			System.out.print("input : ");
 			int num = scanner.nextInt();
-			a+=num; if(a < 0) break;
+			a+=num; 
 			for(int i = 0; i < a; i++) { System.out.print("■ "); }
 			System.out.println();
+			if(a < 0) break;
 		}
 		/* ----------- */
 
