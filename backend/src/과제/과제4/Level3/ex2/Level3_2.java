@@ -12,13 +12,15 @@ public class Level3_2 {
 		
 		
 		/* 문제풀이 위치 */
+		int i = 1;
 		while (true) {
-			String 문자열 = scanner.next();
-			if ( 문자열.equals("end")) {
-				System.out.println("문구를 종료합니다.");
-				System.out.println();
+			System.out.print(i + "회 입력 : ");
+			String str = scanner.nextLine();
+			if(str.equals("end")) {
+				System.out.println("안내) 프로그램 종료 합니다. [총 " + (i-1) + "회 입력]");
+				break;
 			}
-			
+			i++;
 		}
 		/* ----------- */
 
