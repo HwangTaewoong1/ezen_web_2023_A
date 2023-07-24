@@ -85,7 +85,7 @@ public class 과제5_키오스크_파일처리 {
 			
 			/* ----------------------------------- 결제 ------------------------------------------- */
 			else if( ch == 0 ) {
-				System.out.printf("%10s %10s %10s \n" , "제품명" , "수량" , "가격");
+				System.out.printf("%10s %10s %10s \n" , "제품명" , "수량" , "가격"); 
 				for( int i = 0 ; i<재고관리.length ; i++ ) {
 					int basket = Integer.parseInt( 재고관리[i].split(",")[3] );
 					int price = Integer.parseInt( 재고관리[i].split(",")[2] );
