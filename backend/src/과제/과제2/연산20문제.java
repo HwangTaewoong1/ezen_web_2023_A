@@ -140,8 +140,9 @@ public class 연산20문제 {
 		//------ 문제17 여기에 풀이-------//
 		System.out.println("문제17 :  연산 순서 나열 하고 printf() 에 출력되는 x 와 y 값을 예측하시오.");
 		int x = 10;
-		int y = x-- + 5 + --x; // 10 + 5 + 9 = 24
-		System.out.printf(" x의 값 : %d , y의값 :  %d \n", x, y); // 후위증가로 x = 8 , y = 23으로 감소
+		int y = x-- + 5 + --x; // 10 + 5 이후 1차감  14 , 14 + 10 전에 1차감 총 2차감 y=23
+		System.out.println( x-- + 5 + --x  );
+		System.out.printf(" x의 값 : %d , y의값 :  %d \n", x, y);
 		// x = 8 , y = 23
 		
 		

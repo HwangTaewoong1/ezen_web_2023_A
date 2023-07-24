@@ -1,9 +1,9 @@
-package 과제.과제5;
+package 과제.팀과제1;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class 과제5_좌석예매 {
+public class 팀과제1_좌석예매 {
 
    public static void main(String[] args) {
       
