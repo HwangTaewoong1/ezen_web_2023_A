@@ -22,6 +22,8 @@ public class Member {
 		this.phone = phone;
 		this.age = age;
 	}
+
+
 	
 	/*
 	 * public Member() {} // 0번 [ 매개변수 없는 ] 생성자 
