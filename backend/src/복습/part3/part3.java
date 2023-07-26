@@ -6,7 +6,7 @@ public class part3 {
 	public static void main(String[] args) {
 		
 		String[] 재고관리 = { "10,0,300,콜라" , "3,0,200,환타" , "2,0,100,사이다"};
-		
+		int 총가격 =0;
 		Scanner scanner = new Scanner(System.in);
 		
 		while(true) {
@@ -29,6 +29,7 @@ public class part3 {
 				}else { System.out.println("안내) "+ 이름 +"재고가 없습니다. [ 관리자에게 문의]");}
 				
 				재고관리[ch-1] = 재고 +","+바구니+","+가격+","+이름;
+				총가격 += 바구니 * 가격;
 			}
 			else if( ch == 4) {
 				System.out.printf("%10s %10s %10s \n" , "제품명" , "수량", "가격");
@@ -38,12 +39,11 @@ public class part3 {
 					int 바구니 = Integer.parseInt(재고관리[i].split(",")[1]);
 					int 가격 = Integer.parseInt(재고관리[i].split(",")[2]);
 					String 이름 = 재고관리[i].split(",")[3];
-					
 					if(바구니 > 0) {
 						System.out.printf("%10s %10s %10s \n" , 이름 , 바구니 , 바구니*가격);
 					}
 				}
-				
+				System.out.println("총가격 : " + 총가격);
 			}
 		}
 		
