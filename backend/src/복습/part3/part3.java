@@ -6,7 +6,7 @@ public class part3 {
 	public static void main(String[] args) {
 		
 		String[] 재고관리 = { "10,0,300,콜라" , "3,0,200,환타" , "2,0,100,사이다"};
-		int 총가격 =0;
+		int 총가격 = 0;
 		Scanner scanner = new Scanner(System.in);
 		
 		while(true) {

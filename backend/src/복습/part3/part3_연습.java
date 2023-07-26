@@ -2,7 +2,7 @@ package 복습.part3;
 
 import java.util.Scanner;
 
-public class part3_2 {
+public class part3_연습 {
 	public static void main(String[] args) {
 			
 			Scanner scanner = new Scanner(System.in);
