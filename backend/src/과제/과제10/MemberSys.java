@@ -56,8 +56,8 @@ public class MemberSys {
 		int login = -1; 
 		for ( int i = 0; i<memberList.length; i++) {
 			if(memberList[i] != null && 
-				memberList[i].id .equals(id) && 
-				memberList[i].pw.equals(pw)
+				memberList[i].getId() .equals(id) && 
+				memberList[i].getPw().equals(pw)
 				)
 				{ login = i; break; }
 			} 
@@ -74,27 +74,39 @@ public class MemberSys {
 		for(int i = 0; i < memberList.length; i++) {
 			if(memberList[i]!=null) {
 				if(name.equals(memberList[i].getName()) && phone.equals( memberList[i].getPhone() ) ) {
-					System.out.println("회원님의 아이디는 " + memberList[i].id + "입니다.");
+					System.out.println("회원님의 아이디는 " + memberList[i].getId() + "입니다.");
 					return;
 				}
 			}
 		}
 	}
-	static void 비밀번호찾기 () {
-		System.out.print("아이디 : ");	String id = sc.next();
-		System.out.print("전화번호 : "); 	String phone = sc.next();
-		
-		for(int i = 0; i < memberList.length; i++) {
-			if(memberList[i]!=null) {
-				if(id.equals(memberList[i].getId())  && phone.equals(memberList[i].getPhone())) {
-					int num = (int) (Math.random()*10000); 
-					System.out.println("임시 비밀번호 : " + num);
-					memberList[i].setPw(Integer.toString(num));
-					return;
-				}
-			}
-		}
-	}
+	 static void 비밀번호찾기() {
+	        System.out.print("아이디: ");
+	        String id = sc.next();
+	        System.out.print("전화번호: ");
+	        String phone = sc.next();
+
+	        for (int i = 0; i < memberList.length; i++) {
+	            if (memberList[i] != null && id.equals(memberList[i].getId()) && phone.equals(memberList[i].getPhone())) {
+	                String randomString = generateRandomString(); // 랜덤 임시 비밀번호 생성
+	                System.out.println("임시 비밀번호: " + randomString);
+	                memberList[i].setPw(randomString); // 임시 비밀번호 설정
+	                return;
+	            }
+	        }
+	    }
+
+	    static String generateRandomString() {
+	        Random random = new Random();
+	        StringBuilder numStr = new StringBuilder();
+
+	        for (int i = 0; i < 4; i++) {
+	            char randomChar = (char) (random.nextInt(26) + 97);
+	            numStr.append(randomChar);
+	        }
+
+	        return numStr.toString();
+	    }
 	
 }
 /*

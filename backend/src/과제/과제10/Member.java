@@ -1,11 +1,11 @@
 package 과제.과제10;
 
 public class Member {
-	String id; 
-	String pw;
-	String name;
-	String phone;
-	int age;
+	private String id; 
+	private String pw;
+	private String name;
+	private String phone;
+	private int age;
 	
 	public Member(String id, String pw, String name, String phone, int age) {
 		this.id = id;
