@@ -27,14 +27,14 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 			System.out.println("\n\n--------- 회원 시스템 ---------");
 			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾    선택> ");
 			int ch = sc.nextInt();
-			if( ch == 1 ) { singupPage(); }
+			if( ch == 1 ) { signupPage(); }
 			if( ch == 2 ) { loginPage(); }
 			if( ch == 3 ) { findIdPage(); }
 			if( ch == 4 ) { findPwPage(); }
 		} // whine e 
 	} // f end 
 	
-	void singupPage() {
+	void signupPage() {
 		// 입/출력 
 		System.out.println("--------- 회원가입 ---------");
 		System.out.print("아이디 : "); 	String id = sc.next();
@@ -43,7 +43,7 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 		System.out.print("전화번호 : ");	String phone = sc.next();
 		System.out.print("나이 :");		int age = sc.nextInt();
 		// ---> 컨트롤러/서빙 에게 전달 // 컨트롤 클래스내 메소드 호출 
-		boolean result=  MemberController.getInstance().singupLogic( id , pw , name , phone , age );
+		boolean result=  MemberController.getInstance().signupLogic( id , pw , name , phone , age );
 		if( result ) System.out.println("안내)회원가입성공");
 		else System.out.println("안내)회원가입실패");
 	}

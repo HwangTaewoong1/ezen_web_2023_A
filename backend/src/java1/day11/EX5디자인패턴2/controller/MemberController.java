@@ -13,7 +13,7 @@ public class MemberController { // 기능처리(로직) 담당하는 클래스 /
 	// 3. 외부에서 객체 생성 차단 위한 생성자 잠금
 	private MemberController() { }
 	
-	public boolean singupLogic( String id , String pw , String name , String phone , int age) {
+	public boolean signupLogic( String id , String pw , String name , String phone , int age) {
 		MemberDto m = new MemberDto(id, pw, name, phone, age); 
 		for( int i = 0 ; i< MemberDao.memberList.length ; i++ ) {
 			if( MemberDao.memberList[i] == null ) { 
