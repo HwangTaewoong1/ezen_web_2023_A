@@ -25,7 +25,7 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 	public void mainPage() {
 		while(true) { // 무한루프
 			System.out.println("\n\n--------- 회원 시스템 ---------");
-			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾    선택> ");
+			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기   선택> ");
 			int ch = sc.nextInt();
 			if( ch == 1 ) { signupPage(); }
 			if( ch == 2 ) { loginPage(); }
@@ -34,7 +34,7 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 		} // whine e 
 	} // f end 
 	
-	void signupPage() {
+	void signupPage() { // 1. 회원가입
 		// 입/출력 
 		System.out.println("--------- 회원가입 ---------");
 		System.out.print("아이디 : "); 	String id = sc.next();
@@ -47,9 +47,31 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 		if( result ) System.out.println("안내)회원가입성공");
 		else System.out.println("안내)회원가입실패");
 	}
-	void loginPage() {}
-	void findIdPage() {}
-	void findPwPage() {}
+	
+	void loginPage() {
+		System.out.println("--------- 로그인 ---------");
+		System.out.print("아이디 : "); 	String id = sc.next();
+		System.out.print("비밀번호 : ");	String pw = sc.next();
+		boolean result = MemberController.getInstance().loginLogic( id , pw );
+		if( result ) System.out.println("안내)로그인 성공했습니다.");
+		else System.out.println("안내_로그인 실패했습니다.");
+	} // f end 
+	void findIdPage() {
+		System.out.println("--------- 아이디찾기 ---------");
+		System.out.print("이름 : "); 		String name = sc.next();
+		System.out.print("전화번호 : ");	String phone = sc.next();
+		String result = MemberController.getInstance().findIdLogic( name , phone );
+		if( result != null ) System.out.println("안내) 회원님의 아이디 : " + result);
+		else System.out.println("안내) 이름 혹은 전화번호가 일치하는 아이디가 없습니다.");
+	}
+	void findPwPage() {
+		System.out.println("--------- 비밀번호찾기 ---------");
+		System.out.print("아이디 : "); 	String id = sc.next();
+		System.out.print("전화번호 : ");	String phone = sc.next();
+		String result = MemberController.getInstance().findPwLogic( id , phone );
+		if( result != null ) System.out.println("안내) 회원님의 비밀번호 : " + result);
+		else System.out.println("안내) 아이디 혹은 전화번호가 일치하는 비밀번호가 없습니다.");
+	}
 	
 	
 	
