@@ -209,3 +209,5 @@ use sqldb1web2;
 drop table if exists board;
 create table board( no int , title varchar(100) , content longtext , view int , date datetime );
 select * from board;
+
+# 1. 데이터베이스 생성
