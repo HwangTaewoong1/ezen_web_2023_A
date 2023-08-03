@@ -1,6 +1,7 @@
 package 복습.part5;
 
 // 목적 : 설계도 , 객체의 모델
+
 public class Member {
 	
 	
