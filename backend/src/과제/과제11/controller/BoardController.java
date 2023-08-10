@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import 과제.과제11.model.dao.BoardDao;
 import 과제.과제11.model.dto.BoardDto;
-import 과제.과제11.view.LoginPage;
 
 public class BoardController {
 	// 0.싱글톤 
@@ -31,7 +30,9 @@ public class BoardController {
 		return BoardDao.getInstance().boardPrint();
 	}
 	// 11. boardView : 개별 게시물 출력 
-	public void boardView() {}
+	public BoardDto boardView( int bno ) {
+		return BoardDao.getInstance().boardView(bno);
+	}
 	// 12. boardUpdate : 게시물 수정 
 	public void boardUpdate() {}
 	// 13. boardDelete : 게시물 삭제
