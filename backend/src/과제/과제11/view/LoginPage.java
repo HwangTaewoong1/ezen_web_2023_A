@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import 과제.과제11.controller.BoardController;
 import 과제.과제11.controller.MemberController;
+import 과제.과제11.model.dao.BoardDao;
 import 과제.과제11.model.dto.BoardDto;
 import 과제.과제11.model.dto.MemberDto;
 
@@ -14,7 +15,7 @@ public class LoginPage {
 	public static LoginPage getInstance() { return loginPage; }
 	private LoginPage() {}
 	// 0.입력객체 
-	private Scanner sc = new Scanner(System.in);
+	private static Scanner sc = new Scanner(System.in);
 	
 	// 1. loginMenu	: 로그인했을때 메뉴 페이지 
 	public void loginMenu() {
@@ -22,7 +23,6 @@ public class LoginPage {
 		while( MemberController.getInstance().getLoginSession() != 0 ) { // 로그인이 되어 있는 경우에만 메뉴 반복 
 			
 			boardPrint();
-			
 			System.out.println("\n\n ===== ===== ===== ===== ");
 			System.out.print("1.로그아웃 2.회원정보 3.글쓰기 4.글조회 선택 : ");
 			try {
@@ -49,11 +49,12 @@ public class LoginPage {
 		System.out.println(">NAME : " + result.getMname() );
 		System.out.println(">PHONE : " + result.getMphone() );
 		// 2. 서브메뉴 
-		System.out.print("1.비밀번호수정 2.회원탈퇴 3.뒤로가기 선택 : ");
+		System.out.print("1.비밀번호수정 2.회원탈퇴 3.뒤로가기 4.쪽지확인 선택 : ");
 		int ch = sc.nextInt();
 		if( ch == 1 ) { infoUpdate(); }
 		if( ch == 2 ) { infoDelete(); }
 		if( ch == 3 ) { return; } // 생략가능 
+		if( ch == 4 ) { viewMessages( ); }
 	}
 	
 	// 7. infoUpdate : 비밀번호수정 페이지 
@@ -126,16 +127,69 @@ public class LoginPage {
 		System.out.printf("content : %s \n " , result.getBcontent() );
 		
 		// 4. 추가메뉴
-		System.out.print("1.뒤로가기 2.수정 3.삭제 선택> "); int ch = sc.nextInt();
+		System.out.print("1.뒤로가기 2.수정 3.삭제 4.쪽지보내기 선택> "); int ch = sc.nextInt();
 		if ( ch == 1 ) {}
-		if ( ch == 2 ) { boardUpdate(); }
-		if ( ch == 3 ) { boardDelete(); }
+		if ( ch == 2 ) { boardUpdate( bno , result.getMno() ); } // 보고있는 게시물 번호와 작성자회원번호 
+		if ( ch == 3 ) { boardDelete( bno , result.getMno() ); }
+		if ( ch == 4 ) { sendMessage( bno , result.getMno() ); }
 	}
-	// 12. boardUpdate : 게시물 수정 
-	public void boardUpdate() {}
-	// 13. boardDelete : 게시물 삭제
-	public void boardDelete() {}
-	
+	// 12. boardUpdate : 게시물 수정 [ 게시물 번호 식별해서 제목이랑 내용만 수정 -> 로그인된 사람과 작성자가 일치할경우 가능하도록 ]
+	public void boardUpdate( int bno , int mno ) {
+		System.out.println(" ----- post update ----- ");
+		sc.nextLine();
+		System.out.println("수정할 제목 > ");	String title = sc.nextLine();
+		System.out.println("수정할 내용 > "); 	String content = sc.nextLine();
+		// 2.
+		int result = 
+					BoardController.getInstance().boardUpdate( bno , mno , title , content );
+		if ( result == 1) {System.out.println("안내] 글 수정 성공 ");}
+		else if ( result == 2 ) {System.out.println("안내] 글 수정 실패 : 관리자 오류 ");}
+		else if ( result == 3 ) {System.out.println("경고] 본인 글만 수정 가능합니다.");}
+		
+	}
+	// 13. boardDelete : 게시물 삭제 [ 게시물 번호 식별해서 삭제 -> 로그인된 사람과 작성자가 일치할경우 가능하도록 ]
+	public void boardDelete( int bno , int mno ) {
+	int result = BoardController.getInstance().boardDelete( bno , mno  );
+	if ( result == 1) {System.out.println("안내] 글 수정 성공 ");}
+	else if ( result == 2 ) {System.out.println("안내] 글 수정 실패 : 관리자 오류 ");}
+	else if ( result == 3 ) {System.out.println("경고] 본인 글만 삭제 가능합니다.");}
+	}
+	// 14. 쪽지보내기 
+    public void sendMessage( int bno , int mno ) {
+    	System.out.println(" ----- send Message ----- ");
+        System.out.print("쪽지 내용을 입력하세요: ");
+        sc.nextLine();
+        String pcontent = sc.nextLine();
+        
+        boolean result = 
+				BoardController.getInstance().sendMessage( bno , mno , pcontent );
+        if ( result ) {System.out.println("쪽지가 보내졌습니다.");}
+        else {System.out.println("안내] 쪽지보내기 실패 : 관리자 오류 ");}
+
+         
+    }
+
+    // 쪽지 확인 메소드
+    public static void viewMessages( ) {
+    	System.out.println(" ----- post ----- ");
+		// 1. 여러개의 게시물을 요청해서 반환된 결과 저장 
+		ArrayList<BoardDto> result = BoardController.getInstance().viewMessages(  );
+		// 2. 출력 
+		System.out.printf("%s %s %s %s %s %s  \n" , "쪽지번호" , "받는사람" , "보낸사람" , "보낸내용" , "보낸일시" , "답장내용" );
+		for( int i = 0 ; i<result.size(); i++ ) {
+			BoardDto dto = result.get(i);	// i번째의 객체를 호출 
+			System.out.printf("%s %s %s %s %s %s  \n" , 
+					dto.getPno() , dto.getBno() , dto.getMno() , dto.getPcontent() , dto.getPdate() , dto.getPreply() );
+			sendReply();
+		}
+    }
+
+    // 답장 보내기 메소드
+    public static void sendReply( ) {
+    
+    	int reply = sc.nextInt();
+            System.out.println("답장이 전송되었습니다.");
+    }  
 }
 
 /*

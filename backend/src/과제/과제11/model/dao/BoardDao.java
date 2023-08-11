@@ -47,7 +47,7 @@ public class BoardDao extends Dao {
 				// 레코드 1개 마다 1개의 DTO 변환 
 				BoardDto dto = new BoardDto(
 						rs.getInt(1) , rs.getString(2) , rs.getString(3), 
-						rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7) );
+						rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), sql, 0, sql, sql );
 				// 변환된 Dto 를 리스트객체에 담기 
 				list.add(dto);
 			}
@@ -67,7 +67,7 @@ public class BoardDao extends Dao {
 			if( rs.next() ) { // 레코드 1개 --> DTO화 
 				BoardDto dto = new BoardDto(
 						rs.getInt(1) , rs.getString(2) , rs.getString(3), 
-						rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7) );
+						rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), sql, bno, sql, sql);
 				boardViewCount(rs.getInt(1),rs.getInt(5)); // 조회수 증가 함수 호출
 				return dto;
 			}
@@ -87,14 +87,70 @@ public class BoardDao extends Dao {
 		return false;
 		}
 		
-	// 12. boardUpdate : 게시물 수정 
-	public void boardUpdate() {}
-	// 13. boardDelete : 게시물 삭제
-	public void boardDelete() {}
-
+	// 12. boardUpdate : 게시물 수정 [ 인수 : bno , title , content ]
+	public boolean boardUpdate( BoardDto boardDto ) {
+		try {
+			String sql = "update board set btitle = ? , bcontent = ?  where bno = ?"; // 1.
+			ps = conn.prepareStatement(sql); // 2.
+			ps.setInt( 3, boardDto.getBno() ); ps.setString( 1, boardDto.getBtitle() ); ps.setString( 2, boardDto.getBcontent() ); // 3.
+			int row = ps.executeUpdate(); // 4. // 5. [ select -> rs = ps.executeQuery() / insert,update,delete -> int row = ps.executeUpdate() ]
+			if ( row == 1 ) return true; // 6. 
+		}catch (Exception e) { System.out.println( e ); }
+		return false;
+		
+	}
+	// 13. boardDelete : 게시물 삭제 [ 인수 : bno , title , content ]
+	public boolean boardDelete( int bno ) {
+		try {
+			String sql = "delete from board where bno = ?;"; // 1.
+			ps = conn.prepareStatement(sql); 
+			ps.setInt( 1, bno );
+			int row = ps.executeUpdate();
+			if ( row == 1 ) return true; 
+		}catch (Exception e) { System.out.println( e ); }
+		return false; // DB 오류 또는 삭제된 레코드가 0 이면 실패
+	}
 	
-}
+	// 14. sendMessage : 쪽지 보내기  
+	
+	public boolean sendMessage(BoardDto boardDto) {
+		try {
+			String sql = "insert into post( bno , mno , pcontent ) values(?,?,?)"; // 1.
+			System.out.println("sendSQL : " + boardDto.getPcontent());
+			ps = conn.prepareStatement(sql); // 2.
+			ps.setInt( 1, boardDto.getBno() ); 
+			ps.setInt( 2 , boardDto.getMno() ); 
+			ps.setString( 3 , boardDto.getPcontent()); 
+			int row = ps.executeUpdate(); 
+			if ( row == 1 ) return true; 
+		}catch (Exception e) { System.out.println( e ); }
+		return false;
+	}
 
+
+	// 15. viewMessages
+	public ArrayList<BoardDto> viewMessages( int bno ) {
+		ArrayList<BoardDto> list = new ArrayList<>();
+		try {
+			String sql = "select pno , mno , pcontent, pdate from postcheck";
+			ps = conn.prepareStatement(sql); // 2.
+			ps.setInt(1, bno);
+			rs = ps.executeQuery();
+			while( rs.next() ) { // 마지막 레코드까지 하나씩 레코드 이동 ( 다음레코드가 존재하지 않을때까지 반복 ) 
+				// 레코드 1개 마다 1개의 DTO 변환 
+				BoardDto dto = new BoardDto(
+						rs.getInt(1) , rs.getInt(2) ,  
+						rs.getString(3), rs.getString(4) );
+				// 변환된 Dto 를 리스트객체에 담기 
+				list.add(dto);
+			}
+		
+		}catch (Exception e) { System.out.println(e);}
+		return list ;
+		
+	}		
+}
+	// select * from board b natural join post p where b.bno = ?;
 /*
  	테이블
  		레코드/행/가로	-> DTO 1개
