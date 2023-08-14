@@ -14,7 +14,7 @@ public class MemberSys {
 		while(true) {	
 			System.out.println("\n\n--------- 회원 시스템 ---------"); 
 			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기 선택> "); int ch = sc.nextInt();
-			
+
 			if( ch == 1 ) { MemberSys.회원가입(); } 
 			if( ch == 2 ) { MemberSys.로그인(); }
 			if( ch == 3 ) { MemberSys.아이디찾기(); }

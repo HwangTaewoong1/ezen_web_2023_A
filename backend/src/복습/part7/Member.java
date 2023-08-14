@@ -17,7 +17,7 @@ public class Member {
 		this.phone = phone;
 		this.age = age;
 	}
-		
+	
 	@Override
 	public String toString() { 
 		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", phone=" + phone + ", age=" + age + "]";
