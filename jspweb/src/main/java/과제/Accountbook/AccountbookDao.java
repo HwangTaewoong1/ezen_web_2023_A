@@ -1,4 +1,4 @@
-package 과제;
+package 과제.Accountbook;
 
 import java.util.ArrayList;
 import 과제.AccountbookDto;

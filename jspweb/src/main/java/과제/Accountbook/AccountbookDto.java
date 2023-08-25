@@ -1,4 +1,4 @@
-package 과제;
+package 과제.Accountbook;
 
 public class AccountbookDto {
 	// 1.필드
