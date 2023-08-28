@@ -1,7 +1,7 @@
 package 과제.Accountbook;
 
 import java.util.ArrayList;
-import 과제.AccountbookDto;
+import 과제.Accountbook.AccountbookDto;
 
 
 public class AccountbookDao extends Dao {
