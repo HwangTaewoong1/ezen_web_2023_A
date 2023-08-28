@@ -37,9 +37,19 @@ public class library extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	
-	}
+	      int lno = Integer.parseInt(request.getParameter("lno")); System.out.println(lno);
+	      String name = request.getParameter("name"); System.out.println(name);
+	      String phone = request.getParameter("phone"); System.out.println(phone);
+	      
+	      
+	      libraryDto dto = new libraryDto(lno,name,phone);
+	      
+	      boolean result = libraryDao.getInstance().lwriter(dto);
+	      
+	      response.setContentType("text/html;charset=UTF-8");
+	      response.getWriter().print(result);
+	      
+	   }
 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// 1. AJAX data 데이터 요청한다.

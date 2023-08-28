@@ -11,8 +11,22 @@ public class libraryDao extends Dao {
 	private libraryDao() {}
 	public static libraryDao getInstance() { return libraryDao; }
 	
-	
-	
+	public boolean lwriter(libraryDto dto) {
+        try {
+           
+           String sql="insert into library(lno,lname,lphone) values(?,?,?)";
+           ps = conn.prepareStatement(sql);
+           ps.setInt(1, dto.getLno());
+           ps.setString(2, dto.getLname());
+           ps.setString(3, dto.getLphone());
+           int rs = ps.executeUpdate();
+           if(rs==1) {return true;}
+           return false;
+           
+        }catch (Exception e) {System.out.println(e);}
+        return false;
+     }
+
 	// 2. 특정 lno 값의 레코드 전체 호출
 	public ArrayList<libraryDto> lread(int lno) { 
 	    ArrayList<libraryDto> list = new ArrayList<>(); // 여러 개의 dto를 담을 리스트 객체 
