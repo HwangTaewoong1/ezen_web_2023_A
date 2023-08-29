@@ -160,21 +160,33 @@ function emailcheck(){
 // 4. 인증 요청 버튼을 눌렀을때
 function authReq(){ console.log('인증요청');
 	
-	// div 호출
-	let authbox = document.querySelector('.authbox');
+	// -- 인증 요청시 서블릿 통신[ 인증코드 생성 , 이메일 전송 ]
+	$.ajax({
+		url : "/jspweb/AuthSendEmailController" ,
+		method : "get" ,
+		data : { memail : document.querySelector('.memail').value } ,
+		success : r => { console.log(r);
+			// div 호출
+			let authbox = document.querySelector('.authbox');
 	
-	// 2. auth html 구성
-	let html = `<span class="timebox"> 02:00 </span>
-				<input class="ecode" type="text"/> 
-				<button onclick="auth()" type="button">인증</button>`
+			// 2. auth html 구성
+			let html = `<span class="timebox"> 02:00 </span>
+						<input class="ecode" type="text"/> 
+						<button onclick="auth()" type="button">인증</button>`
 				
-	// 3. auth html 대입
-	authbox.innerHTML = html;
+			// 3. auth html 대입
+			authbox.innerHTML = html;
 	
-	// 4. 타이머 실행;
-	authcode = '1234'; // '1234' [테스트용] [ 서버가 난수 생성한 ajax로 값을 받을예정 ]
-	timer = 10; // 인증 제한시간 10초 [테스트용] 
-	settimer(); // 타이머 실행
+			// 4. 타이머 실행;
+			authcode = r; // Controller(서블릿) 에게 전달받은 값이 인증코드
+			timer = 120; // 인증 제한시간 10초 [테스트용] 
+			settimer(); // 타이머 실행
+			
+		} ,
+		error : e => { console.log(e); }
+	})
+	
+	
 	
 } // f end
 
