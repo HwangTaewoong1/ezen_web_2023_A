@@ -7,6 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import model.dao.BoardDao;
+import model.dto.BoardDto;
+import model.dto.MemberDto;
+
 
 @WebServlet("/BoardInfoController")
 public class BoardInfoController extends HttpServlet {
@@ -17,23 +24,53 @@ public class BoardInfoController extends HttpServlet {
         super();
         
     }
-
+    // 쓰기 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	// 0. 첨부파일 업로드 [ cos.jar -> MultipartRequest 클래스]
+			MultipartRequest multi = new MultipartRequest(
+					request , 													// 1. HttpServletRequest 요청방식 
+					request.getServletContext().getRealPath("/board/upload") , 	// 2. 첨부파일을 저장할 폴더 경로 
+					1024*1024*1024,												// 3. 허용 첨부파일 용량 1GB
+					"UTF-8" , 													// 4. 한글인코딩타입 
+					new DefaultFileRenamePolicy()	// 5. [파일명중복제거] 만약에 서버내 첨부파일의 동일한 이름이 있을때 이름뒤에 숫자를 자동으로 붙이기 
+					);
+		// * 업로드가 잘 되었는지 확인하기 위한 업로드 서버경로 확인
+			System.out.println(request.getServletContext().getRealPath("/board/upload"));
+			
+		// ----------------------------------------------- DB처리 : 업로드된 파일명  --------------------------------------------- //	
+			// 2. form 안에 있는 각 데이터 호출 
+		// 일반input : multi.getParameter("form객체전송시input name");		
+		// 첨부파일input : multi.getFilesystemName( );
+		String btitle =  multi.getParameter("btitle");			System.out.println("btitle : "  + btitle);
+		String bcontent =  multi.getParameter("bcontent");		System.out.println("bcontent : "  + bcontent);
+		String bfile =  multi.getFilesystemName("bfile");		System.out.println("bfile : "  + bfile);
+			// - 작성자(MNO) 는 입력x / mno는 세션에 저장 되어있는 상태
+		int mno =( (MemberDto)request.getSession().getAttribute("loginDto")).getMno();
+		int bcno = Integer.parseInt( multi.getParameter("bcno") );
+		// 2. (선택) 객체화.
+		BoardDto boardDto = new BoardDto(btitle, bcontent, bfile, mno, bcno); System.out.println(boardDto);
+		// 2. (선택) 유효성검사.
+		
+		// 3. Dao 에게 전달하고 결과 받는다.
+		boolean result = BoardDao.getInstance().bwrite(boardDto);
+		
+		// 4. AJAX 통신으로 결과 데이터를 응답을 보낸다. [ response ]
+		response.setContentType("application/json; charset=UTF-8");
+		response.getWriter().print(result);
+		
+	}
+    // 전체조회 , 개별조회
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
+	// 수정
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
-
+	// 삭제
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 	}
 
 }

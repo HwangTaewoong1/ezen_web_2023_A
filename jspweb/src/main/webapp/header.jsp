@@ -36,6 +36,6 @@
 	
 	<!-- 최신 jquery import ajax사용 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="/jspweb/js/header.js" type="text/javascript"></script>
+	<script src="/jspweb/js/member/header.js" type="text/javascript"></script>
 </body>
 </html>
