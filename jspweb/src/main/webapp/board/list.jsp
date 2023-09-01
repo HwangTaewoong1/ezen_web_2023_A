@@ -12,7 +12,12 @@
 	<%@include file="../header.jsp"%>
 		
 	<div class="webcontainer"> <!-- 전체 웹구역 -->
+			<h3> 글 목록 페이지 </h3>
 		
+			<table class ="boardTable"> </table>
+			
+			
+			
 			<button onclick="onWrite()" type="button" class="btn">글쓰기</button>
 			
 		<div> <!-- 카테고리 구역 -->
