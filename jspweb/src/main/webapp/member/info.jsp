@@ -40,8 +40,8 @@
 			
 		</form>
 	</div>
-	<script src="../js/signup.js" type="text/javascript"> </script>
-	<script src="../js/info.js" type="text/javascript"> </script>
+	<script src="../js/member/signup.js" type="text/javascript"> </script>
+	<script src="../js/member/info.js" type="text/javascript"> </script>
 	
 
 </body>

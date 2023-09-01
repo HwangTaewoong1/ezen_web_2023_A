@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<link href="../css/member.css" rel="stylesheet">
+	<link href="../css/member/member.css" rel="stylesheet">
 
 </head> 
 <body>
@@ -38,7 +38,7 @@
 		</form>
 	</div>
 	
-	<script src="../js/login.js" type="text/javascript"> </script>
+	<script src="../js/member/login.js" type="text/javascript"> </script>
 	
 
 </body>
