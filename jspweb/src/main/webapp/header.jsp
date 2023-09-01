@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link href="/jspweb/css/header.css" rel="stylesheet">
+	<link href="/jspweb/css/member/header.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,7 +18,7 @@
 		</div>
 		<ul class="mainmenu"> <!-- 본메뉴 -->
 			<li> <a href="/jspweb/visitlog/visitlog.jsp">방문록</a> </li>
-			<li> <a href="">기능1</a> </li>
+			<li> <a href="/jspweb/board/list.jsp">게시판</a> </li>
 			<li> <a href="">기능2</a> </li>
 			<li> <a href="">기능3</a> </li>
 			<li> <a href="/jspweb/과제/accountbook/accountbook.jsp">과제1:가계부</a> </li>

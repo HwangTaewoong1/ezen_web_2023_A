@@ -1,7 +1,7 @@
 
 let 헤더변수 = "헤더변수데이터";
 // 1. 현재 로그인된 회원정보 요청 
-
+let loginState = false;
 getMemberInfo(); 
 function getMemberInfo(){
 	$.ajax({ // 1. ajax 이용한 서블릿세션 정보 가져오기
@@ -14,7 +14,9 @@ function getMemberInfo(){
 			if( r == null ){ // 비로그인 
 				html += ` <li> <a href="/jspweb/member/signup.jsp">회원가입</a> </li>
 						<li> <a href="/jspweb/member/login.jsp">로그인</a> </li> `;
+						loginState = false;
 			}else{ // 로그인 
+			loginState = true;
 				html += ` <li> ${ r.mid } 님 </li>
 						<li> <img class="hmimg" src="/jspweb/member/img/${ r.mimg }" /> </li>
 						<li> <a href="/jspweb/member/info.jsp">마이페이지</a> </li>

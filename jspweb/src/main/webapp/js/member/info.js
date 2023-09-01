@@ -5,7 +5,7 @@ console.log( 헤더변수 );
 getInfo();
 function getInfo(){
 	$.ajax({
-		url : "/jspweb/MemberInfoController" , 
+		url : "/jspweb/BoardInfoController" , 
 		method : "get" , 
 		data : { type : "info" } ,
 		success : r => { 
