@@ -18,13 +18,8 @@ public class BoardDto {
 	// - 조회 대상자와 작성자 대상자 일치여부 [ 본인글 체크여부 ]
 	private boolean ishost;
 	
-	public boolean isIshost() {
-		return ishost;
-	}
-
-	public void setIshost(boolean ishost) {
-		this.ishost = ishost;
-	}
+	
+	
 
 	// 2. 생성자 [ 1. 빈생성자 2.풀생성자 3.(추후에) 작업하면서 필요한 생성자들 ]
 	public BoardDto() {}
@@ -45,7 +40,15 @@ public class BoardDto {
 		this.bcname = bcname;
 		this.mimg = mimg;
 	}
-
+	// 게시물 수정용 생성자
+		public BoardDto(int bno, String btitle, String bcontent, String bfile, int bcno) {
+			super();
+			this.bno = bno;
+			this.btitle = btitle;
+			this.bcontent = bcontent;
+			this.bfile = bfile;
+			this.bcno = bcno;
+		}
 	// 글 등록시 사용되는 생성자
 	public BoardDto(String btitle, String bcontent, String bfile, int mno, int bcno) {
 		super();
@@ -63,7 +66,13 @@ public class BoardDto {
 	public String getMimg() {
 		return mimg;
 	}
-
+	public boolean isIshost() {
+			return ishost;
+		}
+	
+		public void setIshost(boolean ishost) {
+			this.ishost = ishost;
+		}
 	public void setMimg(String mimg) {
 		this.mimg = mimg;
 	}
