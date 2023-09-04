@@ -15,9 +15,16 @@ public class BoardDto {
 	private String mid; // 작성자 회원아이디
 	private String bcname;// 카테고리명
 	private String mimg; // 작성자 프로필
+	// - 조회 대상자와 작성자 대상자 일치여부 [ 본인글 체크여부 ]
+	private boolean ishost;
 	
-	
-	
+	public boolean isIshost() {
+		return ishost;
+	}
+
+	public void setIshost(boolean ishost) {
+		this.ishost = ishost;
+	}
 
 	// 2. 생성자 [ 1. 빈생성자 2.풀생성자 3.(추후에) 작업하면서 필요한 생성자들 ]
 	public BoardDto() {}
