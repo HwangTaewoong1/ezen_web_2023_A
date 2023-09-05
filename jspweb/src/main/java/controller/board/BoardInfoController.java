@@ -16,6 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import model.dao.BoardDao;
 import model.dto.BoardDto;
 import model.dto.MemberDto;
+import model.dto.PageDto;
 
 /**
  * Servlet implementation class BoardInfoController
@@ -40,9 +41,27 @@ public class BoardInfoController extends HttpServlet {
 		String json = "";
 
 		if( type.equals("1") ) { // 전체 조회 로직 
+			// ----------------------- 1. 카테고리 ---------------------- //
+			int bcno = Integer.parseInt( request.getParameter("bcno") );
+			// ----------------------- 2. 출력할 게시물수/하나의 페이지의 최대 게시물수 ---------//
+			int listsize = Integer.parseInt( request.getParameter("listsize") );
+			// ----------------------- 3. 페이징 처리 하기 ------------------//
+			int page = Integer.parseInt(request.getParameter("page"));
+				// 1. 페이지별 레코드의 시작번호 
+			int startrow = (page-1)*listsize; // 페이지번호 * 최대게시물표시수
+			 // 1*10 => 10	0 // 2*10 => 20 10// 3*10 => 30  20
+			// ----------------------- 4. 마지막 페이지번호 ----------------------
+				// 1. 마지막페이지번호/총페이지 수 = 전체 게시물 수 / 페이지별 최대 게시물( list.size ) 
+			int totalsize = BoardDao.getInstance().getTotalSize(bcno);
 			
-			ArrayList<BoardDto> result = BoardDao.getInstance().getList();
-			json = objectMapper.writeValueAsString( result );
+			// 마지막 페이지 수 / 총 페이지수 
+			int totalpage = totalsize%listsize == 0 ? totalsize/listsize : totalsize/listsize+1 ;
+				
+			ArrayList<BoardDto> result = BoardDao.getInstance().getList( bcno , listsize , startrow);
+			// -----------------------6. pageDto 구성 ---------------------//
+			PageDto pageDto = new PageDto(page, listsize, startrow, totalsize, totalpage, result);
+			
+			json = objectMapper.writeValueAsString( pageDto );
 
 		}else if( type.equals("2") ) {// 개별 조회 로직 
 			//1.매개변수 요청 
@@ -97,32 +116,33 @@ public class BoardInfoController extends HttpServlet {
 	}
 	// 3. 수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1.  수정할 첨부파일 업로드 [ cos.jar -> MultipartRequest 클래스  ]
-			MultipartRequest multi = new MultipartRequest(
-					request,			// 요청방식 
-					request.getServletContext().getRealPath("/board/upload"),	//저장경로				// 저장경로 
-					1024*1024*1024, // 업로드허용용량[바이트] 1GB 
-					"UTF-8",		// 인코딩타입 
-					new DefaultFileRenamePolicy() // 만약에 업로드파일명이 서버내 존재하면(중복) 자동으로 파일명뒤에 숫자 붙이기
-					);
-
-			// 2. 수정할 데이터 요청
-				int bcno = Integer.parseInt( multi.getParameter("bcno"));
-				String btitle = multi.getParameter("btitle");
-				String bcontent = multi.getParameter("bcontent");
-				String bfile = multi.getFilesystemName("bfile"); // 첨부파일명은 getFilesystemName
-				// 2* 수정할 게시물 식별키
-				int bno = Integer.parseInt( multi.getParameter("bno"));
-				BoardDto updateDto = new BoardDto(bno, btitle, bcontent, bfile, bcno);
-				// * 만약에 새로운 첨부파일 없으면 기존 첨부파일() 그대로 사용
-				if ( updateDto.getBfile() == null) {
-					updateDto.setBfile( BoardDao.getInstance().getBoard(bno).getBfile());
-				}
-			// 3. Dao 처리 
-				boolean result = BoardDao.getInstance().onUpdate(updateDto);
-			// 4. (Dao 결과) 응답 
-				response.setContentType("application/json; charset=UTF-8"); 
-				response.getWriter().print(result);
+		// 1. 수정할 첨부파일 업로드 
+		MultipartRequest multi = new MultipartRequest(
+				request,request.getServletContext().getRealPath("/board/upload"), 
+				1024 * 1024 *1024 ,  "UTF-8" , new DefaultFileRenamePolicy() );
+		
+		// 2. 수정할 데이터 내용 요청 
+		int bcno = Integer.parseInt( multi.getParameter("bcno") );
+		String btitle = multi.getParameter("btitle") ;
+		String bcontent = multi.getParameter("bcontent") ;
+		String bfile = multi.getFilesystemName("bfile") ; // 파일명 호출 !![ getFilesystemName ]
+		
+		// 2* 수정할 게시물 식별키 
+		int bno = Integer.parseInt( multi.getParameter("bno") );
+		BoardDto updateDto = 
+				new BoardDto(bno, btitle, bcontent, bfile, bcno); System.out.println("수정dto : " + updateDto );
+		// * 만약에 수정할 첨부파일이 없으면 기존 첨부파일 그대로 사용
+		if( updateDto.getBfile() == null ) {
+			// 기존첨부파일 호출해서 수정dto에 저장하기.
+			updateDto.setBfile( 
+					BoardDao.getInstance().getBoard(bno).getBfile() 
+					) ;
+		}
+		// 3. DAO
+		boolean result = BoardDao.getInstance().onUpdate( updateDto );
+		// 4. 응답 
+		response.setContentType("application/json; charset=UTF-8"); 
+		response.getWriter().print(result);
 	}
 	
 	// 4. 삭제 
