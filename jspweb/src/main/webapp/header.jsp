@@ -19,8 +19,8 @@
 		<ul class="mainmenu"> <!-- 본메뉴 -->
 			<li> <a href="/jspweb/visitlog/visitlog.jsp">방문록</a> </li>
 			<li> <a href="/jspweb/board/list.jsp">게시판</a> </li>
-			<li> <a href="">기능2</a> </li>
-			<li> <a href="">기능3</a> </li>
+			<li> <a href="/jspweb/datago/datago.jsp">공공데이터</a> </li>
+			<li> <a href="/jspweb/chatting/chatting.jsp">채팅</a> </li>
 			<li> <a href="/jspweb/과제/accountbook/accountbook.jsp">과제1:가계부</a> </li>
 			<li> <a href="/jspweb/과제/library/library.jsp">과제2:열람실</a> </li>
 			<li> <a href="/jspweb/과제/hrm/hrm.jsp">과제3:인사관리</a> </li>
