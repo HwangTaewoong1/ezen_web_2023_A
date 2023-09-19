@@ -48,12 +48,13 @@
 	
 	<!-- 카드(bs) : 다양한 컨텐츠를 표시하는 컨테이너[구역]  -->
 	<div class="container"> <!-- container(bs) : 컨테이너 구역  --> 
+		<h1 class="text-center my-5" style="color: #312a55;font-weight: bold;"> NEW ITEM</h1>
 		<!-- JS에서 HTML 넣어주는 위치 -->
 		<div class="productBox my-5 row row-cols-1 row-cols-md-4 g-4"> </div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 	
-	<script src="/jspweb/js/member/index.js" type="text/javascript"></script>
+	<script src="/jspweb/js/index.js" type="text/javascript"></script>
 	<!-- JSP파일안에 다른 JSP 파일 import 하기  -->
 	<%@include file ="footer.jsp" %>
 

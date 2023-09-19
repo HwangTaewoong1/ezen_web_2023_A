@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-	<link href="/jspweb/css/member/header.css" rel="stylesheet">
+	<link href="/jspweb/css/header.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 헤더 -->
@@ -22,9 +22,11 @@
 			<li> <a href="/jspweb/datago/datago.jsp">공공데이터</a> </li>
 			<li> <a href="/jspweb/chatting/chatting.jsp">채팅</a> </li>
 			<li> <a href="/jspweb/product/register.jsp">제품등록</a> </li>
-			<li> <a href="/jspweb/과제/accountbook/accountbook.jsp">(과1)가계부</a> </li>
-			<li> <a href="/jspweb/과제/library/library.jsp">(과2)열람실</a> </li>
-			<li> <a href="/jspweb/과제/hrm/hrm.jsp">(과3)인사관리</a> </li>
+			<li> <a href="/jspweb/product/list.jsp">제품찾기</a></li>
+			<li> <a href="/jspweb/과제/accountbook/accountbook.jsp" style="color: #fc9b9b">[과제1]가계부</a> </li>
+			<li> <a href="/jspweb/과제/library/library.jsp" style="color: #fc9b9b">[과제2]열람실</a> </li>
+			<li> <a href="/jspweb/과제/hrm/hrm.jsp" style="color: #fc9b9b">[과제3]인사관리</a> </li>
+			<li> <a href="#" style="color: #fc9b9b">[team과제4~6]익명SNS</a> </li>
 		</ul>
 		<!-- 서브메뉴 : js에서 로그인상태에 따라 html 구성 대입 -->
 		<ul class="submenu"> </ul>
@@ -33,7 +35,7 @@
 	
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script  src="/jspweb/js/member/header.js"></script>
+	<script  src="/jspweb/js/header.js"></script>
 	
 </body>
 </html>
