@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../img/눈송이.ico">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>눈송이 정보보기</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	<link href="../css/member/member.css" rel="stylesheet">
 
@@ -16,11 +17,11 @@
 	<div class="webcontainer"> <!-- 회원가입 전체 구역  -->
 		<form class="signupForm"> <!-- 폼 전송시 각 input에 name속성 -->
 			
-			<h2> 마이페이지 </h2>
+			<h2> 내 정보 보기 </h2>
 			
 			<div class="intitle">프로필 변경</div>
 			<input onchange="preimg( this )" name="mimg" class="mimg" type="file" accept="image/*" />
-			<img class="preimg" alt="" src="img/default.png"> 
+			<img class="preimg" alt="" src="/img/default.png"> 
 			
 			<div class="intitle">아이디</div>
 			<div class="mid"></div>

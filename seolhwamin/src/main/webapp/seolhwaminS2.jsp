@@ -8,7 +8,7 @@
 <title>눈송이 월드</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
+	<link href="css/index.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -41,7 +41,36 @@
 	    <span class="visually-hidden">Next</span>
 	  </button>
 	</div> -->
-	
+	<div class="webcontainer">
+		<div class="top_list">
+			<div class="listbox">
+				<h4>
+					<a href="/seolhwamin/board/list.jsp">Notice</a>
+				</h4>
+				<ul class="ullist noticeul"></ul>
+			</div>
+			<div class="listbox">
+				<h4>
+					<a href="/seolhwamin/board/list.jsp">FREE</a>
+				</h4>
+				<ul class="ullist freeul"></ul>
+			</div>
+		</div>
+		<div class="bottom_list">
+			<div class="listbox">
+				<h4>
+					<a href="/seolhwamin/1000Day/1000Day.jsp">1000일 축하게시판</a>
+				</h4>
+				<ul class="dayul ullist "></ul>
+			</div>
+			<div class="listbox">
+				<h4>
+					<a href="https://www.youtube.com/channel/UCqVE5TTq9FXIw3g52rotCUQ" target="_blank" rel="nopener noreferrer">YOUTUBE</a>
+				</h4>
+				<iframe style="" width="500" height="500" src="https://www.youtube.com/embed/DOLEfuP7V5E" title="엥? 저 남자임?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 	<script src="/seolhwamin/js/member/index.js" type="text/javascript"></script>

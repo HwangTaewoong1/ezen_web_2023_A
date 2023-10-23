@@ -1,4 +1,4 @@
-package controller.board;
+package controller.noticeboard;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.dao.BoardDao;
+import model.dao.NoticeBoardDao;
 import model.dto.BoardDto;
 import model.dto.MemberDto;
 import model.dto.PageDto;
@@ -22,14 +23,14 @@ import service.FileService;
 /**
  * Servlet implementation class BoardInfoController
  */
-@WebServlet("/BoardInfoController")
-public class BoardInfoController extends HttpServlet {
+@WebServlet("/NoticeBoardInfoController")
+public class NoticeBoardInfoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BoardInfoController() {
+	public NoticeBoardInfoController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -61,27 +62,12 @@ public class BoardInfoController extends HttpServlet {
 			// ----------------------- 4. 마지막 페이지번호 ---------------- //
 			// 1. 마지막페이지번호/총페이지수 = 전체게시물수 / 페이지별최대게시물수( listsize )
 			// 2. 전체 게시물수
-			int totalsize = BoardDao.getInstance().getTotalSize(bcno, key, keyword);
+			int totalsize = NoticeBoardDao.getInstance().getTotalSize(bcno, key, keyword);
 			// 3. 마지막페이지번호/총페이지수
 			int totalpage = totalsize % listsize == 0 ? // 만약에 나머지가 없으면
 					totalsize / listsize : // 몫
 					totalsize / listsize + 1; // 몫 + 1( 나머지 페이지 수를 표시할 페이지1개 추가 )
-			// 게시물수 : 10 , 페이지별 2개씩 출력 => 총페이지수 5페이지[몫]
-			// 게시물수 : 20 , 페이지별 3개씩 출력 => 총페이지수 6페이지[몫] + 1 ( 나머지[2] ) => 7페이지
 
-			// ----------------------- 5. 페이지번호버튼 시작번호 , 마지막번호 ----------------- */
-			// 5개씩 : 1~5페이지( 1 , 5 ) 6~10페이지( 6 , 10 ) 11~15페이지(11,15)
-			// 10개씩 : 1~10페이지 ( 1 , 10 ) 11~20페이지( 11,20) 21~30(21,30)
-			// 15개씩: 1~15페이지 ( 1 , 15 ) 16~30페이지( 16,30) 31~45(31,45)
-			/*
-			 * 페이지 시작 마지막 시작계산식 [int btnsize = 5;] 1페이지 1 5 page/btnsize => 0 2 1 5
-			 * (page/btnsize)*btnsize => 0 3 1 5 (page/btnsize)*btnsize +1 => 1 4 1 5
-			 * page/btnsize 5 1 5 (page/btnsize)*btnsize +1 => 6 / (page-1/btnsize)*btnsize
-			 * +1 => 1 6 6 10 7 6 10 8 6 10 9 6 10 10 6 10 11 11 15 ~~~~~~~~~~~~~~~~~~~~~~~
-			 * 21 21 25
-			 * 
-			 */
-			// 1. 페이지버튼 번호의 최대개수
 			int btnsize = 5;
 			// 2. 페이지버튼 번호의 시작번호
 			int startbtn = ((page - 1) / btnsize) * btnsize + 1;
@@ -94,7 +80,7 @@ public class BoardInfoController extends HttpServlet {
 
 			// ----------------------- 6. pageDto 구성 ---------------- //
 
-			ArrayList<BoardDto> result = BoardDao.getInstance().getList(bcno, listsize, startrow, key, keyword);
+			ArrayList<BoardDto> result = NoticeBoardDao.getInstance().getList(bcno, listsize, startrow, key, keyword);
 
 			PageDto pageDto = new PageDto(page, listsize, startrow, totalsize, totalpage, startbtn, endbtn, result);
 
@@ -104,7 +90,7 @@ public class BoardInfoController extends HttpServlet {
 			// 1.매개변수 요청
 			int bno = Integer.parseInt(request.getParameter("bno"));
 			// 2. DAO 처리
-			BoardDto result = BoardDao.getInstance().getBoard(bno);
+			BoardDto result = NoticeBoardDao.getInstance().getBoard(bno);
 
 			// 3. 만약에 ( 로그인 혹은 비로그인 )요청한한사람과 게시물작성한사람과 동일하면
 			Object object = request.getSession().getAttribute("loginDto");
@@ -153,7 +139,7 @@ public class BoardInfoController extends HttpServlet {
 		BoardDto boardDto = new BoardDto(btitle, bcontent, bfile, mno, bcno, mnickname);
 		System.out.println(boardDto);
 		// 3. Dao 처리
-		boolean result = BoardDao.getInstance().bwrite(boardDto);
+		boolean result = NoticeBoardDao.getInstance().bwrite(boardDto);
 		// 4. (Dao 결과) 응답
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().print(result);
@@ -183,13 +169,13 @@ public class BoardInfoController extends HttpServlet {
 			updateDto.setBfile(BoardDao.getInstance().getBoard(bno).getBfile());
 		} else { // 만약에 수정할 첨부파일 있으면 기존 첨부파일은 서버업로드폴더에서 삭제
 
-			String filename = BoardDao.getInstance().getBoard(bno).getBfile();
-			filename = request.getServletContext().getRealPath("/board/upload") + "/" + filename;
+			String filename = NoticeBoardDao.getInstance().getBoard(bno).getBfile();
+			filename = request.getServletContext().getRealPath("/noticeboard/upload") + "/" + filename;
 			FileService.fileDelete(filename);
 		}
 
 		// 3. DAO
-		boolean result = BoardDao.getInstance().onUpdate(updateDto);
+		boolean result = NoticeBoardDao.getInstance().onUpdate(updateDto);
 
 		// 4. 응답
 		response.setContentType("application/json; charset=UTF-8");
@@ -203,13 +189,13 @@ public class BoardInfoController extends HttpServlet {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 
 		// - 레코드 삭제 전 에 파일이름 꺼내두기 [ 레코드 삭제후 파일이름 호출이 불가능 하니까 ]
-		String filename = BoardDao.getInstance().getBoard(bno).getBfile();
+		String filename = NoticeBoardDao.getInstance().getBoard(bno).getBfile();
 
 		// 2. DAO
-		boolean result = BoardDao.getInstance().ondelete(bno);
+		boolean result = NoticeBoardDao.getInstance().ondelete(bno);
 		// 게시물 삭제시 삭제된 게시물의 업로드파일도 같이 삭제
 		if (result) { // 만약에 게시물 삭제 성공이면
-			filename = request.getServletContext().getRealPath("/board/upload") + "/" + filename;
+			filename = request.getServletContext().getRealPath("/noticeboard/upload") + "/" + filename;
 			FileService.fileDelete(filename);
 		}
 		// 3. 응답

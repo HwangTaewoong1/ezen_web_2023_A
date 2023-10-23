@@ -5,9 +5,9 @@
 <head>
 <link rel="icon" href="../img/눈송이.ico">
 <meta charset="UTF-8">
-<title>눈송이들 놀이터</title>
+<title> 눈송이들 규칙 </title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<link href="/seolhwamin/css/board/list.css" rel="stylesheet"/>
+	<link href="/seolhwamin/css/noticeboard/list.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -18,8 +18,7 @@
 	
 		<!-- 1. 상단( 페이지 제목 ) -->
 		<div class="boardtop">
-			<h2> 자유 게시판 </h2>
-			<p> 눈송이들 놀이터 </p>
+			<h2> 공지사항 </h2>
 		</div>
 		
 		<!-- 2. 상단 부가 버튼 -->
@@ -32,15 +31,7 @@
 				</select>
 				<span class="boardcount"> 전체 게시물수 : 13 </span> <!-- 전체 게시물 수 -->
 			</div>
-			<button class="bbtn" onclick="onWrite()" type="button">글쓰기</button>
-		</div>
-		
-		<!-- 3. 카테고리 구역  -->
-		<div class="boardcategorybox">
-			<button onclick="onCategory(0)" class="bbtn" type="button"> 전체보기 </button>
-			<button onclick="onCategory(1)" class="bbtn" type="button"> 공지사항 </button>
-			<button onclick="onCategory(2)" class="bbtn" type="button"> 자유게시판 </button>
-			<button onclick="onCategory(3)" class="bbtn" type="button"> 노하우 </button>
+			<div class="writebtn"></div>
 		</div>
 		
 		<!-- 4. 테이블 구역  -->
@@ -56,7 +47,6 @@
 				<!-- value="SQL에서 사용할 필드명 기준" -->
 				<option value="b.btitle" >제목</option>
 				<option value="b.bcontent" >내용</option>
-				<option value="m.mid">작성자</option>
 			</select>
 			<input class="keyword" type="text"> <!-- 검색 내용 -->
 			<button onclick="onSearch()" class="bbtn" type="button">검색</button>
@@ -65,7 +55,7 @@
 		
 	</div>
 	
-	<script src="../js/board/list.js" type="text/javascript"></script>
+	<script src="../js/noticeboard/list.js" type="text/javascript"></script>
 	<%@include file = "../footer.jsp" %>
 </body>
 </html>

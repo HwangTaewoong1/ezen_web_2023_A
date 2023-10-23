@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="../img/눈송이.ico">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>눈송이 월드 가입하기</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	<link href="../css/member/member.css" rel="stylesheet">
 
@@ -17,7 +18,7 @@
 		<form class="signupForm"> <!-- 폼 전송시 각 input에 name속성 -->
 			<div style="display: flex; margin-left: 60px;">
 			<img src="/seolhwamin/img/눈송이월드(white).png" style="width: 50px;">
-			<div style="display:flex;">
+			<div>
 			<h2> 눈송이 월드 가입하기</h2>
 			<p> 눈송이 월드에 온걸 환영해! </p>
 			</div>
@@ -50,7 +51,7 @@
 			<div class="intitle">프로필 사진</div>
 			<input onchange="preimg( this )" name="mimg" class="mimg" type="file" accept="image/*" />
 			<h2 style="font-size: 15px;"> 기본 이미지 </h2>
-			<img class="preimg" alt="" src="img/default.png"> 
+			<img class="preimg" alt="" src="../img/default.png"> 
 			
 			<button class="signupbtn" onclick="signup()" type="button">눈송이 월드 가입하기</button>
 			

@@ -20,7 +20,7 @@ function getMemberInfo(){
 			}else{ // 로그인 
 				loginState = true; loginMid = r.mid;
 				html += ` <li> ${ r.mnickname } 님 </li>
-						<li> <img class="hmimg" src="/seolhwamin/member/img/${ r.mimg }" /> </li>
+						<li> <img class="hmimg" src="/seolhwamin/img/${ r.mimg }" /> </li>
 						<li> <a href="/seolhwamin/member/info.jsp">마이페이지</a> </li>
 						<li> <a onclick="logout()" href="#">로그아웃</a> </li> `
 				if( r.mid == "admin"){ } // 로그인 했는데 관리자메뉴

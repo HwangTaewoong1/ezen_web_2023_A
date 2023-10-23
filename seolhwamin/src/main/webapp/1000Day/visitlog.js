@@ -77,7 +77,7 @@ function vread() {
           <div class="visitbox_top">
            	<div style="display:flex; align-items: center;">
             	<img class="vimg" src="/seolhwamin/member/img/${ r[i].vimg }">
-            	<div style="margin-left:10px; font-size:20px;"> ${r[i].vwriter} </div>
+            	<div class="vwriter" style="margin-left:10px; font-size:20px;"> ${r[i].vwriter} </div>
             </div>
             <div class="visitdate"> ${r[i].vdate} </div>
           </div>
@@ -86,7 +86,7 @@ function vread() {
           `;
 
         // 작성자와 게시물 작성자가 같을 때만 수정 및 삭제 버튼 추가
-        if (vwriterInput == r[i].vwriter) {
+        if (vwriterInput == r[i].vwriter || loginMid == "seolhwamin" ) {
           html += `
             <button onclick="vupdate(${r[i].vno})" type="button">수정</button>
             <button onclick="vdelete(${r[i].vno})" type="button">삭제</button>

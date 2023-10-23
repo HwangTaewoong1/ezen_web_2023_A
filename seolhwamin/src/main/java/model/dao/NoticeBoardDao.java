@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 import model.dto.BoardDto;
 
-public class BoardDao extends Dao {
+public class NoticeBoardDao extends Dao {
 
-	private static BoardDao boardDao = new BoardDao();
+	private static NoticeBoardDao noticeboardDao = new NoticeBoardDao();
 
-	private BoardDao() {
+	private NoticeBoardDao() {
 	}
 
-	public static BoardDao getInstance() {
-		return boardDao;
+	public static NoticeBoardDao getInstance() {
+		return noticeboardDao;
 	}
 
 	// 1. 글쓰기

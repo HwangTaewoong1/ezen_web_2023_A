@@ -1,0 +1,42 @@
+@charset "UTF-8";
+h4{
+	color: #8572ee;
+    font-size: .8rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #8572ee;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+}
+.top_list{
+	display: flex;
+}
+.bottom_list{
+	display: flex;
+}
+
+.ullist{
+	height: 500px;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.visitbox{
+	align-items: center;
+	display: flex;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.vcontent{
+	display: inline-block;
+    width: 400px;
+    color: #343a40;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.visitdate{font-size: 12px;}
+.listbox{
+	width:500px;
+	margin: 15px 20px;
+}

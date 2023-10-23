@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* 푸터 */
 #footer{
-	position : absolute;
 	margin-top:30px; /* 바깥 여백 */
 	width:100%; /* 가로 사이즈 */ height: 150px;
 	display: flex; /* 하위 요소 배치방법 */
@@ -12,9 +11,8 @@
 a{
 	color:#C7CBFF;
 }
-.ft_box{
-	width: 1200px;				/* 가로 길이 */
-	margin: 0 auto;				/* 구역 가운데 정렬 */
+.ft_box{				
+	    margin-left: 250px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

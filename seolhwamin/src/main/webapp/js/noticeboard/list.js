@@ -5,13 +5,23 @@ let pageOject = {
 	// * page : 조회할 페이지번호  // key : 검색할 기준 필드명 // keyword : 검색할 데이터
 }
 
+noticeWritebtn()
+function noticeWritebtn(){
+	if(loginMid == "seolhwamin"){
+	let writebtn = document.querySelector('.writebtn');
+	let html = ``;
+	 html += `<button class="bbtn" onclick="onWrite()" type="button">글쓰기</button>`
+	 
+	 writebtn.innerHTML = html;
+	 }
+}
 // 1. 글쓰기 버튼을 클릭하면 
-function onWrite(){
-	if( loginState ){ 	// - 만약에 비 로그인이면 로그인 페이지로 이동
-		location.href="/seolhwamin/board/write.jsp";
+function onWrite(){ 
+	if( loginMid == "seolhwamin" ){ 	// - 만약에 비 로그인이면 로그인 페이지로 이동
+		location.href="/seolhwamin/noticeboard/noticewrite.jsp";
 	}else{ // - 로그인이면 쓰기 페이지로 이동 
-		alert('로그인후 글쓰기 가능합니다.');
-		location.href="/seolhwamin/member/login.jsp";
+		alert('오직 화민식이만 공지를 작성할 수 있습니다.');
+		location.href="/seolhwamin/seolhwaminS2.jsp";
 	}
 } // f end 
 
@@ -23,7 +33,7 @@ function getList( page ){ // page : 조회할 페이지번호
 	// 클릭된 페이지번호 를 조건객체에 대입
 	
 	$.ajax({
-		url : "/seolhwamin/BoardInfoController" , 
+		url : "/seolhwamin/NoticeBoardInfoController" , 
 		metdod : "get" ,
 		data : pageOject , 
 		success : pageDto => { console.log( pageDto ); 

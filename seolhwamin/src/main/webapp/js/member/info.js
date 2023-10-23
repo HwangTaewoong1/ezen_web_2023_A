@@ -13,7 +13,7 @@ function getInfo(){
 				alert('눈송이 전용 페이지입니다. [로그인] 페이지로 이동 ');
 				location.href="/seolhwamin/member/login.jsp";
 			}else{ // 로그인 상태 -> 마이페이지 구역에 정보 넣어주기 
-				document.querySelector('.preimg').src=`img/${ r.mimg}`;
+				document.querySelector('.preimg').src=`/seolhwamin/img/${ r.mimg}`;
 				document.querySelector('.mid').innerHTML = r.mid;
 				document.querySelector('.memail').innerHTML = r.memail;
 			}
