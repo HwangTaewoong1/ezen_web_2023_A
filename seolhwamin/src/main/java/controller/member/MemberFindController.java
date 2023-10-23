@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import model.dao.MemberDao;
 import model.dto.MemberDto;
 
@@ -21,18 +24,73 @@ public class MemberFindController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    // 하나의 메소드의 여러개 ajax 통신할때. type전송( 숫자 1:아이디중복검사 2.이메일중복검사 vs 필드명  mid : 아이디중복검사 , memail : 이메일중복검사 )  
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 요청한다.
-		String type = request.getParameter("type");
-		String data = request.getParameter("data");
-		// 2. 객체화/유효성검사
-		// 3. DAO 요청 결과 
-		boolean result = MemberDao.getInstance().findIdOrEmail( type , data);
-		// 4. 결과 응답한다. 
-		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().print(result);
-	}
+ // 하나의 메소드의 여러개 ajax 통신할때. type전송( 숫자 1:아이디중복검사 2.이메일중복검사 vs 필드명  mid : 아이디중복검사 , memail : 이메일중복검사 )  
+ 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ 		// 1. 요청한다.
+ 		String type = request.getParameter("type"); System.out.println("Type : " + type);
+ 		String data = request.getParameter("data"); System.out.println("data : " + data);
+ 		// 2. 객체화/유효성검사	 	
+ 				 if (type.equals("mid")) {
+ 		                // 아이디 유효성
+ 					// 3. DAO 요청 결과 
+ 						boolean result = MemberDao.getInstance().findIdOrEmail( type , data);
+ 						// 4. 결과 응답한다. 
+ 						response.setContentType("application/json;charset=UTF-8");
+ 						response.getWriter().print(result);
+ 	
+ 		            }
+ 				 if (type.equals("memail")) {
+ 		                // 아이디 유효성
+ 					// 3. DAO 요청 결과 
+ 						boolean result = MemberDao.getInstance().findIdOrEmail( type , data);
+ 						// 4. 결과 응답한다. 
+ 						response.setContentType("application/json;charset=UTF-8");
+ 						response.getWriter().print(result);
+ 	
+ 		            }
+ 				 if (type.equals("mnickname")) {
+ 		                // 아이디 유효성
+ 					// 3. DAO 요청 결과 
+ 						boolean result = MemberDao.getInstance().findIdOrEmail( type , data);
+ 						// 4. 결과 응답한다. 
+ 						response.setContentType("application/json;charset=UTF-8");
+ 						response.getWriter().print(result);
+ 	
+ 		            }
+ 				 
+ 	            if (type.equals("findId")) {
+ 	                // 아이디 찾기 로직
+ 	                String memail = request.getParameter("data");				System.out.println("로직 안 memail : " + memail);
+ 	                String foundId = MemberDao.getInstance().findId(memail);	System.out.println("로직 안 foundId : " + foundId);
+
+ 	                JSONObject jsonResponse = new JSONObject();
+ 	                try {
+ 						jsonResponse.put("id", foundId);
+ 					} catch (JSONException e) {
+ 						// TODO Auto-generated catch block
+ 						e.printStackTrace();
+ 					}
+ 	                response.setContentType("application/json");
+ 	                response.getWriter().write(jsonResponse.toString());
+
+ 	            } else if (type.equals("findPw")) {
+ 	                // 비밀번호 찾기 로직
+ 	                String mid = request.getParameter("data1"); System.out.println("mid : " + mid);
+ 	                String memail = request.getParameter("data2"); System.out.println("memail : " + memail);
+ 	                String foundPwd = MemberDao.getInstance().findPw(mid, memail);
+
+ 	                JSONObject jsonResponse = new JSONObject();
+ 	                try {
+ 						jsonResponse.put("pwd", foundPwd);
+ 					} catch (JSONException e) {
+ 						// TODO Auto-generated catch block
+ 						e.printStackTrace();
+ 					}
+
+ 	                response.setContentType("application/json");
+ 	                response.getWriter().write(jsonResponse.toString());
+ 	            }
+ 	}
 	
 	// 로그인 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

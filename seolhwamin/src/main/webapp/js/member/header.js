@@ -6,7 +6,7 @@ let loginMid = ''; /* 로그인 성공된 아이디를 가지고 있는 변수 *
 getMemberInfo(); 
 function getMemberInfo(){
 	$.ajax({ // 1. ajax 이용한 서블릿세션 정보 가져오기
-		url : "/jspweb/MemberInfoController" ,
+		url : "/seolhwamin/MemberInfoController" ,
 		method : "get" ,
 		async : false , /* 비동기화(기본값=true) , 동기화(false) 설정하는 속성 ( 우선적인 ajax실행 응답이 필요할때. )*/
 		data : { type : "info" } , 
@@ -15,15 +15,13 @@ function getMemberInfo(){
 			let html = ``; // - 로그인 상태에 따른 서로다른 html 구성  
 			if( r == null ){ // 비로그인 
 				loginState = false; loginMid = '';
-				html += ` <li> <a href="/jspweb/member/signup.jsp">회원가입</a> </li>
-						<li> <a href="/jspweb/member/login.jsp">로그인</a> </li> `;
+				html += ` <li> <a href="/seolhwamin/member/signup.jsp">회원가입</a> </li>
+						<li> <a href="/seolhwamin/member/login.jsp">로그인</a> </li> `;
 			}else{ // 로그인 
 				loginState = true; loginMid = r.mid;
-				html += ` <li> ${ r.mid } 님 </li>
-						<li> <img class="hmimg" src="/jspweb/member/img/${ r.mimg }" /> </li>
-						<li> <a href="/jspweb/member/payment.jsp">포인트</a> </li>
-						<li> <a href="/jspweb/product/wishlist.jsp">찜목록</a> </li>
-						<li> <a href="/jspweb/member/info.jsp">마이페이지</a> </li>
+				html += ` <li> ${ r.mnickname } 님 </li>
+						<li> <img class="hmimg" src="/seolhwamin/member/img/${ r.mimg }" /> </li>
+						<li> <a href="/seolhwamin/member/info.jsp">마이페이지</a> </li>
 						<li> <a onclick="logout()" href="#">로그아웃</a> </li> `
 				if( r.mid == "admin"){ } // 로그인 했는데 관리자메뉴
 			}
@@ -35,12 +33,12 @@ function getMemberInfo(){
 // 2. 로그아웃 함수 [ 서블릿에 세션을 삭제.. 그리고 로그아웃 성공시 메인페이지로 이동 ]
 function logout(){
 	$.ajax({
-		url : "/jspweb/MemberInfoController" ,
+		url : "/seolhwamin/MemberInfoController" ,
 		method : "get",
 		data : { type : "logout"} , 
 		success : r => { 
 			alert('로그아웃 되었습니다.');
-			location.href="/jspweb/index.jsp"; 
+			location.href="/seolhwamin/seolhwaminS2.jsp"; 
 		} , error : e => {} 
 	})
 } // f end 

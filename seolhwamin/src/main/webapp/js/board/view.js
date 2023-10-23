@@ -13,7 +13,7 @@ function getBoard(){
 	
 	// 2. AJAX 이용한 bno 전달해서 게시물의 상세 정보 모두 가져오기
 	$.ajax({
-		url : "/jspweb/BoardInfoController" ,
+		url : "/seolhwamin/BoardInfoController" ,
 		method: "get" , 
 		data : { type : 2 , bno : bno } , 
 		success : r => {  console.log(r);
@@ -28,11 +28,11 @@ function getBoard(){
 								 </div>
 						부가정보2 : <div>  
 									${ r.mid }  , 
-									<img src="/jspweb/member/img/${ r.mimg }" width="50px" /> 
+									<img src="/seolhwamin/member/img/${ r.mimg }" width="50px" /> 
 								</div>
 						제목 : <div> ${ r.btitle } </div>
 						내용 : <div> ${ r.bcontent } </div>
-						첨부파일 : <div> <a href="/jspweb/FileDownLoad?filename=${r.bfile}"> ${ r.bfile } </a> </div>
+						첨부파일 : <div> <a href="/seolhwamin/FileDownLoad?filename=${r.bfile}"> ${ r.bfile } </a> </div>
 						`
 						/* <a href=" HTTP get메소드방식 "> </a> */
 				
@@ -53,13 +53,13 @@ function getBoard(){
 // 2. 게시물 삭제 -> 레코드 삭제 -> 레코드 식별 -> pk
 function ondelete( bno ){
 	$.ajax({
-		url : "/jspweb/BoardInfoController" ,
+		url : "/seolhwamin/BoardInfoController" ,
 		method: "delete" , 
 		data : { bno : bno } , 
 		success : r => { console.log(r); 
 			if( r ){
 				alert('삭제 성공');
-				location.href="/jspweb/board/list.jsp";
+				location.href="/seolhwamin/board/list.jsp";
 			}else{ alert('삭제 실패'); }
 		} , 
 		error : e => { console.log(e); }
@@ -68,5 +68,5 @@ function ondelete( bno ){
 // 3. 게시물 수정 페이지로 이동 
 function onUpdate( bno ){
 	// 1. 수정페이지로 이동
-	location.href=`/jspweb/board/update.jsp?bno=${ bno }`;
+	location.href=`/seolhwamin/board/update.jsp?bno=${ bno }`;
 } // f end 

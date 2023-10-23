@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<link href="/jspweb/css/board/list.css" rel="stylesheet"/>
+	<link href="/seolhwamin/css/board/list.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -17,8 +17,8 @@
 	
 		<!-- 1. 상단( 페이지 제목 ) -->
 		<div class="boardtop">
-			<h2> 게시판 </h2>
-			<p> 다양한 사람들과 정보를 공유 하세요. </p>
+			<h2> 자유 게시판 </h2>
+			<p> 눈송이들 놀이터 </p>
 		</div>
 		
 		<!-- 2. 상단 부가 버튼 -->
@@ -65,6 +65,6 @@
 	</div>
 	
 	<script src="../js/board/list.js" type="text/javascript"></script>
-	
+	<%@include file = "../footer.jsp" %>
 </body>
 </html>

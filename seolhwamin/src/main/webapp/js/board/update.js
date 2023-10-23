@@ -8,7 +8,7 @@ getBoard()
 function getBoard(){
 	// 3. ajax에게 bno 전달해서 게시물정보 가져오기
 	$.ajax({
-		url : "/jspweb/BoardInfoController",
+		url : "/seolhwamin/BoardInfoController",
 		method : "get" ,
 		data : { type : 2 , bno : bno } , 
 		success : r => {
@@ -46,14 +46,14 @@ function onUpdate(  ){
 		formdata.set( "bno" , bno );
 	// 2. ajax 대용량(첨부파일) multipart
 	$.ajax({
-		url : "/jspweb/BoardInfoController" , 
+		url : "/seolhwamin/BoardInfoController" , 
 		method : "put" , 
 		data :  formdata , 
 		contentType : false , 
 		processData : false , 
 		success : r => {
 			if( r ){ alert('수정성공'); 
-				location.href=`/jspweb/board/view.jsp?bno=${bno}`;
+				location.href=`/seolhwamin/board/view.jsp?bno=${bno}`;
 			} else{ alert('수정실패');}
 		} ,
 		error : e =>{console.log(e); }

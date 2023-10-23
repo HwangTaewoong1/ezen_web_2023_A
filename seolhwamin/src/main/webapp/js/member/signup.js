@@ -71,7 +71,7 @@ function idcheck(){ /* 실행조건 : 아이디 입력창에 입력할때마다 
 		if( midj.test(mid) ){ // 입력한 값이 패턴과 일치하면
 			// -- [ 아이디중복검사 ]입력한 아이디가 패턴과 일치하면
 			$.ajax({
-				url : "/jspweb/MemberFindController" ,
+				url : "/seolhwamin/MemberFindController" ,
 				method : "get" ,
 				data : { type : "mid" , data : mid },
 				success : r => { 
@@ -126,7 +126,7 @@ function emailcheck(){
 	// 3. 유효성검사 
 	if( memailj.test( memail) ) {
 		$.ajax({
-			url : "/jspweb/MemberFindController" , 
+			url : "/seolhwamin/MemberFindController" , 
 			method : "get" , 
 			// *type 사용하는 이유 : 서로 다른 ajax가 동일한 서블릿과 동일한 get메소드 사용할때.
 			data :  { type : "memail" , data : memail }, // : 이메일 중복검사
@@ -246,6 +246,33 @@ function auth(){ console.log('auth() open')
 	}
 } // f end 
 
+// 7. 닉네임 중복검사
+function nicknamecheck(){
+	// 1. 값 호출 
+	let mnickname = document.querySelector('.mnickname').value; 
+	let nicknamecheckbox = document.querySelector('.nicknamecheckbox');
+	// 2. 유효성검사 
+		let mnickj = /^(?=.*[a-z0-9가-힣])(?![ㅏ-ㅣㄱ-ㅎ]+)[a-z0-9가-힣]{2,12}$/
+			// 2. 정규표현식 검사. 
+			console.log( mnickj.test( mnickname ) )
+			console.log( mnickname )
+		if( mnickj.test(mnickname) ){ // 입력한 값이 패턴과 일치하면
+			// -- [ 중복검사 ]
+			$.ajax({
+				url : "/seolhwamin/MemberFindController" ,
+				method : "get" ,
+				data : { type : "mnickname" , data : mnickname },
+				success : r => { 
+					if( r ){  nicknamecheckbox.innerHTML = '사용중인 닉네임 입니다.'; checkList[3] = false; }
+					else { nicknamecheckbox.innerHTML = '사용가능한 닉네임 입니다.'; checkList[3] = true; } 
+				} ,
+				error : e => { }
+			})
+		}else{ // 입력한 값이 패턴과 일치하지 않으면
+			nicknamecheckbox.innerHTML =' 2자 이상 12자 이하, 영어 또는 숫자 또는 한글로 구성해주세요. 한글 초성 및 모음은 불가합니다.'; checkList[3] = false;
+		}
+}
+
 // 7. 첨부파일에 등록된 사진을 HTML 표시하기 < 등록 사진을 미리보기 기능 >
 function preimg( o ){ console.log('사진 선택 변경');
 	console.log( o ); // 이벤트 발생시킨 태그의 DOM객체를 인수로 받음
@@ -270,13 +297,13 @@ function preimg( o ){ console.log('사진 선택 변경');
 } // f end 
 
 
-let checkList = [ false , false , false ] // [0] : 아이디통과여부 , [1] : 패스워드통과여부 , [2] : 이메일통과여부 
+let checkList = [ false , false , false , false ] // [0] : 아이디통과여부 , [1] : 패스워드통과여부 , [2] : 이메일통과여부 [3] : 닉네임중복
 	// true 통과 , false 비통과 
 // 8. 회원가입 메소드 
 function signup(){
 	// 1. 아이디/비밀번호/이메일 유효성검사 통과 여부 체크 
 		console.log( checkList )
-	if( checkList[0] && checkList[1] && checkList[2] ){ // checkList 에 저장된 논리가 모두 true 이면 
+	if( checkList[0] && checkList[1] && checkList[2] && checkList [3] ){ // checkList 에 저장된 논리가 모두 true 이면 
 		console.log('회원가입 진행가능');
 		
 		// 2. 입력받은 데이터를 한번에 가져오기 form 태그 이용 
@@ -291,18 +318,18 @@ function signup(){
 			// 3. AJAX 에게 첨부파일[대용량] 전송 하기 
 				// 2. 첨부파일 있을때. [ 기존 json형식의 전송x form객체 전송 타입으로 변환 ]
 				$.ajax({
-					url : "/jspweb/MemberInfoController" , 
+					url : "/seolhwamin/MemberInfoController" , 
 					method: "post" ,			// form 객체 [ 대용량 ] 전송은 무조건 post 방식 
 					data : signupData ,			// FormData 객체를 전송 
 					contentType : false ,		// form 객체 [ 대용량 ]  전송타입 		
 					processData : false ,
 					success : r => { 
 						if( r ){ // 회원가입성공 [ 1.알린다 2.페이지전환]
-							alert('회원가입성공');
-							location.href = '/jspweb/member/login.jsp';
+							alert('눈송이 월드 가입 성공');
+							location.href = '/seolhwamin/member/login.jsp';
 						}
 						else{ // 회원가입실패
-							alert('회원가입실패[관리자문의]');
+							alert('눈송이 월드 가입 실패 ㅠㅠ [관리자 문의]');
 						}
 					} ,
 					error : e => { console.log(e) } ,

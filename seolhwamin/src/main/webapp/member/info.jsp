@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	<link href="../css/member/member.css" rel="stylesheet">
 
 </head> 
@@ -20,7 +20,7 @@
 			
 			<div class="intitle">프로필 변경</div>
 			<input onchange="preimg( this )" name="mimg" class="mimg" type="file" accept="image/*" />
-			<img class="preimg" alt="" src="img/default.webp"> 
+			<img class="preimg" alt="" src="img/default.png"> 
 			
 			<div class="intitle">아이디</div>
 			<div class="mid"></div>
@@ -42,7 +42,7 @@
 	</div>
 	<script src="../js/member/signup.js" type="text/javascript"> </script>
 	<script src="../js/member/info.js" type="text/javascript"> </script>
-	
+	<%@include file ="../footer.jsp" %>
 
 </body>
 </html>

@@ -64,12 +64,12 @@ public class MemberInfoController extends HttpServlet {
    		String memail =  multi.getParameter("memail");	System.out.println("memail : "  + memail);
    		//String mimg =  multi.getParameter("mimg");		System.out.println("mimg : "  + mimg);
    		String mimg =  multi.getFilesystemName("mimg");		System.out.println("mimg : "  + mimg);
-   		
+   		String mnickname =  multi.getParameter("mnickname"); System.out.println("mnickname : "  + mnickname);
    		// *만약에 사진업로드 안했으면 기본프로필 사용하도록 변경 = default.webp
-   		if( mimg == null ) {mimg = "default.webp";}
+   		if( mimg == null ) {mimg = "default.png";}
    		
    		// 2. (선택) 객체화.
-   		MemberDto memberDto = new MemberDto(mid, mpwd, memail, mimg);
+   		MemberDto memberDto = new MemberDto(mid, mpwd, memail, mimg , mnickname);
    		// 2. (선택) 유효성검사.
    		
    		// 3. Dao 에게 전달하고 결과 받는다.

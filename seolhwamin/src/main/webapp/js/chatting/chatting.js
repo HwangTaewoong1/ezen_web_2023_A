@@ -2,12 +2,12 @@
 // * ajax(기본값 비동기통신) 가 응답의 결과를 가지고 오기전에 아래코드 실행. [ loginState 변경되기전에 실행되므로 문제발생 ]
 // - 해결방안 ajax 동기화 통신 하자.. 
 // 1. 비 로그인시 입장 불가능.. 
-if( loginState == false ){ alert('회원전용 페이지입니다.'); location.href="/jspweb/member/login.jsp"; }
+if( loginState == false ){ alert('회원전용 페이지입니다.'); location.href="/seolhwamin/member/login.jsp"; }
 
 // 2. JS 클라이언트[유저] 소켓 만들기 
 console.log( '채팅방에 입장한 아이디 : ' + loginMid );
 //let clientSocket = new WebSocket(`ws://localhost:80/jspweb/serversokcet/${loginMid}`);
-let clientSocket = new WebSocket(`ws://192.168.17.138:80/jspweb/serversokcet/${loginMid}`);
+let clientSocket = new WebSocket(`ws://192.168.17.138:80/seolhwamin/serversokcet/${loginMid}`);
 	// - 클라이언트소켓이 생성되었을때 자동으로 서버소켓에 접속 ----> 서버소켓의 @OnOpen 으로 이동
 	// - 서버소켓URL에 매개변수 전달하기 [- 주로 식별자 전달 ] 서버소켓URL/데이터1/데이터2/데이터3
 	// --- 메소드 4가지 메소드 자동으로 실행 
@@ -122,7 +122,7 @@ function getEmo(){
 	for( let i = 1 ; i<=43 ; i++ ){
 		document.querySelector('.emolistbox').innerHTML 
 			+= `<img 	onclick="onEmoSend(${i})" 
-						src="/jspweb/img/imoji/emo${i}.gif" />`;
+						src="/seolhwamin/img/imoji/emo${i}.gif" />`;
 	}
 }
 // 7. 클릭한 이모티콘 서버로 보내기.
@@ -148,7 +148,7 @@ function typeHTML( msg ){
 	}
 	// 2. 이모티콘 타입 일때는 <img> 반환 
 	else if( msg.type == 'emo' ){
-		html += `<img src="/jspweb/img/imoji/emo${msg.content}.gif" />`;
+		html += `<img src="/seolhwamin/img/imoji/emo${msg.content}.gif" />`;
 	}
 	return html;
 	

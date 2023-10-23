@@ -1,22 +1,28 @@
 @charset "UTF-8";
 
 .visitwrap{
-	width: 500px; /* 구역 가로 사이즈 */
+	width: 1000px; /* 구역 가로 사이즈 */
 	margin: 0 auto; /* 가운데 정렬 */
 }
 
 .visit_Top{ /* 쓰기 구역  */
 	display: flex; /* 하위 요소들의 가로배치 */
-	margin: 30px 0px;
+	margin-left: 250px;
+	height: 100px;
 }
-
+.vimg{
+	width: 50px;
+    height: 50px;
+    border: solid 1px #e8e8e8;
+    border-radius: 50%;
+}
 .visit_Inputs input { /* 쓰기 구역 input */
 	width: 100px;
 	padding: 5px; /* 안쪽 여백 */ 
 	border: 1px solid #e8e8e8; /* 테두리 */
 }
 .visit_Top textarea{ /* 쓰기 구역의 textarea  */
-	width: 100%;
+	width: 60%;
 	padding: 5px;
 	border: 1px solid #e8e8e8;	
 	resize: none; /* textarea의 사이즈 변경 불가 */
@@ -40,7 +46,8 @@
  }
  /* 작성일 표시 구역 */
 .visitdate{
-	font-size: 9px;
+	margin-top: 10px;
+	font-size: 14px;
 }
 /* 상단 */
 .visitbox_top{
@@ -48,17 +55,23 @@
 }
 /* 내용물 */
 .visitbox_center{
-	width: 60%;
+	width: 80%;
 	margin : 0px 10px;
 }
 /* 버튼구역 */ 
 .visitbox_bottom{
-	width: 20%;
+	flex-direction: column;
+    display: flex;
+    width: 10%;
+    align-items: flex-end;
+    margin-right: 10px;
+
 }
 .visitbox_bottom button{
-	width: 100%;
-	background-color: black;
-	color:white;
+	margin-top:10px;
+	width: 50%;
+	background-color: #C7CBFF;
+	color: white;
 	border: none;
 }
  

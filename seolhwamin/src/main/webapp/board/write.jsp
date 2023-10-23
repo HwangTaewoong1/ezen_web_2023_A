@@ -46,6 +46,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/lang/summernote-ko-KR.min.js"></script>
 
 	<script src="../js/board/write.js" type="text/javascript"></script>
-
+	<%@include file = "../footer.jsp" %>
 </body>
 </html>

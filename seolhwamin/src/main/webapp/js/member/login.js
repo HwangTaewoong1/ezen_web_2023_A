@@ -8,12 +8,12 @@ function login(){
 		// 2-1 : 로그인성공시 index.jsp 이동 
 		// 		: 로그인실패시 'logincheckbox' 실패 알림
 	$.ajax({
-		url : "/jspweb/MemberFindController" ,
+		url : "/seolhwamin/MemberFindController" ,
 		method : "post", 
 		// get메소드는 전송하는 data노출O(보안취약) post메소드는 전송하는 data노출X(보안)
 		data : { mid : mid , mpwd : mpwd } ,
 		success : r => { 
-			if( r ){ location.href="/jspweb/index.jsp";}
+			if( r ){ location.href="/seolhwamin/seolhwaminS2.jsp";}
 			else{ 
 					document.querySelector('.logincheckbox')
 						.innerHTML = '동일한 회원정보가 없습니다.'; 

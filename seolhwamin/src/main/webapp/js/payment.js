@@ -26,7 +26,7 @@ function setPoint ( mpamount , mpcomment ){
 function getPoint (){
 	if( loginState == false ){ return; }
 	$.ajax({
-		url : "/jspweb/PointController" ,
+		url : "/seolhwamin/PointController" ,
 		method : "get" ,
 		data : { type : 1 } ,
 		success : result =>{ console.log(result); },
@@ -38,7 +38,7 @@ function getPoint (){
 function getPointList (){
 	if( loginState == false ){ return; }
 	$.ajax({
-		url : "/jspweb/PointController" ,
+		url : "/seolhwamin/PointController" ,
 		method : "get" ,
 		data : { type : 2 } ,
 		success : result =>{ console.log(result); },

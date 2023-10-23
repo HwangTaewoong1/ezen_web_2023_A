@@ -3,22 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="./img/눈송이.ico">
 <meta charset="UTF-8">
-<title>Insert title here</title>
-	<link href="/jspweb/css/member/header.css" rel="stylesheet">
+<title>눈송이 월드 헤더</title>
+	<link href="/seolhwamin/css/member/header.css" rel="stylesheet">
 </head>
 <body>
 	<!-- 헤더 -->
 	<div id="header">	
 		
 		<div class=mainlogo> <!-- 로고 -->
-			<a href="/jspweb/index.jsp">
-				<img alt="" src="/jspweb/img/눈송이월드.png" />
+			<a href="/seolhwamin/seolhwaminS2.jsp">
+				<img alt="" src="/seolhwamin/img/눈송이월드.png" />
 			</a>
 		</div>
 		<ul class="mainmenu"> 	<!-- 본메뉴 -->
-			<li> <a href="/jspweb/visitlog/visitlog.jsp">1000일 축하해!</a> </li>
-			<li> <a href="/jspweb/board/list.jsp">자유 게시판</a> </li>
+			<li> <a href="/seolhwamin/1000Day/1000Day.jsp"> 화민이의 1000일을 축하합니다!</a> </li>
+			<li> <a href="/seolhwamin/board/list.jsp">자유 게시판</a> </li>
 
 		</ul>
 		<!-- 서브메뉴 : js에서 로그인상태에 따라 html 구성 대입 -->
@@ -28,7 +29,7 @@
 	
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script  src="/jspweb/js/member/header.js"></script>
+	<script  src="/seolhwamin/js/member/header.js"></script>
 	
 </body>
 </html>

@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.dao.VisitDao;
 import model.dto.VisitDto;
+import model.dto.MemberDto;
 
 @WebServlet("/VisitLogController") // 해당 서블릿(자바)/컨트롤러 클래스를 호출하는 HTTP 매핑주소
 public class VisitLogController extends HttpServlet {
@@ -25,10 +26,14 @@ public class VisitLogController extends HttpServlet {
 		// 1. AJAX의 data속성에 있는 객체 정보(속성명이용) 를 요청 하기 
 		//request.getParameter("객체의속성명");
 		String vwriter = request.getParameter("vwriter");	System.out.println( "vwriter : " + vwriter);
-		String vpwd = request.getParameter("vpwd");			System.out.println( "vpwd : " + vpwd);
 		String vcontent = request.getParameter("vcontent");	System.out.println( "vcontent : " + vcontent);
+		// 세션에서 값가져오기 
+		Object object = request.getSession().getAttribute("loginDto");
+		MemberDto memberDto = (MemberDto)object;
+		
+		String vimg = memberDto.getMimg();
 		// 2. 객체화 
-		VisitDto  visitDto = new VisitDto(vwriter, vpwd, vcontent);	System.out.println("visitDto : " + visitDto);
+		VisitDto visitDto = new VisitDto(vwriter, vcontent , vimg);	System.out.println("visitDto : " + visitDto);
 		// 3. DAO 객체 전달후 결과 응답받고 
 		boolean result = VisitDao.getInstance().vwrite(visitDto);
 		// 4. 결과를 AJAX에게 응답한다. 
@@ -59,10 +64,9 @@ public class VisitLogController extends HttpServlet {
 			// request.getParameter("속성명"); String 변환
 		int vno = Integer.parseInt(request.getParameter("vno")); System.out.println( "vno : " + vno );
 		String vcontent = request.getParameter("vcontent"); System.out.println( "vcontent : " + vcontent );
-		String vpwd = request.getParameter("vpwd"); System.out.println( "vpwd : " + vpwd );
 		// 2. (데이터 많으면)객체화
 		// 3. Dao에게 전달후 SQL결과를 받는다.
-		boolean result = VisitDao.getInstance().vupdate(vno, vcontent, vpwd);
+		boolean result = VisitDao.getInstance().vupdate(vno, vcontent);
 		// 4. 결과를 AJAX에게 전달한다.
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().print(result);
@@ -74,7 +78,7 @@ public class VisitLogController extends HttpServlet {
 		String vpwd = request.getParameter("vpwd");
 		// 2. (데이터 많으면)객체화
 		// 3. Dao에게 전달후 SQL결과를 받는다.
-		boolean result = VisitDao.getInstance().vdelete(vno, vpwd);
+		boolean result = VisitDao.getInstance().vdelete(vno);
 		// 4. 결과를 AJAX에게 전달한다.
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().print(result);

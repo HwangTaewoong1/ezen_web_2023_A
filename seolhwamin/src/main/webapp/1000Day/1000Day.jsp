@@ -3,10 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="icon" href="../img/눈송이.ico">
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>화민이의 1000일을 축하합니다!</title>
 	
 	<!-- css import -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 	<link href="visitlog.css" rel="stylesheet" />
 	
 </head>
@@ -18,12 +20,10 @@
 	<div class="visitwrap"> <!-- 전체구역 -->
 	
 		<div class="visit_Top"> <!-- 쓰기 구역  -->
-			<div class="visit_Inputs">
-				<input class="vwriter" 	type="text" placeholder="작성자">
-				<input class="vpwd" 	type="text" placeholder="비밀번호">
-			</div>
-			<textarea class="vcontent" placeholder="방문록내용"></textarea>
+			
+			<textarea class="vcontent" placeholder="화민이의 1000일을 축하해주세요!"></textarea>
 			<button onclick="vwrite()" type="button">등록</button>
+			
 		</div>
 	
 		<div class="visit_Bottom"> <!-- 출력 구역  -->
@@ -39,6 +39,6 @@
 	<!-- js import -->
 	<script src="visitlog.js" type="text/javascript"></script>
 	
-	
+	<%@include file ="../footer.jsp" %>
 </body>
 </html>

@@ -9,7 +9,7 @@ findByTop( 10 ); // 메인페이지에 최신등록된 제품 10개출력
 // 1. N개 제품들을 최신순으로 출력 함수 
 function findByTop( count ) {
 	$.ajax({
-		url : "/jspweb/ProductInfoController" , method : "get" , 
+		url : "/seolhwamin/ProductInfoController" , method : "get" , 
 		data : { type: "findByTop" , count : count } ,
 		success : jsonArray => { console.log( jsonArray ) 
 			let productBox = document.querySelector('.productBox')
@@ -18,8 +18,8 @@ function findByTop( count ) {
 					let firstImg = Object.values( p.imgList )[0];
 					html += `<div class="col">
 							    <div class="card" style="height:450px; border: none;">
-							      <a href="/jspweb/product/view.jsp?pno=${ p.pno }" >
-							     	 <img src="/jspweb/product/img/${firstImg}" class="card-img-top" alt="..." style="height:300px; border-radius: 50px; box-shadow: 0px 0px 5px #e8e8e8;">
+							      <a href="/seolhwamin/product/view.jsp?pno=${ p.pno }" >
+							     	 <img src="/seolhwamin/product/img/${firstImg}" class="card-img-top" alt="..." style="height:300px; border-radius: 50px; box-shadow: 0px 0px 5px #e8e8e8;">
 							      </a>
 							      <div class="card-body">
 							        <h5 class="card-title">${ p.pname }</h5>

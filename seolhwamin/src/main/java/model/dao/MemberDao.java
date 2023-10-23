@@ -4,12 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import model.dto.MemberDto;
-import model.dto.mpointDto;
+
 
 public class MemberDao extends Dao {
 	// 0. 싱글톤
@@ -20,12 +21,13 @@ public class MemberDao extends Dao {
 	// 1. 회원가입
 	public boolean signup( MemberDto dto ) {
 		try {
-			String sql = "insert into member( mid , mpwd , memail , mimg ) values( ? , ? , ? , ? )";
+			String sql = "insert into member( mid , mpwd , memail , mimg , mnickname ) values( ? , ? , ? , ? , ? )";
 			ps = conn.prepareStatement(sql);
 			ps.setString( 1 , dto.getMid() );
 			ps.setString( 2 , dto.getMpwd() );
 			ps.setString( 3 , dto.getMemail() );
 			ps.setString( 4 , dto.getMimg() );
+			ps.setString(5 , dto.getMnickname());
 			int row = ps.executeUpdate();
 			if( row == 1 )return true;
 		}catch (Exception e) {System.out.println(e);}
@@ -43,13 +45,48 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	// 3. 아이디찾기
-	
+	public String findId(String memail) {
+ 		String foundId = null;
+        try {
+            String sql = "SELECT mid FROM member WHERE memail = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, memail);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                foundId = rs.getString("mid");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+        	System.out.println("Dao foundId : " + foundId);
+        }
+        return foundId;
+    }
 	// 4. 비밀번호찾기 
-	
+	 public String findPw(String mid, String memail) {
+         String foundPwd = null;
+         try {
+             String sql = "SELECT mpwd FROM member WHERE mid = ? AND memail = ?";
+             ps = conn.prepareStatement(sql);
+             ps.setString(1, mid);
+             ps.setString(2, memail);
+             rs = ps.executeQuery();
+
+             if (rs.next()) {
+                 foundPwd = rs.getString("mpwd");
+             }
+         } catch (SQLException e) {
+             e.printStackTrace();
+         } finally {
+             // 연결, pstmt, rs 닫기
+         }
+         return foundPwd;
+     }
 	// 5. 내정보 호출 
 	public MemberDto info( String mid ) {
 		try {
-			String sql ="select mno , mid , memail , mimg from member where mid = ?";
+			String sql ="select mno , mid , memail , mimg , mnickname from member where mid = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setString( 1 , mid );
 			rs = ps.executeQuery();
@@ -58,7 +95,8 @@ public class MemberDao extends Dao {
 						LocalDateTime.now().toString() , 
 						// LocalDateTime.now().toString() : 현재 날짜/시간 문자열 반환 함수 
 						rs.getInt(1), rs.getString(2),
-						rs.getString(3), rs.getString(4));
+						rs.getString(3), rs.getString(4),
+						rs.getString(5));
 				return memberDto;
 			}
 		}catch (Exception e) { System.out.println(e ); }
@@ -102,97 +140,6 @@ public class MemberDao extends Dao {
 		return false; // 회원번호 또는 입력받은 패스워드 일치하지 않거나
 	}
 	
-	// 9. 포인트 사용[증감/차감] 에 대한 함수 [ 인수: mpno식별번호 , mno회원번호 , mpamount포인트수 , mpcomment지급내역 vs mpointDto ]
-	public boolean setPoint( mpointDto dto ) {
-		try {
-			String sql = "insert into mpoint(mpno,mno,mpamount,mpcomment)values(?,?,?,?)";
-			ps = conn.prepareStatement(sql);
-			ps.setString( 1 , dto.getMpno() ); 			ps.setInt( 2 , dto.getMno() );
-			ps.setLong( 3 , dto.getMpamount() );		ps.setString( 4 , dto.getMpcomment() );
-			int count = ps.executeUpdate();
-			if( count == 1 ) { return true; }
-		}catch (Exception e) { e.getStackTrace();		} return false;
-	} 
-	// 10. 내 포인트 수 확인 함수 [ 로그인한 사람의 현재 포인트 합계 ] [ 인수: mno회원번호 ]
-	public long getPoint( int mno ) {
-		try {		// sum( 필드명 )  : 총합계를 계산할 필드명 인수로 대입
-			String sql = "select sum( mpamount ) from mpoint where mno = ?";
-			ps = conn.prepareStatement(sql);
-			ps.setInt( 1 , mno );
-			rs = ps.executeQuery();
-			if( rs.next() ) { return rs.getInt( 1 ); } 
-		}catch (Exception e) { e.getStackTrace();		} return 0;
-	}
-	// 11. 내 포인트 사용 내역 전체 출력하는 함수  [ 인수: mno회원번호 ]
-	public List< mpointDto > getPointList(  int mno  ){
-		List< mpointDto > list = new ArrayList<>();
-		try {
-			String sql = "select * from mpoint where mno = ? ";
-			ps = conn.prepareStatement(sql);
-			ps.setInt( 1 , mno );
-			rs = ps.executeQuery();
-			while( rs.next() ) { 
-				mpointDto dto = new mpointDto( rs.getString(1), rs.getInt(2), 
-						rs.getLong(3), rs.getString(4), rs.getString(5) );
-				list.add( dto );
-			}  
-		}catch (Exception e) { e.getStackTrace();		} return list;
-	}
-}
-/*
+	
 
-		JDBC : JAVA 와 DB 간의 연동 라이브러리 [ mysql-connector-j-8.1.0.jar ]
-				1. Connection	
-				2. PreparedStatement
-				3. ResultSet		
-				- DriverManager.getConnection(연동할 DB주소)
-				
-				
-				1. 연동 :  new MemberDao();싱글톤생성
-					-------------------------------------
-							스트림[ 데이터 다니는 통로 ] 					DB서버
-	JAVA					DriverManager.getConnection					localhost:3306
-					-------------------------------------
-					
-				2. 연동 결과 [ 싱글톤이 사라기전까지는 연동중 ]
-					-------------------------------------
-	JAVA						Connection conn						DB서버
-					-------------------------------------
-					
-				3. 연동 결과 [ SQL 대입해서 PreparedStatement   ]
-					-------------------------------------
-	JAVA						prepareStatement(SQl)				DB서버
-					-------------------------------------	
-					
-				4. SQL 조작/준비 [ SQL 대입해서 PreparedStatement   ]
-					-------------------------------------
-	JAVA	ps														DB서버
-					-------------------------------------	
-			SQL 가공
-			set( 1 , ~~ );		
-			
-				5. SQL 실행 [ SQL 대입해서 PreparedStatement   ]
-					-------------------------------------
-	JAVA	ps			ps.executeQuery();	ResultSet						DB서버
-						ps.executeUpdate();	int
-					-------------------------------------	
-	
-	
-				5. SQL 실행에 SQL결과값/ 레코드 반환 [ SQL 대입해서 PreparedStatement   ]
-					-------------------------------------
-	JAVA	ResultSet	ResultSet[ 질의한 결과의 여러개레코드 ]										DB서버
-						int[ update 레코드 개수 반환 ]
-					-------------------------------------	
-		
-		ResultSet 
-			null --- rs.next()---> 찾은1행 레코드 ----rs.next()--> 찾은2행 레코드 ---rs.next()---> 찾은3행 레코드
-									로그인														
-									제품1개														여러개 출력 
-									아이디찾기
-									비밀번호찾기 
-			if( rs.next() ) 
-			while( rs.next() )
-			
-		
-	
- */
+}

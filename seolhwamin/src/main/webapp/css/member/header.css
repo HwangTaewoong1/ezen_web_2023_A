@@ -9,7 +9,7 @@
 	font-family: 'omyu_pretty';
 }
 /* 2. a 태그 색상 , 밑줄제거 */
-a{ color: black; text-decoration: none; }
+a{ color:#C7CBFF; text-decoration: none; }
 /* 3. 외부폰트 = 눈누 https://noonnu.cc/ */ 
 @font-face {
     font-family: 'omyu_pretty';

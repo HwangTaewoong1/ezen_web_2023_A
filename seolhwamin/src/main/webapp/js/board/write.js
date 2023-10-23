@@ -22,7 +22,7 @@ function bwrite(){
 	let formData = new FormData( form );
 	// 3. ajax로 대용량 form 전송하기 
 	$.ajax({
-		url : "/jspweb/BoardInfoController" , 
+		url : "/seolhwamin/BoardInfoController" , 
 		method: "post" , 
 		data : formData ,
 		contentType : false , 
@@ -31,7 +31,7 @@ function bwrite(){
 			
 			if( r ){
 				alert('글등록 성공');
-				location.href="/jspweb/board/list.jsp";
+				location.href="/seolhwamin/board/list.jsp";
 			}else{
 				alert('글등록 실패 ');
 			}

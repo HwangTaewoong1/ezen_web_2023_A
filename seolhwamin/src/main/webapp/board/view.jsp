@@ -20,7 +20,7 @@
 	<!-- JSP파일안에 다른 JSP 파일 import 하기 -->
 	<%@include file = "../footer.jsp" %>
 	
-	<script src="/jspweb/js/board/view.js" type="text/javascript"></script>
+	<script src="/seolhwamin/js/board/view.js" type="text/javascript"></script>
 
 
 </body>

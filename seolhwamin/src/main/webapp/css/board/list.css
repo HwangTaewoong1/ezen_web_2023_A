@@ -50,7 +50,7 @@
 	display: flex; justify-content: space-between; margin: 20px 0px; 
 }
 .bbtn{
-	border: none; background-color: black;	color: white;
+	border: none; background-color: #C7CBFF;	color: white;
 	width: 100px; padding: 5px 20px; border-radius: 8px;
 	font-size: 15px;
 }
@@ -72,5 +72,5 @@
 }
 .selectpage{
 	width: 30px; height: 30px; border-radius:50%; /* 원형 */
-	background-color: #75C1CF !important; /* 다른 css 속성이 겹쳤을때 최우선 */
+	background-color: #C7CBFF !important; /* 다른 css 속성이 겹쳤을때 최우선 */
 }

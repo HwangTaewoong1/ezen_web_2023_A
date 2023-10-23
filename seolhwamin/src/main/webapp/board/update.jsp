@@ -46,6 +46,6 @@
 
 	<script src="../js/board/update.js" type="text/javascript"></script>
 
-
+	<%@include file = "../footer.jsp" %>
 </body>
 </html>
