@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.title{
+	display: block;
+   width: 88px;
+   height: 27px;
+   margin: 0 auto;
+   background: #fff url(/images/pc/logo_kakao.png) no-repeat 0 0;
+   background-size: 100px 80px;
+   font-size: 35px;
+   line-height: 27px;
+   text-align: center;
+   font-family: "굴림";
+   margin-bottom: 35px;
+   margin-top: 50px;
+   
+}
+
+.content1 {
+	padding-top:50px;
+	margin-top:50px;
+	margin: 0 auto;
+   	border : solid 1px #DDDDDD;
+  	width : 475px; height : 330px;
+   	padding:60px;
+}
+.content1 .idpw{
+		font-size: 18px;
+		border: 10px;
+		width : 475px;
+		border-bottom: solid 2px #c0c0c0;
+		padding-bottom: 10px;
+		font-weight: normal;
+}
+.content1 .radiobox{
+	text-align: left;
+	margin-bottom: 40px;
+	margin-top: 10px;
+	font-family: "굴림";
+	font-weight: 500;
+	
+	
+	
+}
+.content1 .Login{
+	width : 480px;
+	margin-bottom: 23px;
+	padding: 16px;
+	border-radius: 5px;
+	font-size: 15px;
+	border : 0px;
+	font-weight:normal;
+	background-color: #fee500;
+}
+.content1 .QR{
+	width : 480px;
+	margin-bottom: 10px;
+	padding: 12px;
+	border-radius: 5px;
+	font-size: 15px;
+	border : 0px;
+	font-weight:normal;
+}
+.content1 .ok{
+	border: 0px;
+}
+.content1 .okay{
+	margin-left:225px;
+	border: 0px;
+	background-color: #ffffff;
+	font-weight: 500;
+}
+.content1 .okay2{
+	border: 0px;
+	background-color: #ffffff;
+	font-weight: 500;
+	border-left: solid 1px #dadada;
+	height:18px;
+	margin-top: 10px;
+}
+.content2{
+	width:600px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.content2 .service1{
+	padding-top:12px;
+	background-color: #ffffff;
+	border: 0px;
+	font-size: 12px;
+	padding-left: 70px;
+}
+.content2 .service{
+	padding-left:-10px;
+	padding-top:12px;
+	background-color: #ffffff;
+	border: 0px;
+	font-size: 12px;
+}
+.content2 .service2{
+	padding-top:12px;
+	padding-left:-10px;
+	background-color: #ffffff;
+	border: 0px;
+	font-size: 12px;
+	font-weight: bold;
+	
+}
+.content2 .service6{
+	padding-top:12px;
+	padding-left:-10px;
+	background-color: #ffffff;
+	border: 0px;
+	font-size: 12px;
+}
+.Copy{
+	color:gray;
+	padding-left:50px;
+	padding-top:12px;
+	width:300px;
+	margin: 0 auto;
+	font-size: 11px;
+	font-weight: normal;
+}
+span{
+	font-weight:bold;
+	color:black;
+}

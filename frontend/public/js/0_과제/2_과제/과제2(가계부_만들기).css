@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.input{width: 200px; height:200px;
+margin: 0 auto;
+display:block;
+border: 1px solid gray;
+padding:20px 50px 50px 50px;
+text-align: center;
+align-items: center;
+}
+
+table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      width: 500px;
+}
+.button{
+	width: 150px;
+    margin: 25px 25px 40px 25px;
+}
+th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+}
+
+th {
+	background-color: #e8e8e8;
+}
+
+.delete-button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+}
+
+#total-row {
+      font-weight: bold;
+}
