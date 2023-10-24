@@ -13,10 +13,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import model.dao.BoardDao;
+
 import model.dao.NoticeBoardDao;
-import model.dto.BoardDto;
 import model.dto.MemberDto;
+import model.dto.NoticeBoardDto;
 import model.dto.PageDto;
 import service.FileService;
 
@@ -80,9 +80,9 @@ public class NoticeBoardInfoController extends HttpServlet {
 
 			// ----------------------- 6. pageDto 구성 ---------------- //
 
-			ArrayList<BoardDto> result = NoticeBoardDao.getInstance().getList(bcno, listsize, startrow, key, keyword);
+			ArrayList<NoticeBoardDto> result = NoticeBoardDao.getInstance().getList(bcno, listsize, startrow, key, keyword);
 
-			PageDto pageDto = new PageDto(page, listsize, startrow, totalsize, totalpage, startbtn, endbtn, result);
+			PageDto pageDto = new PageDto(result, page, listsize, startrow, totalsize, totalpage, startbtn, endbtn);
 
 			json = objectMapper.writeValueAsString(pageDto);
 
@@ -90,7 +90,7 @@ public class NoticeBoardInfoController extends HttpServlet {
 			// 1.매개변수 요청
 			int bno = Integer.parseInt(request.getParameter("bno"));
 			// 2. DAO 처리
-			BoardDto result = NoticeBoardDao.getInstance().getBoard(bno);
+			NoticeBoardDto result = NoticeBoardDao.getInstance().getBoard(bno);
 
 			// 3. 만약에 ( 로그인 혹은 비로그인 )요청한한사람과 게시물작성한사람과 동일하면
 			Object object = request.getSession().getAttribute("loginDto");
@@ -136,10 +136,10 @@ public class NoticeBoardInfoController extends HttpServlet {
 		int bcno = Integer.parseInt(multi.getParameter("bcno"));
 		String mnickname = ((MemberDto) request.getSession().getAttribute("loginDto")).getMnickname();
 		// 2. 유효성검사/객체화
-		BoardDto boardDto = new BoardDto(btitle, bcontent, bfile, mno, bcno, mnickname);
-		System.out.println(boardDto);
+		NoticeBoardDto noticecboardDto = new NoticeBoardDto(btitle, bcontent, bfile, mno, bcno, mnickname);
+		System.out.println(noticecboardDto);
 		// 3. Dao 처리
-		boolean result = NoticeBoardDao.getInstance().bwrite(boardDto);
+		boolean result = NoticeBoardDao.getInstance().bwrite(noticecboardDto);
 		// 4. (Dao 결과) 응답
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().print(result);
@@ -160,13 +160,13 @@ public class NoticeBoardInfoController extends HttpServlet {
 
 		// 2* 수정할 게시물 식별키
 		int bno = Integer.parseInt(multi.getParameter("bno"));
-		BoardDto updateDto = new BoardDto(bno, btitle, bcontent, bfile, bcno);
+		NoticeBoardDto updateDto = new NoticeBoardDto(bno, btitle, bcontent, bfile, bcno);
 		System.out.println("수정dto : " + updateDto);
 
 		// * 만약에 수정할 첨부파일이 없으면 기존 첨부파일 그대로 사용
 		if (updateDto.getBfile() == null) {
 			// 기존첨부파일 호출해서 수정dto에 저장하기.
-			updateDto.setBfile(BoardDao.getInstance().getBoard(bno).getBfile());
+			updateDto.setBfile(NoticeBoardDao.getInstance().getBoard(bno).getBfile());
 		} else { // 만약에 수정할 첨부파일 있으면 기존 첨부파일은 서버업로드폴더에서 삭제
 
 			String filename = NoticeBoardDao.getInstance().getBoard(bno).getBfile();

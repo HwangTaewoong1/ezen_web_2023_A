@@ -14,6 +14,7 @@ public class PageDto {
 	// * 게시물 리스트 [ 조회된 결과 ]
 	ArrayList<BoardDto> boardList;
 	
+	ArrayList<NoticeBoardDto> noticeboardList;
 	public PageDto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -30,7 +31,18 @@ public class PageDto {
 		this.endbtn = endbtn;
 		this.boardList = boardList;
 	}
-
+	public PageDto( ArrayList<NoticeBoardDto> noticeboardList, int page, int listsize, int startrow, int totalsize, int totalpage, int startbtn, int endbtn) {
+		super();
+		this.noticeboardList = noticeboardList;
+		this.page = page;
+		this.listsize = listsize;
+		this.startrow = startrow;
+		this.totalsize = totalsize;
+		this.totalpage = totalpage;
+		this.startbtn = startbtn;
+		this.endbtn = endbtn;
+	}
+	
 	public int getPage() {
 		return page;
 	}
@@ -94,11 +106,20 @@ public class PageDto {
 	public void setBoardList(ArrayList<BoardDto> boardList) {
 		this.boardList = boardList;
 	}
+	
+	public ArrayList<NoticeBoardDto> getNoticeboardList() {
+		return noticeboardList;
+	}
+
+	public void setNoticeboardList(ArrayList<NoticeBoardDto> noticeboardList) {
+		this.noticeboardList = noticeboardList;
+	}
 
 	@Override
 	public String toString() {
 		return "PageDto [page=" + page + ", listsize=" + listsize + ", startrow=" + startrow + ", totalsize="
-				+ totalsize + ", totalpage=" + totalpage + ", startbtn=" + startbtn + ", endbtn=" + endbtn
+				+ totalsize + ", totalpage=" + totalpage + ", startbtn=" + startbtn + ", endbtn=" + endbtn + " , noticeboardList="
+				+ noticeboardList
 				+ ", boardList=" + boardList + "]";
 	}
 	

@@ -20,7 +20,7 @@
 		<form class="signupForm"> <!-- 폼 전송시 각 input에 name속성 -->
 			<div style="display: flex; margin-left: 60px;">
 			<img src="/seolhwamin/img/눈송이월드(white).png" style="width: 50px;">
-			<div syle="display:flex;">
+			<div style="display:flex;">
 			<h2> 눈송이 월드 들어가기</h2>
 			<p> 눈송이 월드에 온걸 환영해! </p>
 			</div>
