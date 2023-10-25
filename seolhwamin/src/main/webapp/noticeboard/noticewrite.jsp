@@ -23,7 +23,7 @@
 			<select name="bcno" class="bcno"> 
 						<option value="1"> 공지사항 </option> 
 					</select>	<br/>
-			<input type="text" name="btitle" class="btitle" placeholder="제목을 입력해 주세요." > <br/>
+			<input type="text" maxlength="30" name="btitle" class="btitle" placeholder="제목을 입력해 주세요." > <br/>
 			
 			<textarea id="summernote"  name="bcontent" class="bcontent"></textarea> <br/>
 			

@@ -17,12 +17,12 @@
 	<div class="webcontainer"> <!-- 회원가입 전체 구역  -->
 		<form class="signupForm"> <!-- 폼 전송시 각 input에 name속성 -->
 			<div style="display: flex; margin-left: 60px;">
-			<img src="/seolhwamin/img/눈송이월드(white).png" style="width: 50px;">
+			<img src="/seolhwamin/img/눈꽃.png" style="margin-top: 13px; margin-right:5px; width: 33px; height: 33px;">
 			<div>
 			<h2> 눈송이 월드 가입하기</h2>
 			<p> 눈송이 월드에 온걸 환영해! </p>
 			</div>
-			<img src="/seolhwamin/img/눈송이월드(white).png" style="width: 50px;">
+			<img src="/seolhwamin/img/눈꽃.png" style="margin-top: 13px; margin-left:5px; width: 33px; height: 33px;">
 			</div>
 			
 			<div class="intitle">아이디</div>

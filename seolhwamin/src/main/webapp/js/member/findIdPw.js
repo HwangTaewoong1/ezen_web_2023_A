@@ -12,7 +12,7 @@ $(document).ready(function () { // 아이디 찾기 함수
             dataType: "json",
             success: function (data) {
                 if (data && data.id) {
-                    $("#foundId").text(" 사용자 ID: " + data.id);
+                    $("#foundId").text(" 사용자 ID : " + data.id );
                 } else {
                     $("#foundId").text("유효한 ID를 찾을 수 없습니다.");
                 }
@@ -38,7 +38,7 @@ $(document).ready(function () { // 아이디 찾기 함수
         dataType: "json",
         success: function (data) {
             if (data && data.updated) {
-                $("#foundPwd").text("임시 비밀번호 "+ newPassword + " 가 발급되었습니다. 새로운 비밀번호로 로그인하시고 비밀번호를 변경해주세요.");
+                $("#foundPwd").text("임시 비밀번호 : "+ newPassword);
             } else {
                 $("#foundPwd").text("유효한 비밀번호를 찾을 수 없습니다.");
             }

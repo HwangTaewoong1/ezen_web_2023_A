@@ -3,6 +3,7 @@
 .visitwrap{
 	width: 1000px; /* 구역 가로 사이즈 */
 	margin: 0 auto; /* 가운데 정렬 */
+	min-height: 635px;
 }
 
 .visit_Top{ /* 쓰기 구역  */

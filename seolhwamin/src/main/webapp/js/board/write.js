@@ -36,7 +36,7 @@ function bwrite(){
 				alert('글등록 성공');
 				location.href="/seolhwamin/board/list.jsp";
 			}else{
-				alert('글등록 실패 ');
+				alert('글등록 실패');
 			}
 			
 		} , 

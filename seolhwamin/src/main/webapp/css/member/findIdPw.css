@@ -1,0 +1,60 @@
+@charset "UTF-8";
+.findbox{
+	width: 40%; margin: 0 auto; font-size: 15px;
+}
+.section{
+	border-radius: 2%;
+	margin: 20px 0px;
+	border: 1px solid #ccc;
+    text-align: center;
+    margin: 20px 0px 40px 0px;
+    padding: 20px 0px;
+    height: 230px;
+}
+#foundId , #foundPwd{
+	font-size: 20px;
+	margin-top: 10px;
+}
+#findIdNickname , #findIdEmail , #findPwMid  ,#findPwEmail{
+	padding: 5px 5px;
+	width: 250px;
+}
+#findIdEmail , #findPwEmail{
+	margin-top :15px;
+}
+.idbox{
+	display: flex;
+	flex-direction: column;
+}
+.idbox2{
+		margin-top: 20px;
+	    justify-content: center;
+		display: flex;
+}
+#findIdButton , #findPwButton{
+	width: 91px;
+	height: 90px;
+	color: #EFF8FF;
+	background-color: #C7CBFF;
+	border: 1px solid #ccc;
+	border-radius: 10%;
+	margin-left: 10px;
+	padding: 10px;
+}
+.button2{
+	text-align: center;
+	display: inline-block;
+	border-radius: 3%;
+	width: 228px;
+	height: 50px;
+	padding: 10px;
+	border: 1px soild;
+}
+.button3{
+	margin-right: 20px;
+}
+.findimg{
+	position: absolute;
+    bottom: 400px;
+    right: 300px;
+}
