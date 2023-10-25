@@ -15,27 +15,37 @@ h4{
 }
 
 .ullist{
+	overflow: hidden;
 	height: 500px;
 	padding: 0px !important;
 	margin: 0px !important;
 }
-
+.listimg{
+	width:24px;
+	height:24px;
+	margin-left :5px;
+}
 .visitbox{
+	
 	align-items: center;
 	display: flex;
-    height: 30px;
+    height: 55.5px;
     margin-bottom: 10px;
 }
 .vcontent{
+	padding-right: 80px;
 	display: inline-block;
     width: 400px;
     color: #343a40;
-    font-size: 15px;
+    font-size: 20px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.visitdate{font-size: 12px;}
+.visitdate{
+	font-size: 12px;
+	color:#6c757d
+	}
 .listbox{
 	width:500px;
 	margin: 15px 20px;

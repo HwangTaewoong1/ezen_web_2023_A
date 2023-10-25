@@ -53,7 +53,7 @@ function onUpdate(  ){
 		processData : false , 
 		success : r => {
 			if( r ){ alert('수정성공'); 
-				location.href=`/seolhwamin/noticeboard/view.jsp?bno=${bno}`;
+				location.href=`/seolhwamin/noticeboard/noticeview.jsp?bno=${bno}`;
 			} else{ alert('수정실패');}
 		} ,
 		error : e =>{console.log(e); }

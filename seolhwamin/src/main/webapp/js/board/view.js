@@ -19,29 +19,39 @@ function getBoard(){
 		success : r => {  console.log(r);
 			// 1. 
 			let boardBox = document.querySelector('.boardBox')
-			
+			let fileLink = r.bfile ? `<a href="/seolhwamin/FileDownLoad?filename=${r.bfile}">${r.bfile}</a>` : '첨부 파일 없음';
 			// 2. HTML 구성 
-			let html = `부가정보 : <div> 
-									${ r.bcname } , 
-									${ r.bview } , 
-									${ r.bdate } 
-								 </div>
-						부가정보2 : <div>  
-									${ r.mid }  , 
-									<img src="/seolhwamin/member/img/${ r.mimg }" width="50px" /> 
+			let html = `<div class="content_top">
+							<div class="content_top2"> 
+								<div class="btitle"> ${ r.btitle } </div>
+								<div class="top_left">
+									<div class="top_left2">
+									<div style="display:flex;">
+									<img src="/seolhwamin/member/img/${ r.mimg }" width="25px" /> 
+									<div style="margin-right:5px;"> ${ r.mnickname } </div>
+									</div>
+									<span style="color:#CCC"> | </span>
+									<div style="margin-left:5px;"> ${ r.bdate }  </div>
+									</div>
+									<div> 조회 ${ r.bview }  </div>
 								</div>
-						제목 : <div> ${ r.btitle } </div>
-						내용 : <div> ${ r.bcontent } </div>
-						첨부파일 : <div> <a href="/seolhwamin/FileDownLoad?filename=${r.bfile}"> ${ r.bfile } </a> </div>
+							</div> 
+							
+						</div>
+						<div class="content">${ r.bcontent }</div>
+						<div class="filebox">
+						<p style="margin: 0px 0px; !important">원본 첨부파일</p>
+						<div class="bfilebox">${fileLink}</div>
+						</div>
 						`
 						/* <a href=" HTTP get메소드방식 "> </a> */
 				
-				html += '<a href="list.jsp"><button type="button">목록보기</button></a>';
+				html += '<a href="list.jsp"><button class="bottom" type="button">목록보기</button></a>';
 				//. 3. 만약에 본인글 인지 제어 [ 본인글이면 수정/삭제 표시함 / 아니면 표시안함]
 				if( r.ishost ){
 					html += `
-						<button onclick="ondelete(${ r.bno })" type="button">삭제</button>
-						<button onclick="onUpdate(${ r.bno })" type="button">수정</button>
+						<button  class="bottom" onclick="ondelete(${ r.bno })" type="button">삭제</button>
+						<button  class="bottom" onclick="onUpdate(${ r.bno })" type="button">수정</button>
 						`
 				}
 			// 3.

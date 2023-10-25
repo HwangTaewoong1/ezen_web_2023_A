@@ -19,7 +19,11 @@
 		<!-- 1. 상단( 페이지 제목 ) -->
 		<div class="boardtop">
 			<h2> 자유 게시판 </h2>
+			<div style="display:flex; justify-content: center; ">
+			<img class="listimg" src="/seolhwamin/img/눈꽃.png">
 			<p> 눈송이들 놀이터 </p>
+			<img class="listimg" src="/seolhwamin/img/눈꽃.png">
+			</div>
 		</div>
 		
 		<!-- 2. 상단 부가 버튼 -->
@@ -40,7 +44,7 @@
 			<button onclick="onCategory(0)" class="bbtn" type="button"> 전체보기 </button>
 			<button onclick="onCategory(1)" class="bbtn" type="button"> 공지사항 </button>
 			<button onclick="onCategory(2)" class="bbtn" type="button"> 자유게시판 </button>
-			<button onclick="onCategory(3)" class="bbtn" type="button"> 노하우 </button>
+			<button onclick="onCategory(3)" class="bbtn" type="button"> 노하우/팁 </button>
 		</div>
 		
 		<!-- 4. 테이블 구역  -->
@@ -56,7 +60,7 @@
 				<!-- value="SQL에서 사용할 필드명 기준" -->
 				<option value="b.btitle" >제목</option>
 				<option value="b.bcontent" >내용</option>
-				<option value="m.mid">작성자</option>
+				<option value="m.mnickname">작성자</option>
 			</select>
 			<input class="keyword" type="text"> <!-- 검색 내용 -->
 			<button onclick="onSearch()" class="bbtn" type="button">검색</button>

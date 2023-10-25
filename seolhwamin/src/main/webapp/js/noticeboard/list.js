@@ -5,6 +5,7 @@ let pageOject = {
 	// * page : 조회할 페이지번호  // key : 검색할 기준 필드명 // keyword : 검색할 데이터
 }
 
+// 화민이만 글쓰기 가능 
 noticeWritebtn()
 function noticeWritebtn(){
 	if(loginMid == "seolhwamin"){
@@ -46,13 +47,13 @@ function getList( page ){ // page : 조회할 페이지번호
 						<th> 작성일 </th> </tr>` 
 				// * 서블릿으로부터 전달받은 내용[배열] 반복해서 html 구성
 				// 배열명.forEach( 반복변수명 => { 실행코드 } )			 // java ->  ,  js =>
-				pageDto.boardList.forEach( b => {
+				pageDto.noticeboardList.forEach( b => {
 					html += `<tr> 
 								<td> ${ b.bno } </td> 
 								<td> ${ b.bcname } </td>
-								<td> <a href="/seolhwamin/board/view.jsp?bno=${ b.bno }"> ${ b.btitle } </a> </td> 
+								<td> <a href="/seolhwamin/noticeboard/noticeview.jsp?bno=${ b.bno }"> ${ b.btitle } </a> </td> 
 								<td> 
-									<img style="width:20px; height:20px; border-radius: 50%;" src="/seolhwamin/img/${ b.mimg }"/>
+									<img style="width:20px; height:20px; border-radius: 50%;" src="/seolhwamin/member/img/${ b.mimg }"/>
 									${ b.mnickname } 
 								</td> 
 								<td> ${ b.bview } </td>

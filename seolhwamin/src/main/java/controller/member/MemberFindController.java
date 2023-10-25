@@ -60,8 +60,9 @@ public class MemberFindController extends HttpServlet {
  				 
  	            if (type.equals("findId")) {
  	                // 아이디 찾기 로직
- 	                String memail = request.getParameter("data");				System.out.println("로직 안 memail : " + memail);
- 	                String foundId = MemberDao.getInstance().findId(memail);	System.out.println("로직 안 foundId : " + foundId);
+ 	                String memail = request.getParameter("memail");				System.out.println("로직 안 memail : " + memail);
+ 	               String mnickname = request.getParameter("mnickname");		System.out.println("로직 안 mnickname : " + mnickname);
+ 	                String foundId = MemberDao.getInstance().findId(memail , mnickname);	System.out.println("로직 안 foundId : " + foundId);
 
  	                JSONObject jsonResponse = new JSONObject();
  	                try {
@@ -73,48 +74,51 @@ public class MemberFindController extends HttpServlet {
  	                response.setContentType("application/json");
  	                response.getWriter().write(jsonResponse.toString());
 
- 	            } else if (type.equals("findPw")) {
- 	                // 비밀번호 찾기 로직
- 	                String mid = request.getParameter("data1"); System.out.println("mid : " + mid);
- 	                String memail = request.getParameter("data2"); System.out.println("memail : " + memail);
- 	                String foundPwd = MemberDao.getInstance().findPw(mid, memail);
-
- 	                JSONObject jsonResponse = new JSONObject();
- 	                try {
- 						jsonResponse.put("pwd", foundPwd);
- 					} catch (JSONException e) {
- 						// TODO Auto-generated catch block
- 						e.printStackTrace();
- 					}
-
- 	                response.setContentType("application/json");
- 	                response.getWriter().write(jsonResponse.toString());
  	            }
  	}
 	
 	// 로그인 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 매개변수 요청 
-		String mid = request.getParameter("mid");
-		String mpwd = request.getParameter("mpwd");
-		// 2. (객체화/유효성검사)
-		// 3. DAO 에게 전달후 결과 받기 
-		boolean result = MemberDao.getInstance().login(mid, mpwd);
+		String type = request.getParameter("type"); System.out.println("Type : " + type);
 		
-		// - 만약에 로그인 성공하면 세션에 로그인한 정보담기
-		if( result == true) {
-			// 1. 세션에 저장할 데이터 만들기
-			MemberDto loginDto = MemberDao.getInstance().info(mid);
-			// 2. 세션에 저장한다.
-			request.getSession().setAttribute( "loginDto" , loginDto );
-			// * 세션 상태 확인
-			MemberDto dto = (MemberDto)request.getSession().getAttribute("loginDto"); // 부모인 Object가 자식의 객체를 따라가려면 강제로 형변환을 해줘야함 (MemberDto)
-			System.out.println( dto );
-		}
+		if(type.equals("login")) {
+			String mid = request.getParameter("mid");
+			String mpwd = request.getParameter("mpwd");
+			// 2. (객체화/유효성검사)
+			// 3. DAO 에게 전달후 결과 받기 
+			boolean result = MemberDao.getInstance().login(mid, mpwd);
 		
-		// 4. 결과를 응답한다.
-		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().print(result); 
+			// - 만약에 로그인 성공하면 세션에 로그인한 정보담기
+			if( result == true) {
+				// 1. 세션에 저장할 데이터 만들기
+				MemberDto loginDto = MemberDao.getInstance().info(mid);
+				// 2. 세션에 저장한다.
+				request.getSession().setAttribute( "loginDto" , loginDto );
+				// * 세션 상태 확인
+				MemberDto dto = (MemberDto)request.getSession().getAttribute("loginDto"); // 부모인 Object가 자식의 객체를 따라가려면 강제로 형변환을 해줘야함 (MemberDto)
+				System.out.println( dto );
+				
+				// 4. 결과를 응답한다.
+				response.setContentType("application/json;charset=UTF-8");
+				response.getWriter().print(result); 
+			}	
+		}else if (type.equals("resetPw")) {
+             String mid2 = request.getParameter("data1");  System.out.println("로직 안 mid : " + mid2);
+            String memail = request.getParameter("data2");  System.out.println("로직 안 memail : " + memail);
+            String newPassword = request.getParameter("newPassword"); System.out.println("로직 안 newPassword : " + newPassword); // 새 비밀번호 가져오기
+
+            boolean updated = MemberDao.getInstance().resetPw(mid2, memail, newPassword);
+
+            JSONObject jsonResponse = new JSONObject();
+            try {
+				jsonResponse.put("updated", updated);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+            response.setContentType("application/json");
+            response.getWriter().write(jsonResponse.toString());
+        }
 	}
 }
 

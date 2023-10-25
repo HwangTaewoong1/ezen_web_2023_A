@@ -42,7 +42,7 @@ function getList( page ){ // page : 조회할 페이지번호
 								<td> ${ b.bcname } </td>
 								<td> <a href="/seolhwamin/board/view.jsp?bno=${ b.bno }"> ${ b.btitle } </a> </td> 
 								<td> 
-									<img style="width:20px; height:20px; border-radius: 50%;" src="/seolhwamin/img/${ b.mimg }"/>
+									<img style="width:20px; height:20px; border-radius: 50%;" src="/seolhwamin/member/img/${ b.mimg }"/>
 									${ b.mnickname } 
 								</td> 
 								<td> ${ b.bview } </td>

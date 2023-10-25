@@ -119,7 +119,7 @@ public class NoticeBoardInfoController extends HttpServlet {
 			throws ServletException, IOException {
 		// 0. 첨부파일 업로드 [ cos.jar -> MultipartRequest 클래스 ]
 		MultipartRequest multi = new MultipartRequest(request, // 요청방식
-				request.getServletContext().getRealPath("/board/upload"), // 저장경로 // 저장경로
+				request.getServletContext().getRealPath("/noticeboard/upload"), // 저장경로 // 저장경로
 				1024 * 1024 * 1024, // 업로드허용용량[바이트] 1GB
 				"UTF-8", // 인코딩타입
 				new DefaultFileRenamePolicy() // 만약에 업로드파일명이 서버내 존재하면(중복) 자동으로 파일명뒤에 숫자 붙이기

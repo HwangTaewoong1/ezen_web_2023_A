@@ -45,12 +45,13 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	// 3. 아이디찾기
-	public String findId(String memail) {
+	public String findId(String memail , String mnickname) {
  		String foundId = null;
         try {
-            String sql = "SELECT mid FROM member WHERE memail = ?";
+            String sql = "SELECT mid FROM member WHERE memail = ? and mnickname = ?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, memail);
+            ps.setString(2, mnickname);
             rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -63,30 +64,32 @@ public class MemberDao extends Dao {
         }
         return foundId;
     }
-	// 4. 비밀번호찾기 
-	 public String findPw(String mid, String memail) {
-         String foundPwd = null;
-         try {
-             String sql = "SELECT mpwd FROM member WHERE mid = ? AND memail = ?";
-             ps = conn.prepareStatement(sql);
-             ps.setString(1, mid);
-             ps.setString(2, memail);
-             rs = ps.executeQuery();
+	// 4. 비밀번호찾기 임시비밀번호 업데이트 
+	public boolean resetPw(String mid, String memail, String newPassword) {
+	    boolean updated = false;
+	    try {
+	        // 데이터베이스에서 비밀번호 업데이트 로직을 구현합니다.
+	        String sql = "UPDATE member SET mpwd = ? WHERE mid = ? AND memail = ?";
+	        ps = conn.prepareStatement(sql);
+	        ps.setString(1, newPassword);
+	        ps.setString(2, mid);
+	        ps.setString(3, memail);
+	        int rowsUpdated = ps.executeUpdate();
 
-             if (rs.next()) {
-                 foundPwd = rs.getString("mpwd");
-             }
-         } catch (SQLException e) {
-             e.printStackTrace();
-         } finally {
-             // 연결, pstmt, rs 닫기
-         }
-         return foundPwd;
-     }
+	        if (rowsUpdated > 0) {
+	            updated = true;
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        // 리소스를 닫습니다.
+	    }
+	    return updated;
+	}
 	// 5. 내정보 호출 
 	public MemberDto info( String mid ) {
 		try {
-			String sql ="select mno , mid , memail , mimg , mnickname from member where mid = ?";
+			String sql ="select mno , mid , memail , mimg , mnickname , mpwd from member where mid = ?";
 			ps = conn.prepareStatement(sql);
 			ps.setString( 1 , mid );
 			rs = ps.executeQuery();
@@ -96,7 +99,7 @@ public class MemberDao extends Dao {
 						// LocalDateTime.now().toString() : 현재 날짜/시간 문자열 반환 함수 
 						rs.getInt(1), rs.getString(2),
 						rs.getString(3), rs.getString(4),
-						rs.getString(5));
+						rs.getString(5) , rs.getString(6));
 				return memberDto;
 			}
 		}catch (Exception e) { System.out.println(e ); }
@@ -117,11 +120,11 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	// 7. 회원수정
-	public boolean mupdate( int mno , String mimg ) {
+	public boolean mupdate( int mno , String mimg , String mpwd ) {
 		try {
-			String sql = "update member set mimg = ? where mno = ?";
+			String sql = "update member set mimg = ? , mpwd = ? where mno = ?";
 			ps = conn.prepareStatement(sql);
-			ps.setString( 1 , mimg ); ps.setInt( 2 , mno);
+			ps.setString( 1 , mimg ); ps.setString( 2, mpwd); ps.setInt( 3 , mno); 
 			int count = ps.executeUpdate();
 			if( count == 1 ) return true ;
 		}catch (Exception e) {System.out.println(e);	}

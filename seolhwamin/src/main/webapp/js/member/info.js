@@ -13,7 +13,7 @@ function getInfo(){
 				alert('눈송이 전용 페이지입니다. [로그인] 페이지로 이동 ');
 				location.href="/seolhwamin/member/login.jsp";
 			}else{ // 로그인 상태 -> 마이페이지 구역에 정보 넣어주기 
-				document.querySelector('.preimg').src=`/seolhwamin/img/${ r.mimg}`;
+				document.querySelector('.preimg').src=`/seolhwamin/member/img/${ r.mimg}`;
 				document.querySelector('.mid').innerHTML = r.mid;
 				document.querySelector('.memail').innerHTML = r.memail;
 			}
@@ -22,41 +22,46 @@ function getInfo(){
 } // f end 
 // 2. 수정 
 function mupdate(){
-	
-	// 첨부파일 전송할 때
-		// 1. form dom객체 가져오기
-		let form = document.querySelectorAll('.signupForm')[0];
-			console.log(form);
-			// 2. form 데이터 객체화 하기
-		let formdata = new FormData( form );
-			console.log(formdata);
-	
-	// * form 전송 ajax 
-	$.ajax({
-		url : "/seolhwamin/MemberInfoController",
-		method : "put",
-		data : formdata ,
-		// form 전송타입 : 문자X jsonX , 첨부파일 [o]
-		/*
-			HTTP 전송타입
-					1. text/html			: 문자타입 [ 기본값 ]
-					2. application/json		: json타입
-					3. multipart/form-data	: 대용량 form 전송 지원
+	 let pw = document.querySelector('.mpwd').value; console.log(pw);
+	 let pwcheck = document.querySelector('.mpwdconfirm').value; console.log(pwcheck);
+	 console.log(pw == pwcheck);
+	if( pw == pwcheck ){
+		// 첨부파일 전송할 때
+			// 1. form dom객체 가져오기
+			let form = document.querySelectorAll('.signupForm')[0];
+				console.log(form);
+				// 2. form 데이터 객체화 하기
+			let formdata = new FormData( form );
+				console.log(formdata);
 		
-		*/
-		contentType: false , // 전송타입 form 
-		processData : false ,
-		success : r => { 
-			if(r){
-				alert('수정 성공');
-				logout();
-			}else{
-				alert('수정 실패');
-			}
-		} ,
-		error : e => { }
-	});		
-	
+		// * form 전송 ajax 
+		$.ajax({
+			url : "/seolhwamin/MemberInfoController",
+			method : "put",
+			data : formdata ,
+			// form 전송타입 : 문자X jsonX , 첨부파일 [o]
+			/*
+				HTTP 전송타입
+						1. text/html			: 문자타입 [ 기본값 ]
+						2. application/json		: json타입
+						3. multipart/form-data	: 대용량 form 전송 지원
+			
+			*/
+			contentType: false , // 전송타입 form 
+			processData : false ,
+			success : r => { 
+				if(r){
+					alert('수정 성공');
+					logout();
+				}else{
+					alert('수정 실패');
+				}
+			} ,
+			error : e => { }
+		});		
+	}else{
+		alert('비밀번호를 확인해주세요.');
+	}
 }
 // 3. 탈퇴
 function mdelete(){

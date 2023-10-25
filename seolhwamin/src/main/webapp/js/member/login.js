@@ -11,7 +11,7 @@ function login(){
 		url : "/seolhwamin/MemberFindController" ,
 		method : "post", 
 		// get메소드는 전송하는 data노출O(보안취약) post메소드는 전송하는 data노출X(보안)
-		data : { mid : mid , mpwd : mpwd } ,
+		data : { type: "login", mid : mid , mpwd : mpwd } ,
 		success : r => { 
 			if( r ){ location.href="/seolhwamin/seolhwaminS2.jsp";}
 			else{ 

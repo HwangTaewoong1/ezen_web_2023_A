@@ -55,6 +55,7 @@
 }
 /* 내용물 */
 .visitbox_center{
+	word-break:break-all;
 	width: 80%;
 	margin : 0px 10px;
 }

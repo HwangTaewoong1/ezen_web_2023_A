@@ -22,6 +22,7 @@ a{ color:#C7CBFF; text-decoration: none; }
 
 	width: 1200px; 
 	margin: 0 auto;
+	min-height: 648px;
 }
 
 /* 5. 테마 색상  https://color.adobe.com/ko/create/color-wheel */
@@ -49,7 +50,7 @@ a{ color:#C7CBFF; text-decoration: none; }
 .mainlogo img{ width: 100%; }
 /* 본메뉴 구역 */
 .mainmenu{ display: flex; font-size: 1.2rem; width: 60%; }		
-.mainmenu li{ margin-right: 20px; }
+.mainmenu li{ margin-right: 80px; }
 /* 서브메뉴  구역 */
 .submenu{ display: flex;  font-size: 13px; align-items: center;}	
 .submenu li{ margin-right: 10px; }

@@ -8,8 +8,20 @@ h3 {
 .writeForm {
     margin-top: 20px;
 }
-
-.bcno, .btitle, .bcontent, .bfile {
+.categorytext{
+	margin: 6px 0px 0px 0px !important;
+    width: 60px;
+    height: 20px;
+}
+.list{
+	    margin: 0px 0px 0px 0px;
+	background-color:#F0F0F0;
+	color:black;
+}
+.bottom{
+	border-radius: 10%;
+}
+.bcno, .btitle, .bcontent{
     margin: 5px 0;
     padding: 5px;
     width: 100%;
@@ -17,7 +29,14 @@ h3 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
+.bfile{
+	margin: 10px 0;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 button, a {
     display: inline-block;
@@ -30,7 +49,11 @@ button, a {
  
 }
 
-
+.filetext{
+	margin: 15px 0px 0px 0px !important;
+	width: 60px;
+    height: 20px;
+}
 @media screen and (max-width: 768px) {
     .webcontainer {
         width: 90%;

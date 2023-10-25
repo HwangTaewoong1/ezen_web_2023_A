@@ -148,18 +148,24 @@ public class MemberInfoController extends HttpServlet {
 			// 일반 input : multi.getParameter("input name속성명");
 			// 첨부 input : multi.getFilesystemName("input name속성명");
 		String mimg = multi.getFilesystemName("mimg");
-		
+		String mpwd = multi.getParameter("mpwd"); System.out.println(" 수정 컨트롤러 안 mpwd : "  + mpwd);
 		// Dao [ 로그인된 회원번호 , 수정할 값 ]
 		Object object = request.getSession().getAttribute("loginDto");
 		MemberDto memberDto = (MemberDto)object;
 		int loginMno = memberDto.getMno();
 		
+		
 		// 만약에 수정할 첨부파일 이미지 없으면 
 		if ( mimg == null ) { // 기존 이미지 그대로 사용
 			mimg = memberDto.getMimg(); // 세션에 있던 이미지 그대로 대입 
 		}
+		// 만약 수정할 비밀번호가 없으면 
+		if (mpwd.equals("") || mpwd == null ) {
+			mpwd = memberDto.getMpwd(); // 세션에 있는 기존 비밀번호 대입
+			System.out.println(" mpwd null 둘어와서 기존 mpwd 대입할게 : "  + mpwd);
+		}
 		
-		boolean result = MemberDao.getInstance().mupdate(loginMno, mimg);
+		boolean result = MemberDao.getInstance().mupdate(loginMno, mimg , mpwd );
 		response.setContentType("application/json; charset=UTF-8");
 		response.getWriter().print(result);
 		

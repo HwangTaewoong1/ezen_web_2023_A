@@ -16,8 +16,8 @@ function getBoard(){
 			// 응답 결과를 html 대입
 			document.querySelector('.bcno').value = `${r.bcno }`;
 			document.querySelector('.btitle').value = `${r.btitle}`;
-			document.querySelector('.bcontent').innerHTML = `${r.bcontent}`;
-			document.querySelector('.oldfile').innerHTML = `${r.bfile}`;
+			document.querySelector('.bcontent').textContent = `${r.bcontent}`;
+			document.querySelector('.bfile').innerHTML = `${r.bfile}`;
 			
 					
 			/* 썸머노트 실행 */
@@ -58,4 +58,24 @@ function onUpdate(  ){
 		} ,
 		error : e =>{console.log(e); }
 	})
+}
+selectbox();
+function selectbox(){
+	let selectbox = document.querySelector('.selectbox')
+	
+	html = ``;
+	
+	if(loginMid == "seolhwamin"){
+	html += `<select name="bcno" class="bcno"> 
+						<option value="1"> 공지사항 </option> 
+						<option value="2"> 자유게시판 </option> 
+						<option value="3"> 노하우 </option> 
+					</select>`
+	}else{
+		html += `<select name="bcno" class="bcno">  
+						<option value="2"> 자유게시판 </option> 
+						<option value="3"> 노하우 </option> 
+					</select>`	
+	}
+	selectbox.innerHTML = html;
 }

@@ -29,7 +29,7 @@
 					<option value="15">15</option> 
 					<option value="20">20</option>
 				</select>
-				<span class="boardcount"> 전체 게시물수 : 13 </span> <!-- 전체 게시물 수 -->
+				<span class="boardcount"> 전체 게시물수 : 0 </span> <!-- 전체 게시물 수 -->
 			</div>
 			<div class="writebtn"></div>
 		</div>

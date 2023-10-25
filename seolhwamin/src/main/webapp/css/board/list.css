@@ -44,6 +44,11 @@
 */
 	
 	
+.listimg{
+	margin: 0px 5px;
+	width: 24px;
+	height: 24px; 
+}	
 /* 2. 상단 구역 */
 .boardtop{ text-align: center; }
 .boardtopetc{ 

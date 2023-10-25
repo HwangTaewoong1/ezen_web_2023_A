@@ -13,7 +13,7 @@ function getBoard(){
 	
 	// 2. AJAX 이용한 bno 전달해서 게시물의 상세 정보 모두 가져오기
 	$.ajax({
-		url : "/seolhwamin/BoardInfoController" ,
+		url : "/seolhwamin/NoticeBoardInfoController" ,
 		method: "get" , 
 		data : { type : 2 , bno : bno } , 
 		success : r => {  console.log(r);
@@ -32,11 +32,11 @@ function getBoard(){
 								</div>
 						제목 : <div> ${ r.btitle } </div>
 						내용 : <div> ${ r.bcontent } </div>
-						첨부파일 : <div> <a href="/seolhwamin/FileDownLoad?filename=${r.bfile}"> ${ r.bfile } </a> </div>
+						첨부파일 : <div> <a href="/seolhwamin/NoticeFileDownLoad?filename=${r.bfile}"> ${ r.bfile } </a> </div>
 						`
 						/* <a href=" HTTP get메소드방식 "> </a> */
 				
-				html += '<a href="list.jsp"><button type="button">목록보기</button></a>';
+				html += '<a href="noticelist.jsp"><button type="button">목록보기</button></a>';
 				//. 3. 만약에 본인글 인지 제어 [ 본인글이면 수정/삭제 표시함 / 아니면 표시안함]
 				if( r.ishost ){
 					html += `
@@ -59,7 +59,7 @@ function ondelete( bno ){
 		success : r => { console.log(r); 
 			if( r ){
 				alert('삭제 성공');
-				location.href="/seolhwamin/board/list.jsp";
+				location.href="/seolhwamin/noticeboard/noticelist.jsp";
 			}else{ alert('삭제 실패'); }
 		} , 
 		error : e => { console.log(e); }
@@ -68,5 +68,5 @@ function ondelete( bno ){
 // 3. 게시물 수정 페이지로 이동 
 function onUpdate( bno ){
 	// 1. 수정페이지로 이동
-	location.href=`/seolhwamin/board/update.jsp?bno=${ bno }`;
+	location.href=`/seolhwamin/noticeboard/noticeupdate.jsp?bno=${ bno }`;
 } // f end 

@@ -45,27 +45,31 @@
 		<div class="top_list">
 			<div class="listbox">
 				<h4>
-					<a href="/seolhwamin/board/list.jsp">Notice</a>
+					<a href="/seolhwamin/noticeboard/noticelist.jsp">Notice</a>
+					<img class="listimg" src="/seolhwamin/img/확성기2.png">
 				</h4>
-				<ul class="ullist noticeul"></ul>
+				<ul class="noticeul ullist"></ul>
 			</div>
 			<div class="listbox">
 				<h4>
 					<a href="/seolhwamin/board/list.jsp">FREE</a>
+					<img class="listimg" src="/seolhwamin/img/눈꽃.png">
 				</h4>
-				<ul class="ullist freeul"></ul>
+				<ul class="freeul ullist"></ul>
 			</div>
 		</div>
 		<div class="bottom_list">
 			<div class="listbox">
 				<h4>
 					<a href="/seolhwamin/1000Day/1000Day.jsp">1000일 축하게시판</a>
+					<img class="listimg" src="/seolhwamin/img/폭죽.png">
 				</h4>
 				<ul class="dayul ullist "></ul>
 			</div>
 			<div class="listbox">
 				<h4>
 					<a href="https://www.youtube.com/channel/UCqVE5TTq9FXIw3g52rotCUQ" target="_blank" rel="nopener noreferrer">YOUTUBE</a>
+					<img class="listimg" src="/seolhwamin/img/유튜브.png">
 				</h4>
 				<iframe style="" width="500" height="500" src="https://www.youtube.com/embed/DOLEfuP7V5E" title="엥? 저 남자임?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>

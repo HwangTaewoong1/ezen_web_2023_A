@@ -13,7 +13,7 @@ public class MemberDto{
     private String loginDatetime; // 로그인 시간
     
     // -- * 로그인 객체를 만들 생성자 [ 패스워드 제외 ] : 오버로딩 하기위해 매개변수 타입 순서 변경 
-	public MemberDto( String loginDatetime , int mno, String mid, String memail, String mimg , String mnickname ) {
+	public MemberDto( String loginDatetime , int mno, String mid, String memail, String mimg , String mnickname ,String mpwd ) {
 		super();
 		this.mno = mno;
 		this.mid = mid;
@@ -21,6 +21,7 @@ public class MemberDto{
 		this.mimg = mimg;
 		this.loginDatetime = loginDatetime;
 		this.mnickname = mnickname;
+		this.mpwd = mpwd;
 	}
 
 	// 2. 생성자 

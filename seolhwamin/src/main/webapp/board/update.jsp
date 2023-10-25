@@ -11,29 +11,29 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	<!-- 썸머노트 css 적용 - 부트스트랩v5 -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
-
+	<link href="/seolhwamin/css/board/write.css" rel="stylesheet"/>
 </head>
 <body>
 
 	<%@include file = "../header.jsp" %>
 	<div class="webcontainer">
-	
-		<h3> 글 수정 페이지 </h3>
-		
+		<h3 style="border-bottom: solid 2px #C7CBFF; padding-bottom: 10px;"> 자유게시판 </h3>
 		<form class="writeForm"> <!-- 쓰기 입력 구역 -->
-			카테고리 : <select name="bcno" class="bcno"> 
-						<!-- 게시물에 저장되는 카테고리정보는 카테고리이름X 카테고리번호 [FK] -->
-						<option value="1"> 공지사항 </option> 
-						<option value="2"> 자유게시판 </option> 
-						<option value="3"> 노하우 </option> 
-					</select>	<br/>
-			제목 : <input type="text" name="btitle" class="btitle" > <br/>
-			내용 : <textarea id="summernote" name="bcontent" class="bcontent"></textarea> <br/>
-			<div class="oldfile"></div>
-			첨부파일 : <input type="file" name="bfile" class="bfile"> <br/>
+			<div style="display:flex;">
+		<p class="categorytext">카테고리</p>
+			<div class="selectbox"></div>	
+			</div>
 			
-			<button onclick="onUpdate()" type="button">글수정</button> 
-			<a href="list.jsp"> 목록보기 </a>
+			<input type="text" name="btitle" class="btitle" placeholder="제목을 입력해 주세요." > <br/>
+			
+			<textarea id="summernote" name="bcontent" class="bcontent"></textarea> <br/>
+			<div style="display:flex;">
+			<p class="filetext">첨부파일</p>
+			<input type="file" name="bfile" class="bfile"> <br/>
+			</div>
+			
+			<button class="bottom" onclick="onUpdate()" type="button">글수정</button> 
+			<a href="list.jsp"><button class="bottom" type="button"> 목록보기</button> </a>
 		</form>
 	</div>
 	

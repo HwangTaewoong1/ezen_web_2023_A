@@ -29,11 +29,11 @@
 			<div class="intitle">이메일</div>
 			<div class="memail"></div>
 			
-			<div class="intitle"> 기존 비밀번호</div>
+			<div class="intitle"> 새로운 비밀번호</div>
 			<input maxlength="20"  onkeyup="pwcheck()" name="mpwd" class="mpwd" type="password" />
 			
-			<div class="intitle"> 새로운 비밀번호</div>
-			<input maxlength="20" onkeyup="pwcheck()"  name="newmpwd" class="newmpwd" type="password" />
+			<div class="intitle"> 새로운 비밀번호 확인</div>
+			<input maxlength="20" onkeyup="pwcheck()"  name="mpwdconfirm" class="mpwdconfirm" type="password" />
 			<div class="pwcheckbox"></div>
 			
 			<button class="signupbtn" onclick="mupdate()" type="button"> 수정 </button>
