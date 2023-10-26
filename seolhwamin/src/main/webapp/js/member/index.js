@@ -15,7 +15,7 @@ function vread() {
       let html = ``; // ` 백틱
 
       // 리스트내 모든 데이터를
-      for (let i = 0; i < r.length; i++) {
+      for (let i = 0; i < 8 && i < r.length; i++) {
         // 리스트내 모든 객체의 데이터를 HTML 형식으로 HTML변수에 누적 더하기
         html += `<div class="visitbox">
 			          	<a class="vcontent" href="/seolhwamin/1000Day/1000Day.jsp">${r[i].vcontent}</a>	 

@@ -153,7 +153,7 @@ function emailcheck(){
 
 // 4. 인증요청 버튼을 눌렀을때.
 function authReq(){
-	
+	/*
 	// ------------------------- 테스트용 ---------------- //
 	// 1. 'authbox' div 호출 
 	let authbox = document.querySelector('.authbox')
@@ -168,12 +168,12 @@ function authReq(){
 	authcode = "1234" ; 		 // [ 테스트용 ] 임의로 인증 코드를 '1234'
 	timer = 120; 		// [ 테스트용 ] 인증 제한시간 10초 
 	settimer();			// 타이머 실행 
-	/*
+*/
 	
 	// ------------------------- 이메일 인증 보냈을때 ---------------- //
 	// -- 인증요청시 서블릿 통신[ 인증코드 생성 , 이메일전송 ]
 	$.ajax({
-		url : "/jspweb/AuthSendEmailController" , 
+		url : "/seolhwamin/AuthSendEmailController" , 
 		method : "get" ,
 		data : { memail : document.querySelector('.memail').value } , 
 		success : r => {  console.log( r );
@@ -194,7 +194,7 @@ function authReq(){
 		} ,
 		error : e => { console.log(e); } 
 	})
-	*/
+
 
 } // f end 
 

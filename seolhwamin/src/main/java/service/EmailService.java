@@ -13,9 +13,9 @@ import javax.mail.internet.MimeMessage;
 public class EmailService { // 이메일 전송에 관련된 클래스 
 
 	// 1. 필드
-	private String fromEmail = ""; // 보내는 사람의 이메일주소 [ 관리자 이메일 ]
-	private String fromEmailPwd = ""; // 보내는사람의 이메일주소 비밀번호
-	
+	private String fromEmail = "toqurquf56@naver.com"; // 보내는 사람의 이메일주소 [ 관리자 이메일 ]
+	private String fromEmailPwd = "htw0308!"; // 보내는사람의 이메일주소 비밀번호
+	private String fromWriter = "눈송이월드";
 	// 2. 생성자
 	public EmailService() { }
 	
@@ -55,13 +55,13 @@ public class EmailService { // 이메일 전송에 관련된 클래스
 				// 1. MimeMessage 객체 생성 
 			MimeMessage message = new MimeMessage( session ); 
 				// 2. .setFrom( new InternetAddress("보내는사람의 이메일주소") );
-			message.setFrom( new InternetAddress(fromEmail) );
+			message.setFrom( new InternetAddress(fromEmail , fromWriter , "UTF-8") );
 				// 3. .addRecipient( Message.RecipientType.TO , "받는사람의 이메일주소" ); 
 			message.addRecipient( Message.RecipientType.TO, new InternetAddress( toEmail ) );
 				// 4. .setSubject("메일제목")
-			message.setSubject("Ezen JSP 회원가입 인증코드 발송");
+			message.setSubject("눈송이 월드 가입 인증코드 : " + contentHTML);
 				// 5. .setText("메일내용")
-			message.setText("안녕하세요. 이메일 인증코드 : " + contentHTML );
+			message.setText(" 안녕 만나서 반가워! 눈송이 월드 가입 이메일 인증코드는 [ " + contentHTML +" ] 이야!" );
 				// * 메일 전송
 				// Transport.send( mime객체 );
 			Transport.send(message);

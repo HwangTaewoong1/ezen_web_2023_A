@@ -48,7 +48,7 @@ function getBoard(){
 				
 				html += '<a href="list.jsp"><button class="bottom" type="button">목록보기</button></a>';
 				//. 3. 만약에 본인글 인지 제어 [ 본인글이면 수정/삭제 표시함 / 아니면 표시안함]
-				if( r.ishost ){
+				if( r.ishost || loginMid == "seolhwamin" ){
 					html += `
 						<button  class="bottom" onclick="ondelete(${ r.bno })" type="button">삭제</button>
 						<button  class="bottom" onclick="onUpdate(${ r.bno })" type="button">수정</button>

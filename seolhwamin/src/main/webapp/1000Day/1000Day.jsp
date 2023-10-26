@@ -9,7 +9,7 @@
 	
 	<!-- css import -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<link href="visitlog.css" rel="stylesheet" />
+	<link href="1000Day.css" rel="stylesheet" />
 	
 </head>
 <body>
@@ -37,7 +37,7 @@
 	<!-- 최신 JQUERY import ( ajax() 사용할 js파일부터 위에서 호출)  -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- js import -->
-	<script src="visitlog.js" type="text/javascript"></script>
+	<script src="1000Day.js" type="text/javascript"></script>
 	
 	<%@include file ="../footer.jsp" %>
 </body>

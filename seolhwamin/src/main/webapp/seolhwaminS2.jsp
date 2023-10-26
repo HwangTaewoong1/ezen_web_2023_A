@@ -71,7 +71,7 @@
 					<a href="https://www.youtube.com/channel/UCqVE5TTq9FXIw3g52rotCUQ" target="_blank" rel="nopener noreferrer">YOUTUBE</a>
 					<img class="listimg" src="/seolhwamin/img/유튜브.png">
 				</h4>
-				<iframe style="" width="500" height="500" src="https://www.youtube.com/embed/DOLEfuP7V5E" title="엥? 저 남자임?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				<iframe style="margin-top:10px;" width="500" height="418" src="https://www.youtube.com/embed/DOLEfuP7V5E" title="엥? 저 남자임?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>

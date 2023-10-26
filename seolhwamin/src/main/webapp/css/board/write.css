@@ -59,3 +59,8 @@ button, a {
         width: 90%;
     }
 }
+
+.note-modal-content{
+	height: 400px  !important
+
+}

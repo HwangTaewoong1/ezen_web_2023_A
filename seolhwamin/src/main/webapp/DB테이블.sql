@@ -35,7 +35,7 @@ create table bcategory(
 # 샘플 [ 공지사항 자유게시판 노하우 ] 
 insert into bcategory ( bcno , bcname  ) values ( 1 ,'공지사항');
 insert into bcategory ( bcno , bcname  ) values ( 2 ,'자유게시판');
-insert into bcategory ( bcno , bcname  ) values ( 3 ,'노하우');
+insert into bcategory ( bcno , bcname  ) values ( 3 ,'노하우/팁');
 
 # 게시판 
 drop table if exists board;
@@ -71,3 +71,31 @@ create table noticeboard(
     foreign key ( bcno ) references bcategory ( bcno )	on delete cascade on update cascade -- 카테고리 삭제시 게시물도 삭제 , 카테고리번호 변경시 fk도 같이변경 [ 제약조건 ]				
 	
 );
+# 댓글
+drop table if exists comment;
+create table comment(
+	cmno int auto_increment ,
+    cmcontent varchar(255) not null ,
+    cmdate datetime default now() ,
+    bno int ,
+    mno int ,
+    mnickname varchar(20) not null ,
+	primary key ( cmno ) ,
+	foreign key ( mno ) references member ( mno ) on delete cascade, -- 회원 탈퇴시 댓글도 같이 삭제 [ 제약 조건 ]
+	foreign key ( bno ) references board ( bno ) on delete cascade -- 게시물 삭제시 댓글도 같이 삭제 [ 제약 조건 ]
+);
+
+SELECT * from member;
+select * from noticeboard;
+select * from visitlog;
+
+
+
+
+
+
+
+
+
+
+
