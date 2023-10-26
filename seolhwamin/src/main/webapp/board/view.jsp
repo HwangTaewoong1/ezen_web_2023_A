@@ -17,13 +17,15 @@
 	<div class="webcontainer">
 		<h3 style="border-bottom: solid 2px #C7CBFF; padding-bottom: 10px;"> 자유게시판 </h3>
 		<div class="boardBox"></div>
-		
-		<div class="idbox2">
+		<div class="commentcontainer">
+		<div class="totalcomment"></div>
+		<div class="commentBox"></div>
 			   <div class="idbox">
 				     <input type="text" maxlength="255" class="commentinput" placeholder="댓글 내용 작성">
 				     <button class="commentbtn" type="button">작성</button>
 			  </div>
 		</div>
+		<div class="bottomBox"></div>
 	</div>
 	
 	<!-- JSP파일안에 다른 JSP 파일 import 하기 -->

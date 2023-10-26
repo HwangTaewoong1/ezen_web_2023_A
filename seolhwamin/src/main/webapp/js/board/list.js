@@ -24,7 +24,7 @@ function getList( page ){ // page : 조회할 페이지번호
 	
 	$.ajax({
 		url : "/seolhwamin/BoardInfoController" , 
-		metdod : "get" ,
+		method : "get" ,
 		data : pageOject , 
 		success : pageDto => { console.log( pageDto ); 
 			// ------------------------------ 1. 게시물 출력 -------------------- // 

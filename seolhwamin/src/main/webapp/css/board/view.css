@@ -45,3 +45,19 @@
 	    background-color: #F0F0F0;
     color: black;
 }
+.mimg{
+	width: 20px;
+}
+.cmcontent{
+
+	height: 50px;
+}
+.commentarea , .commentprofile , .commentcontent{
+	display: flex;
+}
+.commentarea{
+	width: 80%;
+}
+.commentBox{
+	border: solid 1px black;
+}

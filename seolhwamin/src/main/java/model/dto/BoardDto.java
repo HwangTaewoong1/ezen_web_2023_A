@@ -23,7 +23,7 @@ public class BoardDto {
 	public BoardDto() {
 	}
 
-	// 모든글 출력시 사용되는 생성자 ( 풀생성자)
+	// 모든글 출력시 사용되는 생성자
 	public BoardDto(int bno, String btitle, String bcontent, String bfile, String bdate, int bview, int mno, int bcno,
 			String mid, String bcname, String mimg, String mnickname) {
 		super();

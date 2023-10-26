@@ -3,18 +3,21 @@ package model.dto;
 import java.util.ArrayList;
 
 public class PageDto {
-	// 1. 
-	private int page; 		// 현재 페이지번호 
-	private int listsize; 	// 페이지당 최대게시물수 
-	private int startrow;	// 현재 페이지에서 시작되는 레코드 번호 
-	private int totalsize;	// 총 게시물 수 or 카테고리별 게시물수 
-	private int totalpage;	// 총 페이지 수
-	private int startbtn;	// 페이지번호버튼 시작번호 
-	private int endbtn;		// 페이지번호버튼 끝번호 
+	// 1.
+	private int page; // 현재 페이지번호
+	private int listsize; // 페이지당 최대게시물수
+	private int startrow; // 현재 페이지에서 시작되는 레코드 번호
+	private int totalsize; // 총 게시물 수 or 카테고리별 게시물수
+	private int totalpage; // 총 페이지 수
+	private int startbtn; // 페이지번호버튼 시작번호
+	private int endbtn; // 페이지번호버튼 끝번호
 	// * 게시물 리스트 [ 조회된 결과 ]
-	ArrayList<BoardDto> boardList;
-	
-	ArrayList<NoticeBoardDto> noticeboardList;
+	private ArrayList<BoardDto> boardList;
+	private BoardDto boardDto;
+	private ArrayList<NoticeBoardDto> noticeboardList;
+	// 댓글 리스트 생성자
+	private ArrayList<CommentDto> commentList;
+
 	public PageDto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -31,7 +34,9 @@ public class PageDto {
 		this.endbtn = endbtn;
 		this.boardList = boardList;
 	}
-	public PageDto( ArrayList<NoticeBoardDto> noticeboardList, int page, int listsize, int startrow, int totalsize, int totalpage, int startbtn, int endbtn) {
+
+	public PageDto(ArrayList<NoticeBoardDto> noticeboardList, int page, int listsize, int startrow, int totalsize,
+			int totalpage, int startbtn, int endbtn) {
 		super();
 		this.noticeboardList = noticeboardList;
 		this.page = page;
@@ -42,7 +47,22 @@ public class PageDto {
 		this.startbtn = startbtn;
 		this.endbtn = endbtn;
 	}
-	
+
+	public PageDto(int page, BoardDto boardDto, ArrayList<CommentDto> commentList, int listsize, int startrow,
+			int totalsize, int totalpage, int startbtn, int endbtn) {
+		super();
+		this.boardDto = boardDto;
+		this.page = page;
+		this.listsize = listsize;
+		this.startrow = startrow;
+		this.totalsize = totalsize;
+		this.totalpage = totalpage;
+		this.startbtn = startbtn;
+		this.endbtn = endbtn;
+		this.commentList = commentList;
+
+	}
+
 	public int getPage() {
 		return page;
 	}
@@ -106,7 +126,7 @@ public class PageDto {
 	public void setBoardList(ArrayList<BoardDto> boardList) {
 		this.boardList = boardList;
 	}
-	
+
 	public ArrayList<NoticeBoardDto> getNoticeboardList() {
 		return noticeboardList;
 	}
@@ -115,14 +135,28 @@ public class PageDto {
 		this.noticeboardList = noticeboardList;
 	}
 
+	public BoardDto getBoardDto() {
+		return boardDto;
+	}
+
+	public void setBoardDto(BoardDto boardDto) {
+		this.boardDto = boardDto;
+	}
+
+	public ArrayList<CommentDto> getCommentList() {
+		return commentList;
+	}
+
+	public void setCommentList(ArrayList<CommentDto> commentList) {
+		this.commentList = commentList;
+	}
+
 	@Override
 	public String toString() {
 		return "PageDto [page=" + page + ", listsize=" + listsize + ", startrow=" + startrow + ", totalsize="
-				+ totalsize + ", totalpage=" + totalpage + ", startbtn=" + startbtn + ", endbtn=" + endbtn + " , noticeboardList="
-				+ noticeboardList
-				+ ", boardList=" + boardList + "]";
+				+ totalsize + ", totalpage=" + totalpage + ", startbtn=" + startbtn + ", endbtn=" + endbtn
+				+ ", boardList=" + boardList + ", boardDto=" + boardDto + ", noticeboardList=" + noticeboardList
+				+ ", commentList=" + commentList + "]";
 	}
-	
-	
-	
+
 }

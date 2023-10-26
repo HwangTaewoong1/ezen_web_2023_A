@@ -15,6 +15,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import model.dao.BoardDao;
 import model.dto.BoardDto;
+import model.dto.CommentDto;
 import model.dto.MemberDto;
 import model.dto.PageDto;
 import service.FileService;
@@ -102,9 +103,26 @@ public class BoardInfoController extends HttpServlet {
 
 		} else if (type.equals("2")) {// 개별 조회 로직
 			// 1.매개변수 요청
+
 			int bno = Integer.parseInt(request.getParameter("bno"));
+
+			int listsize = Integer.parseInt(request.getParameter("listsize"));
+
+			int page = Integer.parseInt(request.getParameter("page"));
+
+			int startrow = (page - 1) * listsize;
+			int totalsize = BoardDao.getInstance().getCommentSize(bno);
+			int totalpage = totalsize % listsize == 0 ? // 만약에 나머지가 없으면
+					totalsize / listsize : // 몫
+					totalsize / listsize + 1;
+			int btnsize = 5;
+			int startbtn = ((page - 1) / btnsize) * btnsize + 1;
+			int endbtn = startbtn + (btnsize - 1);
+			if (endbtn >= totalpage)
+				endbtn = totalpage;
 			// 2. DAO 처리
 			BoardDto result = BoardDao.getInstance().getBoard(bno);
+			ArrayList<CommentDto> commentDto = BoardDao.getInstance().getComment(bno, listsize, startrow);
 
 			// 3. 만약에 ( 로그인 혹은 비로그인 )요청한한사람과 게시물작성한사람과 동일하면
 			Object object = request.getSession().getAttribute("loginDto");
@@ -119,7 +137,11 @@ public class BoardInfoController extends HttpServlet {
 					result.setIshost(false);
 				} // 남이 쓴 글
 			}
-			json = objectMapper.writeValueAsString(result);
+
+			PageDto pageDto = new PageDto(page, result, commentDto, listsize, startrow, totalsize, totalpage, startbtn,
+					endbtn);
+
+			json = objectMapper.writeValueAsString(pageDto);
 		}
 
 		// 공통 로직 // 1. 전체조회 , 개별조회 하던 응답 로직 공통

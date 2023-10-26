@@ -3,6 +3,7 @@ package model.dao;
 import java.util.ArrayList;
 
 import model.dto.BoardDto;
+import model.dto.CommentDto;
 
 public class BoardDao extends Dao {
 
@@ -119,8 +120,8 @@ public class BoardDao extends Dao {
 	public BoardDto getBoard(int bno) {
 		viewIncre(bno);
 		try {
-			String sql = " select b.* , m.mid , m.mimg , m.mnickname , bc.bcname " + "	from board b "
-					+ "    natural join member m " + "    natural join bcategory bc " + "    where b.bno = ?";
+			String sql = "select b.* ,  m.mid , m.mimg , m.mnickname , bc.bcname "
+					+ "from board b natural join member m  natural join bcategory bc where b.bno = ? ";
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, bno);
 			rs = ps.executeQuery();
@@ -136,6 +137,46 @@ public class BoardDao extends Dao {
 			System.out.println(e);
 		}
 		return null;
+	}
+
+	// 댓글 리스트 출력하기
+	public ArrayList<CommentDto> getComment(int bno, int listsize, int startrow) {
+		ArrayList<CommentDto> list = new ArrayList<>();
+		try {
+			String sql = "select c.bno , c.cmno, c.mno , c.cmcontent , c.cmdate ," + "  m.mid , m.mimg , m.mnickname "
+					+ "from comment c natural join member m where bno = ? order by c.cmdate desc limit ? , ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			ps.setInt(2, startrow);
+			ps.setInt(3, listsize);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+
+				CommentDto commentDto = new CommentDto(rs.getInt("bno"), rs.getInt("cmno"), rs.getInt("mno"),
+						rs.getString("cmcontent"), rs.getString("cmdate"), rs.getString("mid"), rs.getString("mimg"),
+						rs.getString("mnickname"));
+				list.add(commentDto);
+			}
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return list;
+	}
+
+	// 댓글 수 출력
+	public int getCommentSize(int bno) {
+		try {
+			String sql = "select count(*) from comment b where bno = ? ";
+
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			rs = ps.executeQuery();
+			if (rs.next())
+				return rs.getInt(1);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return 0;
 	}
 
 	// 4. 게시물 수정
