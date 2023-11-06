@@ -1,0 +1,509 @@
+*{padding: 0px; margin: 0px;}
+
+li{list-style-type: none;}
+
+#wrap{
+
+   text-align: center;
+   background-color: #f3f3f3;
+   
+}
+#header{
+   background-color: #00c300;
+   width:100%; 
+   margin: 0 auto;
+}
+
+#headerTop{
+   display: flex;
+   width:940px;
+   justify-content: space-between;
+   align-items: center;
+   margin: 0 auto;
+   border-top: 1px solid #00af35;
+   border-bottom:  1px solid #00af35;
+}
+
+/*------------------로고시작-----------------  */
+.mainLogo{
+   background-image: url("../img/naver.logo.svg");
+   background-repeat: no-repeat;
+   width: 51px;
+   height: 11px;
+   
+}
+
+.headerLo{
+   background-image: url("../img/naver.date.png");
+   background-color: transparent;
+   background-repeat: no-repeat;
+   display: inline-block; width: 21px; height: 27px;
+   background-size:54px;
+   background-position: center; 
+}
+
+.hdLogo{
+	background-image: url("../img/naver.logo4.png");
+	background-repeat: no-repeat;
+    background-size: 27px;
+    display: inline-block;
+    width: 54px;
+    height: 54px;
+    background-position: center;
+}
+
+.headerLogo{
+   background-image:  url("../img/naver.logo2.png");
+   background-repeat: no-repeat;
+    background-size: 27px;
+    display: inline-block;
+    width: 54px; height: 54px;
+    background-position: center;
+    border-left: 1px solid #00af35;
+}
+
+.headerLogos{
+      background-image:  url("../img/naver.logo3.png");
+      background-repeat: no-repeat;
+       display: inline-block;
+       width: 55px; height: 54px ; background-size: 55px;
+       border-left: 1px solid #00af35;
+       border-right: 1px solid #00af35;
+}
+
+.logo{
+   display: flex;
+   color: white;
+   height: 55px;
+   align-items: center;
+}
+
+.logo span{
+   margin: 0px 10px;
+}
+/* -------------------------------로고 끝 ----------------*/
+.subimg{
+      background-image:  url("../img/home.jpg");
+      background-repeat: no-repeat;
+       display: inline-block;
+       background-size: 28px; width: 26px; height: 24px;
+       background-position: center;
+	    background-color: transparent !important;
+}
+
+.headerItem{
+   border-right: 1px solid #00af35;
+   
+}
+
+
+.headerItems{
+   display: flex;   height: 55px;
+   align-items: center;}
+
+.headerItems li{
+   margin: 0px 10px;
+   font-size: 12px;
+   color: white;
+}
+
+#headerBottom{
+   
+   width: 940px;     height: 40px;
+   margin: 0 auto; padding-top: 20px;
+}
+
+.bottomItem{
+   display: flex;
+}
+
+
+.bottomItem li{
+   margin: 0px 10px;
+}
+
+
+.Items{
+   width: 55px;  height: 54px;
+   align-items: center;
+}
+
+
+/*----------------------본문---------------  */
+#form{
+
+   min-height: 313px;
+   margin: 0 auto;
+   width: 940px;
+   background-color: white;
+}
+
+.formImg{
+   background-image:  url("../img/20191027(1).jpg");
+   background-repeat: no-repeat;
+   background-size: 490px;
+    width: 490px;
+    height: 320px;
+}
+
+#formBottom{
+   height: 1350px;
+}
+
+.topLeft{
+   height: 490px;
+   width: 490px;
+   border: solid 1px #D3D3D3;
+}
+
+.contentTop{
+
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.topItem{
+   font-size: 24px;
+   font-weight: bold;
+   margin-top: 20px;
+}
+.inputText{
+	 font-size: 14px;
+   color: #00c73c; 	font-weight : bold;
+   margin-top: 10px;  font-size: 15px;
+   
+}
+.topRight{
+   width: 446px; height: 490px;
+}
+.topItems{
+   font-size: 14px;
+   color: #00c73c; 	font-weight : bold;
+   margin-top: 10px;  font-size: 15px;
+}
+.contentBm{
+   display: flex;
+   justify-content: center;
+}
+
+.bmTop{
+   display: flex;
+   width: 940px; height: 49px;
+}
+
+.topLefts{
+	width: 445px; height: 30px;
+	color: #00c73c;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 15px;
+}
+/*---------------------------------------------달력--------------------------------------  */
+.calwrap{
+	width: 444px; margin: 0px auto;
+	border: 1px solid #D3D3D3;
+	border-bottom: 1px solid #03C75A  !important;
+}
+/* 캘린더 상단 메뉴 */
+.caltop{
+	display: flex;  	justify-content: center;
+	align-items: center;
+}
+
+/* 캘린더 상단 메뉴 버튼 틀*/
+
+.caltop button{
+	background-color: white;
+	border: none;
+	font-size: 45px; color: gray;
+	cursor: 	pointer;										/* 커서(마우스)모양 설정 */
+}
+/* 캘린더 상단 연도/월 표시*/
+.caltop h3{
+	margin: 0 20px;
+	font-size: 28px;
+}
+
+/* 캘린더 (달력) 구역*/
+.calendar{
+	display: flex;
+	flex-wrap: wrap;		/* 하위 요소의 사이즈가 부족할때 자동 줄바꿈 */
+	margin-bottom: 30px;
+}
+/* 캘린더 한개 구역에 하나의 박스  */
+.calendar div{
+	width: 13%; /* 100% /7 = 14.2 ,0.2는 여백  */
+	height: 37px;	cursor:pointer;
+	text-align: center;
+}
+
+.week{
+	height: 30px !important;	/* css 중복/충돌속성시 최우선순위*/ 
+	font-size: 18px;
+}
+
+.calBm {
+	display: flex;	font-size:12px;
+	align-items: center;
+}
+
+
+.calColor{
+	background-color: #03C75A;
+	width: 15px; height: 15px;
+	margin: 20px;
+}
+
+
+.calColors{
+	background-color: gray;
+	width: 15px; height: 15px;
+	margin: 20px;
+}
+
+
+.checkIn{
+	text-align: center;
+	font-size: 16px;
+    padding: 20px;
+    font-weight: bold;
+    border: 1px solid #D3D3D3;
+    border-top:none !important;
+}
+/* -------------------- */
+
+.bottomLeft{
+   width: 465px ; height: 280px;
+   padding-top: 20px;
+   padding-left: 30px;
+   text-align: left;
+   border: solid 1px #D3D3D3;
+}
+
+.bottomLeft li{
+   font-size: 13px;
+   margin-top: 20px;
+
+}
+
+.bottomRight{
+   width: 451px; height: 300px;
+   text-align: left;
+ }
+ 
+.inputBox{
+ 	margin: 10px;
+ 	text-align: center;
+    margin: 30px 0px;
+ }
+ 
+ .buttonBox{
+ 	margin-top: 58px; background-color:#03C75A;
+ 	height: 50px; width: 447px;	
+ 	border: none; cursor: pointer;
+ }
+
+.sunday{
+	color:red !important;
+	
+}
+.saturday{
+	color:blue !important;
+}
+
+.disabled{
+	color: #808080 !important;
+}
+.buttonBox span{
+	font-weight: bold; 
+	font-size: 16px; color: #d3d3d3;
+} 
+.bmTopItem{
+   border: 1px #D3D3D3 solid;
+   width: 940px; height: 20px;
+   font-size: 16px;
+   padding: 15px 0px;
+   text-align: center;
+}
+
+.background{
+   background-color: #f3f3f3;
+   width:940px; height: 30px;
+}
+
+
+
+.bmBm{
+   text-align: left;
+   margin: 40px;
+}
+
+.bmBm *{
+   padding-top: 10px;
+}
+
+.bmBm p{
+   font-size: 13px;
+   padding-bottom: 10px;
+}
+
+.bottomSpace{
+   width: 940px; height: 50px;
+   background-color: #f3f3f3
+}
+
+
+.name { width:440px;
+	height: 30px; display: flex; justify-content: space-around;
+	margin-bottom: 10px;
+}
+
+.email{width: 440px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;}
+    
+.phone{width: 440px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;}
+
+.email input{
+	width: 260px;
+}
+.phone input{
+	width: 267px;
+}
+
+.name input{
+	width: 260px;
+}
+/*-------------------------ft----------------  */
+#footer{
+   
+   margin: 0 auto;
+   text-align: center;
+}
+
+
+.ftTop{
+   display: flex;
+   justify-content: center;
+   background-color: white;
+   height: 53px; 
+   align-items: center;
+}
+
+
+.ftTopItem{
+   display: flex;
+   align-items: center;
+   
+}
+
+
+.test{
+   width: 1240px;
+   display: flex;
+   justify-content: space-around;
+}
+
+.ftBottom{
+   
+   background-color: #f3f3f3;
+   padding-top: 10px;
+   
+}
+
+.ftItem {
+   display: flex;
+   justify-content: center;  height: 25px;
+   align-items: center;
+}
+
+
+.ftImg{
+   background-image: url("../img/naver.gpt.png"); background-repeat: no-repeat;
+   width: 48px ; height: 33px; background-size: 52px;
+   
+}
+
+.ftImgs{
+   background-image: url("../img/naver.ring.png"); background-repeat: no-repeat;
+   width: 46px; height: 25px; background-size: 47px;
+   
+   background-position: center;
+}
+
+.ftTopItems {
+   display: flex; justify-content: center;
+   align-items: center; border: solid #03C75A 1px;height: 35px;
+   background-color: #03C75A; color: white;
+   border-radius: 10px; 
+}
+
+
+
+.ftBottom{
+   font-size: 13px;
+   padding-top: 20px;
+}
+
+.liItem {
+   margin-right: 20px;
+}
+
+.ftItems {
+   display: flex;
+   justify-content: center;  height: 25px;
+   align-items: center;
+}
+
+.ftItems{
+   margin: 0 20px;
+   border-left: solid 1px #DADEE3;
+   border-right: solid 1px #DADEE3;
+}
+
+.ftBottom p{
+   font-size: 12px; margin-top:10px;
+   color: gray;
+}
+
+.ftLogo{
+   background-image: url("../img/naver.logo.svg");
+   background-repeat: no-repeat;
+   width: 51px; margin : 0 auto;
+   height: 21px; margin-top: 30px;
+   background-size: 49px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

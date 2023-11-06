@@ -1,0 +1,154 @@
+@charset "UTF-8";
+*{ 
+   list-style : none;
+   padding : 0px; margin : 0px;
+} /* 기본 여백 제거 */
+
+#wrap {
+   position: relative;
+    margin: 1px auto 0;
+    width: 1200px;
+    display : flex;
+    justify-content: space-between;
+    height: 1263px;
+}
+
+.title {
+       position: relative;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #c8d1db;
+    display: flex;
+    justify-content: space-between;
+    width : 880px;
+    height : 93px;
+    margin-bottom : 50px;
+}
+
+.img_title {
+   justify-content: flex-end;
+   display : flex;
+   align-items: center;
+}
+   
+.sub_lnbwrap  > h3 {
+       position: relative;
+    padding: 35px 0 25px;
+    background: #007ae9 url(../img/bg_submenu_tit.jpg) no-repeat left center;
+    font-size: 28px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+}
+
+.sub_lnbwrap {
+
+    left: 0;
+    top: 0;
+    width: 260px;
+}
+
+.m_menu p {
+   background: #183867 url(../img/bg_submenu_list.jpg) no-repeat right center;
+    color: #fff;
+    display: block;
+    position: relative;
+    padding: 13px 0 13px 25px;
+    border-top: none;
+    font-size: 16px;
+
+}
+
+.sub_lnb > li > a {
+   background: #183867 url(/img/common/bg_submenu_list.jpg) no-repeat right center;
+}
+
+.minbanner a {
+
+padding: 21px 0 20px 64px;
+background: #01c73c url(../img/ico_navertalk_22.png) no-repeat 8% center;
+display: block;
+
+}
+
+.subtitle {
+   display: inline-block;
+    position: relative;
+    padding: 40px 0 20px;
+    font-size: 32px;
+    color: #333;
+    font-weight: 400;
+    letter-spacing: -2px;
+    line-height: 32px;
+}
+
+.btnarea a {
+   padding: 0 30px;
+    width: auto !important;
+    background: #1e77c7;
+    border: 1px solid #125da0;
+    font-size: 15px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.area {
+   display : flex;
+   justify-content: space-between;
+   border-bottom: 1px dashed #ccc;
+   position: relative;
+    padding-bottom: 20px;
+    margin: 20px 0;
+}
+
+.area p {
+   font-size: 23px;
+    color: #126dbf;
+    line-height: 30px;
+    letter-spacing: -0.5px;
+    font-weight: 500;
+}
+
+.area span {
+   font-size: 16px;
+    color: #555;
+    letter-spacing: -0.5px;
+}
+
+.map_btn {
+   display: inline-block !important;
+       margin-top: 10px;
+}
+
+.ico01 {
+   background: url(../img/ico_reservation.png) no-repeat top center;
+}
+.ico02 {
+   background: url(../img/ico_group.png) no-repeat top center;
+}
+.ico03 {
+   background: url(../img/ico_wifi.png) no-repeat top center;
+}
+.ico04 {
+   background: url(../img/ico_toilet.png) no-repeat top center;
+}
+
+
+.parkbtn {
+   border: 1px solid #ddd;
+    padding: 1px 6px 1px 6px;
+}
+
+.parking {
+   border: 1px solid #ddd;
+    padding: 1px 6px 1px 6px;
+}
+.parkingInfo {
+	    margin-left: 200px;
+} 
+
+.park_wrap {
+	display: flex;
+}

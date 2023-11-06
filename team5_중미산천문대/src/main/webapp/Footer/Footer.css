@@ -1,0 +1,28 @@
+@charset "UTF-8";
+<<<<<<< HEAD
+#footer .ft_util { text-align:center;}
+#footer .ft_btm { position:relative; padding:100px 0 30px;}
+#footer .ft_btm .left { float:none;}
+#footer .ft_btm .left h2 { float:none; text-align:center;}
+#footer .ft_btm .left .address { float:none; margin:0; text-align:center;}
+#footer .ft_btm .right { float:none; position:absolute; left:0; top:0; width:100%; text-align:center;}
+#footer .ft_btm .right .sns li { margin-left:5px; }
+#footer .ft_util li { margin-left:10px; }
+#footer .ft_util li > a:after { left:-5px;}
+
+@media all and (max-width:479px) {
+#footer .ft_btm .left .address > span { display:initial; }
+}
+
+@media all and (max-width:1300px) {
+	.maxinner { margin:0; padding:0 20px; width:auto;}
+}
+
+#footer{
+	width: 100%;
+=======
+
+#footer {
+	background-color: #3F3F3F;
+>>>>>>> branch '이진형2' of https://github.com/ljh401/ezenteam5.git
+}

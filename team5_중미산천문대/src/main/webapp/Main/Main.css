@@ -1,0 +1,294 @@
+@charset "UTF-8";
+/* style.css */
+
+*{ padding : 0px; margin : 0px;} /* 기본 여백 제거 */
+
+/* 전체 컨테이너 스타일 */
+.main {
+  margin : 0 auto;
+  position: relative;
+    width: 1740px;
+
+}
+
+/* 좌측 컨텐츠 스타일 */
+.Content {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -566.5px;
+    width: 1133px;
+    height: 649px;
+    z-index: 1000;
+  
+}
+
+
+.mainContent1 span {
+     display: block;
+    font-size: 16px;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+}
+
+.mainContent1 strong {
+  display: block;
+    padding: 15px 0;
+    font-size: 60px;
+    color: #fff;
+    line-height: 60px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.mainContent1 p > strong {
+  display: block;
+    font-size: 14px;
+    color: #00fcff;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+}
+
+.mainContent1 p {
+ font-size: 26px;
+    color: #cfe0f9;
+    line-height: 32px;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+
+/* 이미지 스타일 */
+.mainImg {
+  display: flex;
+  justify-content : center;
+
+}
+
+.mainImg img {
+  width: 870px;
+  height: 649px;
+ 
+}
+
+.mainImg .jimg {
+  width: 870px;
+  height: 649px;
+  
+}
+
+
+
+.quickmenu { position: absolute; left:50%; top:388px; margin-left:-566.5px; width:1133px; z-index:1000;}
+
+.quickmenu li {
+   float: left;
+    width: 16.66%;
+    text-decoration: none;
+    height : 67px;
+}
+
+.quickmenu h2 {
+   padding: 0px 0 10px;
+    font-size: 14px;
+    color: #222;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 15px;
+}
+
+.quick1 span.icon  {
+   display: inline-block;
+    position: absolute;
+    left: 59px;
+    top: -7px;
+    padding: 1px 8px;
+    border-radius: 5px;
+    background: #1e55a6;
+    font-size: 12px;
+    color: #fff;
+    line-height: 14px;
+}
+
+.quickmenu span {
+   display: block;
+    position: relative;
+    font-size: 14px;
+    color: #007cd9;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 0px;
+    padding-left: 0px;
+}
+
+.quickmenu > li.type1 > a > h2 {
+   padding: 0px 0 10px;
+    font-size: 14px;
+    color: #222;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 15px;
+}
+
+.quickmenu > li.type1.quick1 > a {    border-right: 1px solid #a2a2a2;
+padding: 21px 0 20px 64px;
+background: #fff url(../img/quick1.png) no-repeat 8% center;
+display: block;
+
+
+}
+
+.quickmenu > li.type1.quick2 > a {    border-right: 1px solid #a2a2a2;
+padding: 21px 0 20px 64px;
+background: #fff url(../img/quick2.png) no-repeat 8% center;
+display: block;
+
+}
+
+.quickmenu > li.type1.quick3 > a {    border-right: 1px solid #a2a2a2;
+padding: 21px 0 20px 64px;
+background: #fff url(../img/quick3.png) no-repeat 8% center;
+display: block;
+
+}
+
+.quickmenu > li.type1.quick4 > a {    border-right: 1px solid #a2a2a2;
+padding: 21px 0 20px 64px;
+background: #fff url(../img/quick4.png) no-repeat 8% center;
+display: block;
+
+}
+
+.quickmenu > li.type1.quick5 > a {    border-right: 1px solid #a2a2a2;
+padding: 21px 0 20px 64px;
+background: #fff url(../img/quick5.png) no-repeat 8% center;
+display: block;
+
+}
+
+.quickmenu > li.type2.quick6 > a {    border-right: 1px solid #a2a2a2;
+padding: 21px 0 20px 64px;
+background: #01c73c url(../img/ico_navertalk_22.png) no-repeat 8% center;
+display: block;
+
+}
+
+.quick6 span {
+   font-size : 13px;
+}
+
+
+.quick6{
+   background-color: #01C73C
+}
+.quick6 span {
+   color : black;
+}
+
+.quick1 , .quick2 , .quick3 , .quick4 , .quick5 {
+    background-color: white;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+.mainCotent1 strong{
+   display: block;
+    padding: 15px 0;
+    font-size: 60px;
+    color: #fff;
+    line-height: 60px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.notice {
+   display: flex;
+   padding-bottom: 15px;
+    font-size: 18px;
+    color: #fff;
+    position : absolute;
+    bottom : 35px;
+    
+}
+
+.notice2 a {
+   padding-left: 20px;
+    min-height: 80px;
+    list-style : none;
+}
+
+.hyper2 span{
+   position: relative;
+    padding-right: 26px;
+    margin-right: 58px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    bottom: 12px;
+    
+    
+}
+
+.hyper1 {
+   padding: 85px 0 0;
+}
+
+.mainContent2 ul{
+   
+   list-style : none;
+    padding: 0;
+}
+
+.mainContent2 {
+   padding: 185px 0 0;
+    width: 550px;
+}
+.notice1 {
+   float: left;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+    border-right : 1px solid white;
+}
+.notice1 a {
+   width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    background: #fff url(../img/ico_more.png) no-repeat center;
+    display: inline-block;
+}
+
+.notice1 h2 {
+   font-size: 18px;
+   padding-bottom: 15px;
+}
+
+#speedlink a {
+   color : white;
+}
+
+#speedlink {
+   display: flex;
+}
+
+.introduce {
+   border-right : solid 1px white;
+   padding-right : 80px;
+}
+
+.oneone1 {
+   padding-bottom : 5px;
+}
+.oneone2 {
+   padding-top : 5px;
+}
+
+.oneone1 a , .oneone2 a {
+   color : white;
+   font-size: 15px;
+}
+

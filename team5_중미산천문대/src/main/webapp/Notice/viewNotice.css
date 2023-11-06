@@ -1,0 +1,31 @@
+@charset "UTF-8";
+.container{
+	width:100%;
+	margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+}
+.title{
+	margin: 0 0 10px;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+.writerdate{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 0 15px;
+    margin: 0 0 20px;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+
+}
+.sv_member{
+	font-size: 17px;
+    font-weight: 500;
+    color: #000;
+}
+.content{
+	 border-bottom: 1px solid #ddd;
+}

@@ -1,0 +1,9 @@
+@charset "UTF-8";
+.maxinner{
+	display: flex;
+   	align-items: center;
+    justify-content: space-around;
+}
+.clearfix{
+	display: flex;
+}
