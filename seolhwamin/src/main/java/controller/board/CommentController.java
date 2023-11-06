@@ -23,7 +23,7 @@ import service.FileService;
 /**
  * Servlet implementation class BoardInfoController
  */
-@WebServlet("/BoardInfoController")
+@WebServlet("/CommentController")
 public class CommentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
